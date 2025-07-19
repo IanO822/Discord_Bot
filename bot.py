@@ -6,6 +6,7 @@ from utils import update_item_data
 from utils import build_index
 from utils import search_items
 from utils import format_item_short
+from utils import mistrade_calculator
 
 load_dotenv()
 
@@ -66,6 +67,18 @@ async def on_message(message):
             msg_lines.append(f"...以及其他 {len(results)-5} 筆結果，請嘗試更精確的關鍵字。")
 
         await message.channel.send("\n".join(msg_lines))
+
+    # ----------------- 尋找錯誤交易 -----------------
+
+    if message.content.startswith('!mistrade '):
+        mistradeCommand = [word for word in message.content.split()]
+        if len(mistradeCommand) >= 2:
+            await message.channel.send('🔍 正在計算交易結果...')
+            result = mistrade_calculator(mistradeCommand[1:])
+            await message.channel.send(result)
+
+        else:
+            await message.channel.send('❌ 格式錯誤')
 
     # ----------------- 管理員功能 -----------------
     if message.content.startswith("!updateAPI"):

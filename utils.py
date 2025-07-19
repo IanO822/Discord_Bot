@@ -1,5 +1,7 @@
 import json
 import requests
+import re
+import math
 
 def update_item_data():
     url = "https://api.playmonumenta.com/items"
@@ -106,3 +108,100 @@ def format_item_short(item):
         lines.append(meta)
 
     return "\n".join(lines)
+
+def convert_currency(amountChange):
+    currency_map = {
+        "experience_bottle": "XP", "dragon_breath": "CXP", "sunflower": "HXP",
+        "prismarine_shard": "CS", "prismarine_crystals": "CCS", "nether_star": "HCS",
+        "gray_dye": "AR", "firework_star": "HAR"
+    }
+
+    totals = {v: 0 for v in currency_map.values()}
+    for k, v in amountChange.items():
+        if k in currency_map:
+            totals[currency_map[k]] += v
+
+    def normalize(base, mid, high):
+        """進位與借位邏輯（支援負數）"""
+        b, m, h = totals[base], totals[mid], totals[high]
+
+        # base → mid
+        if b >= 0:
+            m += b // 64
+            b = b % 64
+        else:
+            m += math.floor(b / 64)
+            b = b % 64 if b % 64 == 0 else b % 64 - 64  # 保留負餘數
+
+        # mid → high
+        if m >= 0:
+            h += m // 64
+            m = m % 64
+        else:
+            h += math.floor(m / 64)
+            m = m % 64 if m % 64 == 0 else m % 64 - 64
+
+        return b, m, h
+
+    def format_line(base, mid, high):
+        b, m, h = normalize(base, mid, high)
+        if b == m == h == 0:
+            return ""
+
+        parts = []
+        if h: parts.append(f"{h} {high}")
+        if m: parts.append(f"{m} {mid}")
+        if b: parts.append(f"{b} {base}")
+
+        # 計算對應的高階貨幣總和（可能為負）
+        high_equivalent = h + m / 64 + b / 4096
+        parts.append(f"相當於 {round(high_equivalent, 3)} {high}")
+        return " ".join(parts)
+
+    lines = [
+        format_line("XP", "CXP", "HXP"),
+        format_line("CS", "CCS", "HCS"),
+        format_line("AR", "HAR", "HAR")
+    ]
+
+    return "\n".join(line for line in lines if line)
+
+def mistrade_calculator(orignMessage):
+    operateWord = ["added", "removed"]
+    amountChange = {"experience_bottle":0, "dragon_breath":0, "sunflower":0, "prismarine_crystals":0, "prismarine_shard":0, "nether_star":0, "gray_dye":0, "firework_star":0}
+    CURRENCYMAP = {"experience_bottle":"XP", "dragon_breath":"CXP", "sunflower":"HXP", "prismarine_crystals":"CS", "prismarine_shard":"CCS", "nether_star":"HCS", "gray_dye":"AR", "firework_star":"HAR"}
+    operate = []
+    result = ""
+
+    # 過濾
+    filtered = []
+    for word in orignMessage:
+        if word in operateWord:
+            opt = word
+        elif re.fullmatch(r'x[1-9]\d*', word):
+            count = word
+        elif word in amountChange:
+            filtered.append(opt)
+            filtered.append(count)
+            filtered.append(word)
+
+    #確保格式正確
+    if len(filtered) % 3 != 0:
+        return "❌ 輸入格式錯誤，過濾後元素數量不是3的倍數！"
+
+    # 轉成字典
+    for i in range(0, len(filtered), 3):
+        op = 1 if filtered[i] == "added" else -1
+        count = int(filtered[i+1][1:])
+        item = filtered[i+2]
+        operate.append({"數量": count * op, "物品": item})
+
+    for op in operate:
+        if op["物品"] in amountChange:
+            amountChange[op["物品"]] += int(op["數量"])
+
+    for currency, amount in amountChange.items():
+        if amount != 0:
+            result += str(amount) + " " + CURRENCYMAP[currency] + "\n" 
+    
+    return result if result else "貨幣數量無變動"

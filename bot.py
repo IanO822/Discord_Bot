@@ -2,7 +2,6 @@ import discord
 import os
 from dotenv import load_dotenv
 import json
-import requests
 from utils import update_item_data
 from utils import build_index
 from utils import search_items

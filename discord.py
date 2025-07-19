@@ -2,9 +2,9 @@ import discord
 import os
 from dotenv import load_dotenv
 
-load_dotenv()  # 載入.env的變數
+load_dotenv()
 
-TOKEN = os.getenv('DISCORD_TOKEN')  # 從環境變數讀取Token
+TOKEN = os.getenv('DISCORD_TOKEN')
 
 intents = discord.Intents.default()
 client = discord.Client(intents=intents)

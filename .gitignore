@@ -1,0 +1,9 @@
+# 忽略所有檔案
+*
+
+# 不被忽略的檔案
+!bot.py
+!utils.py
+!README.md
+!item_data.json
+!.gitignore

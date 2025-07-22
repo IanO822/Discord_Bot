@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import json
 import aiohttp
 import asyncio
+import socket
 from utils import update_item_data
 from utils import build_index
 from utils import search_items
@@ -43,6 +44,7 @@ load_and_index_data()
 @client.event
 async def on_ready():
     print(f'🤖 機器人已登入：{client.user}')
+    print(f"🟢 Bot 啟動於：{socket.gethostname()} | PID: {os.getpid()}")
 
 @client.event
 async def on_message(message):
@@ -114,9 +116,19 @@ async def on_message(message):
             #清除tradelog.txt
             with open("tradelog.txt", "w", encoding="utf-8") as f:
                 f.write("")
+            playerLog = {}
             for pageNumber, pageData in filtered.items():
-                result = mistrade_calculator(pageData)
-                await message.channel.send("以下是第" + str(pageNumber) + "頁的結果:" + "\n" + result)
+                result = mistrade_calculator(pageData, playerLog)
+                playerLog = result[1]
+                await message.channel.send("以下是第" + str(pageNumber) + "頁的結果:" + "\n" + result[0])
+            logResult = ""
+            for playerName, changedItems in playerLog.items():
+                logResult += playerName + ": "
+                for itemName, count in changedItems.items():
+                    if count != 0:
+                        logResult += itemName + " " + str(count) + " | "
+                logResult += "\n"
+            await message.channel.send("最終結果:" + "\n" + str(logResult))
         else:
             await message.reply('❌ 格式錯誤')
 

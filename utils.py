@@ -128,20 +128,28 @@ def regular_expression(log_line):
     else:
         return False
 
-def mistrade_calculator(filtered):
+def mistrade_calculator(filtered, playerLog = {}):
     amountChange = {"experience_bottle":0, "dragon_breath":0, "sunflower":0, "prismarine_crystals":0, "prismarine_shard":0, "nether_star":0, "gray_dye":0, "firework_star":0}
     CURRENCYMAP = {"experience_bottle":"XP", "dragon_breath":"CXP", "sunflower":"HXP", "prismarine_shard":"CS", "prismarine_crystals":"CCS", "nether_star":"HCS", "gray_dye":"AR", "firework_star":"HAR"}
     result = ""
 
     for action in filtered:
-        if action["item"] in amountChange:
-            amountChange[action["item"]] += int(action["count"]) * action["action"]
+        user = action["user"]
+        item = action["item"]
+        count = int(action["count"]) * action["action"]
+        if item in amountChange:
+            amountChange[item] += count
+        if user not in playerLog:
+            playerLog[user] = {}
+        if item not in playerLog[user]:
+            playerLog[user][item] = 0
+        playerLog[user][item] += count
 
     for currency, amount in amountChange.items():
         if amount != 0:
-            result += str(amount) + " " + CURRENCYMAP[currency] + "\n" 
+            result += str(amount) + " " + CURRENCYMAP[currency] + "\n"
     
-    return result if result else "貨幣數量無變動"
+    return (result, playerLog) if result else "貨幣數量無變動"
 
 def ai_calculate_mistrade(user_input: str):
     api_key = os.getenv('GOOGLE_TOKEN')

@@ -1,7 +1,10 @@
 import json
+import os
 import requests
 import re
-import math
+import google.generativeai as genai
+from urllib.parse import urlparse, parse_qs
+
 
 def update_item_data():
     url = "https://api.playmonumenta.com/items"
@@ -109,99 +112,161 @@ def format_item_short(item):
 
     return "\n".join(lines)
 
-def convert_currency(amountChange):
-    currency_map = {
-        "experience_bottle": "XP", "dragon_breath": "CXP", "sunflower": "HXP",
-        "prismarine_shard": "CS", "prismarine_crystals": "CCS", "nether_star": "HCS",
-        "gray_dye": "AR", "firework_star": "HAR"
-    }
+def regular_expression(log_line):
+    action_pattern = r'^\[\d{2}:\d{2}:\d{2}\] \[Render thread/INFO\]: \[System\] \[CHAT\] \d+\.\d+/(h|d|m) ago\s+[ac][+-]\s+(\w+)\s+f\s+(added|removed) x(\d+) (\w+)\s+f\.$'
+    page_pattern = r'f(\d+)/(\d+)'
+    action_match = re.search(action_pattern, log_line)
+    page_match = re.search(page_pattern, log_line)
+    if action_match:
+        time_unit, username, action, count, item = action_match.groups()
+        action = 1 if action == "added" else -1
+        return {"user":username, "action":action, "item":item, "count":count}
+    elif page_match:
+        current_page = int(page_match.group(1))
+        #total_pages = int(page_match.group(2))
+        return current_page
+    else:
+        return False
 
-    totals = {v: 0 for v in currency_map.values()}
-    for k, v in amountChange.items():
-        if k in currency_map:
-            totals[currency_map[k]] += v
-
-    def normalize(base, mid, high):
-        """進位與借位邏輯（支援負數）"""
-        b, m, h = totals[base], totals[mid], totals[high]
-
-        # base → mid
-        if b >= 0:
-            m += b // 64
-            b = b % 64
-        else:
-            m += math.floor(b / 64)
-            b = b % 64 if b % 64 == 0 else b % 64 - 64  # 保留負餘數
-
-        # mid → high
-        if m >= 0:
-            h += m // 64
-            m = m % 64
-        else:
-            h += math.floor(m / 64)
-            m = m % 64 if m % 64 == 0 else m % 64 - 64
-
-        return b, m, h
-
-    def format_line(base, mid, high):
-        b, m, h = normalize(base, mid, high)
-        if b == m == h == 0:
-            return ""
-
-        parts = []
-        if h: parts.append(f"{h} {high}")
-        if m: parts.append(f"{m} {mid}")
-        if b: parts.append(f"{b} {base}")
-
-        # 計算對應的高階貨幣總和（可能為負）
-        high_equivalent = h + m / 64 + b / 4096
-        parts.append(f"相當於 {round(high_equivalent, 3)} {high}")
-        return " ".join(parts)
-
-    lines = [
-        format_line("XP", "CXP", "HXP"),
-        format_line("CS", "CCS", "HCS"),
-        format_line("AR", "HAR", "HAR")
-    ]
-
-    return "\n".join(line for line in lines if line)
-
-def mistrade_calculator(orignMessage):
-    operateWord = ["added", "removed"]
+def mistrade_calculator(filtered):
     amountChange = {"experience_bottle":0, "dragon_breath":0, "sunflower":0, "prismarine_crystals":0, "prismarine_shard":0, "nether_star":0, "gray_dye":0, "firework_star":0}
-    CURRENCYMAP = {"experience_bottle":"XP", "dragon_breath":"CXP", "sunflower":"HXP", "prismarine_crystals":"CS", "prismarine_shard":"CCS", "nether_star":"HCS", "gray_dye":"AR", "firework_star":"HAR"}
-    operate = []
+    CURRENCYMAP = {"experience_bottle":"XP", "dragon_breath":"CXP", "sunflower":"HXP", "prismarine_shard":"CS", "prismarine_crystals":"CCS", "nether_star":"HCS", "gray_dye":"AR", "firework_star":"HAR"}
     result = ""
 
-    # 過濾
-    filtered = []
-    for word in orignMessage:
-        if word in operateWord:
-            opt = word
-        elif re.fullmatch(r'x[1-9]\d*', word):
-            count = word
-        elif word in amountChange:
-            filtered.append(opt)
-            filtered.append(count)
-            filtered.append(word)
-
-    #確保格式正確
-    if len(filtered) % 3 != 0:
-        return "❌ 輸入格式錯誤，過濾後元素數量不是3的倍數！"
-
-    # 轉成字典
-    for i in range(0, len(filtered), 3):
-        op = 1 if filtered[i] == "added" else -1
-        count = int(filtered[i+1][1:])
-        item = filtered[i+2]
-        operate.append({"數量": count * op, "物品": item})
-
-    for op in operate:
-        if op["物品"] in amountChange:
-            amountChange[op["物品"]] += int(op["數量"])
+    for action in filtered:
+        if action["item"] in amountChange:
+            amountChange[action["item"]] += int(action["count"]) * action["action"]
 
     for currency, amount in amountChange.items():
         if amount != 0:
             result += str(amount) + " " + CURRENCYMAP[currency] + "\n" 
     
     return result if result else "貨幣數量無變動"
+
+def ai_calculate_mistrade(user_input: str):
+    api_key = os.getenv('GOOGLE_TOKEN')
+    genai.configure(api_key=api_key)
+
+    # 指定模型為 gemini-2.0-flash-001
+    model = genai.GenerativeModel(model_name="gemini-2.0-flash-001")
+
+    prompt = f"""
+    你是一個專門解析 Minecraft CoreProtect 外掛訊息的分析工具。
+
+    請依據以下規則分析用戶輸入的聊天記錄，輸出格式為：
+    {{玩家1: {{"物品名稱1": 數量, "物品名稱2": 數量}}, 玩家2: {{...}}}}
+
+    ### 分析任務：
+    1. 僅分析 CoreProtect 插件輸出的訊息，忽略非插件訊息。
+    2. 辨識交易雙方的玩家名稱與物品變動數量。
+    3. 統計每位玩家持有物品的最終變動數量（只記錄不為 0 的項目）。
+
+    ### 替代詞規則（NBT → 名稱）：
+    - experience_bottle → XP
+    - dragon_breath → CXP
+    - sunflower → HXP
+    - prismarine_shard → CS
+    - prismarine_crystals → CCS
+    - nether_star → HCS
+    - gray_dye → AR
+    - firework_star → HAR
+    - 若為其他 NBT，使用原始 NBT 名稱。
+
+
+    ### 現在請依據以上規則，分析以下聊天紀錄：
+
+    {user_input}
+    """
+
+    # 使用模型生成回應
+    response = model.generate_content(prompt)
+
+    return response.text
+
+def manage_build(buildCommand, sender):
+    # 解析名稱與連結
+    if len(buildCommand) >= 3:
+        build_name = buildCommand[2]
+    op = ""
+    if buildCommand[1] == "add" and len(buildCommand) >= 4:
+        build_link = " ".join(buildCommand[3:])
+        #檢查連結是否合法
+        parsed = urlparse(build_link)
+        if not parsed.netloc in ["odetomisery.vercel.app", "ohthemisery-psi.vercel.app"] or parsed.scheme != "https":
+            return "build連結錯誤"
+        # 建立新的 build 資料
+        new_build = {
+            build_name: {
+                "連結": build_link,
+                "作者": sender,
+                "資訊": ""
+            }
+        }
+    
+        # 嘗試讀取已存在的 JSON 資料
+        if os.path.exists("build.json"):
+            with open("build.json", "r", encoding="utf-8") as f:
+                try:
+                    data = json.load(f)
+                except json.JSONDecodeError:
+                    data = {}
+        else:
+            data = {}
+        # 更新資料
+        if build_name not in data:
+            data.update(new_build)
+            op = "儲存"
+        else:
+            return "存在相同名稱build!"
+
+    # 刪除舊的 build 資料
+    elif buildCommand[1] == "remove":
+        with open("build.json", "r", encoding="utf-8") as f:
+            data = json.load(f)
+        if not os.path.exists("build.json"):
+            return "❌ 找不到 build.json 檔案。"
+        if build_name in data:
+            if data[build_name]["作者"] == sender:
+                del data[build_name]
+                op = "刪除"
+            else:
+                return f"⛔ {sender} 不是作者。"
+        else:
+            return f"⚠️ 沒有找到名稱為「{build_name}」的 build。"
+    
+    #搜尋已存在build
+    elif buildCommand[1] == "find" and len(buildCommand) >= 3:
+        keyword = buildCommand[2].lower()
+        with open("build.json", "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        matched = []
+        for name, info in data.items():
+            if keyword in name.lower():
+                matched.append((name, info))
+        if not matched:
+            return "🔍 沒有找到符合的 build 名稱。"
+        else:
+            top_results = matched[:5]
+            # 建立結果訊息
+            result_lines = ["🔎 找到以下符合的 build："]
+            for name, info in top_results:
+                result_lines.append(
+                    f"# **{name}**\n"
+                    f"└🔗 連結：[{name}]({info['連結']})\n"
+                    f"└👤 作者：{info['作者']}\n"
+                    f"└📝 資訊：{info.get('資訊', '（無）')}"
+                )
+
+            return "\n".join(result_lines)
+
+    else:
+        return f"❌ 指令格式錯誤!"
+    # 寫回 JSON 檔案
+    with open("build.json", "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
+
+    if op == "儲存":
+        return f"✅ 已成功{op}Build「 [{build_name}]({build_link}) 」！"
+    elif op == "刪除":
+        return f"✅ 已成功{op}Build「 {build_name} 」！"

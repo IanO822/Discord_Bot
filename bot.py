@@ -2,11 +2,15 @@ import discord
 import os
 from dotenv import load_dotenv
 import json
+import aiohttp
+import asyncio
 from utils import update_item_data
 from utils import build_index
 from utils import search_items
 from utils import format_item_short
 from utils import mistrade_calculator
+from utils import manage_build
+from utils import regular_expression
 
 load_dotenv()
 
@@ -69,16 +73,62 @@ async def on_message(message):
         await message.channel.send("\n".join(msg_lines))
 
     # ----------------- 尋找錯誤交易 -----------------
+    #filtered = [match for log_line in message.content.split("\n") if (match := regular_expression(log_line))]
+    if message.content.startswith('!mistrade'):
+        originMessage = None
+        # 1. 檢查附件
+        if message.attachments:
+            attachment = message.attachments[0]
+            if attachment.filename.endswith('.txt'):
+                async with aiohttp.ClientSession() as session:
+                    async with session.get(attachment.url) as resp:
+                        if resp.status == 200:
+                            data = await resp.read()
+                            with open(f'tradelog.txt', 'wb') as f:
+                                f.write(data)
+                            originMessage = "DONE"
+        # 2. 沒有附件的情況：取 !mistrade 後面的文字
+        else:
+            originMessage = message.content[len("!mistrade "):].strip()
+            with open("tradelog.txt", "w", encoding="utf-8") as f:
+                f.write(originMessage)
+        if not originMessage:
+            await message.reply("❗請提供有效的內容或 .txt 附件。")
+            return
+        filtered = {}
+        pageDataTemp = []
+        originMessage = ""
+        with open("tradelog.txt", mode="r", encoding="utf-8") as file:
+            lines = file.readlines()
+            for i in range(len(lines)):
+                regexResult = regular_expression(lines[i])
+                if isinstance(regexResult, dict):
+                    pageDataTemp.append(regexResult)
+                elif isinstance(regexResult, int) and regexResult > 0:
+                    pageNumber = regexResult
+                    filtered.update({pageNumber:pageDataTemp})
+                    pageDataTemp = []
+        
+        if filtered:
+            await message.reply('🧮 正在計算交易結果...')
+            #清除tradelog.txt
+            with open("tradelog.txt", "w", encoding="utf-8") as f:
+                f.write("")
+            for pageNumber, pageData in filtered.items():
+                result = mistrade_calculator(pageData)
+                await message.channel.send("以下是第" + str(pageNumber) + "頁的結果:" + "\n" + result)
+        else:
+            await message.reply('❌ 格式錯誤')
 
-    if message.content.startswith('!mistrade '):
-        mistradeCommand = [word for word in message.content.split()]
-        if len(mistradeCommand) >= 2:
-            await message.channel.send('🔍 正在計算交易結果...')
-            result = mistrade_calculator(mistradeCommand[1:])
+    # ----------------- Menta職業建構者 -----------------
+    if message.content.startswith('!build '):
+        buildCommand = [word for word in message.content.split()]
+        if len(buildCommand) >= 2:
+            result = manage_build(buildCommand, message.author.name)
             await message.channel.send(result)
-
         else:
             await message.channel.send('❌ 格式錯誤')
+            
 
     # ----------------- 管理員功能 -----------------
     if message.content.startswith("!updateAPI"):

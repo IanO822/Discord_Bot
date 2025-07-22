@@ -9,8 +9,8 @@
  └ 查詢錯誤交易: mistrade [交易紀錄] 
 
  └ Menta職業建構者: build<br>
-    └ 提交build: add [名稱] [otm/odm連結]<br>
-    └ 刪除: remove [名稱]<br>
-    └ 搜尋: find [名稱]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;└ 提交build: add [名稱] [otm/odm連結]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;└ 刪除: remove [名稱]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;└ 搜尋: find [名稱]<br>
 
  └更新API資料(需要機器人權限): updateAPI

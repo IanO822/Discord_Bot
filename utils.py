@@ -123,33 +123,155 @@ def regular_expression(log_line):
         return {"user":username, "action":action, "item":item, "count":count}
     elif page_match:
         current_page = int(page_match.group(1))
-        #total_pages = int(page_match.group(2))
-        return current_page
+        total_pages = int(page_match.group(2))
+        return (current_page, total_pages)
     else:
         return False
 
-def mistrade_calculator(filtered, playerLog = {}):
+#忽略名單
+IGNORELIST = {}
+def check_changed_item(filtered, playerLog, ignore):
+    if ignore: IGNORELIST = {"XmasTiramisu", "pxpxpx6666"}
+    else: IGNORELIST = {}
     amountChange = {"experience_bottle":0, "dragon_breath":0, "sunflower":0, "prismarine_crystals":0, "prismarine_shard":0, "nether_star":0, "gray_dye":0, "firework_star":0}
-    CURRENCYMAP = {"experience_bottle":"XP", "dragon_breath":"CXP", "sunflower":"HXP", "prismarine_shard":"CS", "prismarine_crystals":"CCS", "nether_star":"HCS", "gray_dye":"AR", "firework_star":"HAR"}
+    CURRENCYMAP = {
+    "experience_bottle": "<:experience_bottle:1397875984484798475> XP",
+    "dragon_breath": "<:concentrated_experience:1397875964796469389> CXP",
+    "sunflower": "<:hyperexperience:1397875942000558223> HXP",
+    "prismarine_shard": "<:crystalline_shard:1397875907338960986> CS",
+    "prismarine_crystals": "<:compressed_crystalline_shard:1397875885146640404> CCS",
+    "nether_star": "<:hyper_crystalline_shard:1397875853693554688> HCS",
+    "gray_dye": "<:archos_ring:1397875715105624145> AR",
+    "firework_star": "<:hyperchromatic_archos_ring:1397875820386848852> HAR"
+}
     result = ""
 
     for action in filtered:
         user = action["user"]
         item = action["item"]
         count = int(action["count"]) * action["action"]
-        if item in amountChange:
+        if user in IGNORELIST:
+            continue
+        if item in amountChange and not user in IGNORELIST:
             amountChange[item] += count
-        if user not in playerLog:
+        if user not in playerLog and not user in IGNORELIST:
             playerLog[user] = {}
-        if item not in playerLog[user]:
+        if item not in playerLog[user] and not user in IGNORELIST:
             playerLog[user][item] = 0
         playerLog[user][item] += count
 
     for currency, amount in amountChange.items():
         if amount != 0:
-            result += str(amount) + " " + CURRENCYMAP[currency] + "\n"
+            result += " └ " + CURRENCYMAP[currency] + " " + str(amount) + "\n"
     
-    return (result, playerLog) if result else "貨幣數量無變動"
+    return (result, playerLog) if result else ("貨幣數量無變動\n", playerLog)
+
+def check_parameter(parameter):
+    pattern = r"b(\d+(?:\.\d+)?)\s+s(\d+(?:\.\d+)?)\s+(XP|CXP|HXP|CS|CCS|HCS|AR|HAR)\s+(0|1)"
+
+    match = re.fullmatch(pattern, parameter, re.IGNORECASE)
+    if match:
+        buy = float(match.group(1))
+        sell = float(match.group(2))
+        currency = match.group(3).upper()
+        ignore = bool(int(match.group(4)))
+    
+        return {"buyPrice": buy, "sellPrice": sell, "target": currency, "ignore": ignore}
+    else:
+        return False
+
+def mistrade_calculator(userData, target, buyPrice, sellPrice):
+    from decimal import Decimal, getcontext
+    getcontext().prec = 10
+
+    CURRENCYMAP = {
+        "experience_bottle": "XP",
+        "dragon_breath": "CXP",
+        "sunflower": "HXP",
+        "prismarine_shard": "CS",
+        "prismarine_crystals": "CCS",
+        "nether_star": "HCS",
+        "gray_dye": "AR",
+        "firework_star": "HAR"
+    }
+    CURRENCYMULTIPLIER = {
+        "XP": 1, "CXP": 8, "HXP": 512,
+        "CS": 1, "CCS": 8, "HCS": 512,
+        "AR": 1, "HAR": 64
+    }
+    REGIONMAP = {"XP": 1, "CS": 2, "AR": 3}
+
+    wrong_currency_usage = {}
+    wrong_payment = {}
+
+    target = target.upper()
+    target_base_currency = target[-2:]
+    target_region = REGIONMAP.get(target_base_currency)
+    target_multiplier = Decimal(CURRENCYMULTIPLIER[target])
+
+    for userName, changedItems in userData.items():
+        changedProductCount = 0
+        total_base_value = Decimal(0)
+        wrong_items = []
+
+        for itemName, itemCount in changedItems.items():
+            if itemName not in CURRENCYMAP:
+                changedProductCount += itemCount
+                continue
+
+            currency_name = CURRENCYMAP[itemName]
+            base_currency = currency_name[-2:]
+            currency_region = REGIONMAP.get(base_currency)
+
+            if currency_region != target_region:
+                wrong_items.append(currency_name)
+                continue
+
+            multiplier = Decimal(CURRENCYMULTIPLIER[currency_name])
+            total_base_value += Decimal(itemCount) * multiplier
+
+        paid_value = total_base_value / target_multiplier
+        wrong_payment_value = Decimal(0)
+        #玩家購買
+        if changedProductCount < 0:
+            totalBuyPrice = abs(Decimal(changedProductCount)) * Decimal(buyPrice)
+            wrong_payment_value = paid_value - totalBuyPrice
+        #玩家販售
+        elif changedProductCount > 0:
+            totalSellPrice = Decimal(changedProductCount) * Decimal(-sellPrice)
+            wrong_payment_value = paid_value - totalSellPrice
+        else:
+            wrong_payment_value = paid_value
+
+        if wrong_payment_value != 0:
+            wrong_payment[userName] = float(wrong_payment_value)
+
+        if wrong_items:
+            wrong_currency_usage[userName] = wrong_items
+    
+    return wrong_payment, wrong_currency_usage
+
+def split_log_result(log_result: str, limit: int = 2000):
+    lines = log_result.split('\n')
+    messages = []
+    current_message = ""
+
+    for line in lines:
+
+        if len(current_message) + len(line) + 1 > limit:
+            messages.append(current_message)
+            current_message = line
+        else:
+            if current_message:
+                current_message += '\n' + line
+            else:
+                current_message = line
+
+    # 加入最後一段訊息
+    if current_message:
+        messages.append(current_message)
+
+    return messages
 
 def ai_calculate_mistrade(user_input: str):
     api_key = os.getenv('GOOGLE_TOKEN')
@@ -263,13 +385,13 @@ def manage_build(buildCommand, sender):
                     f"# **{name}**\n"
                     f"└🔗 連結：[{name}]({info['連結']})\n"
                     f"└👤 作者：{info['作者']}\n"
-                    f"└📝 資訊：{info.get('資訊', '（無）')}"
+                    f"└🗒️ 資訊：{info.get('資訊', '（無）')}"
                 )
 
             return "\n".join(result_lines)
 
     else:
-        return f"❌ 指令格式錯誤!"
+        return f"<:ghost_technology_4:1293185676086481039> 指令格式錯誤!"
     # 寫回 JSON 檔案
     with open("build.json", "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=4)

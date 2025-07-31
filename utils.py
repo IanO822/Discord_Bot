@@ -112,71 +112,142 @@ def format_item_short(item):
 
     return "\n".join(lines)
 
-def regular_expression(log_line):
-    action_pattern = r'^\[\d{2}:\d{2}:\d{2}\] \[Render thread/INFO\]: \[System\] \[CHAT\] \d+\.\d+/(h|d|m) ago\s+[ac][+-]\s+(\w+)\s+f\s+(added|removed) x(\d+) (\w+)\s+f\.$'
-    page_pattern = r'f(\d+)/(\d+)'
-    action_match = re.search(action_pattern, log_line)
-    page_match = re.search(page_pattern, log_line)
-    if action_match:
-        time_unit, username, action, count, item = action_match.groups()
-        action = 1 if action == "added" else -1
-        return {"user":username, "action":action, "item":item, "count":count}
-    elif page_match:
-        current_page = int(page_match.group(1))
-        total_pages = int(page_match.group(2))
+
+
+    # 嘗試頁碼
+    match = page_pattern.search(log_line)
+    if match:
+        current_page = int(match.group(1))
+        total_pages = int(match.group(2))
         return (current_page, total_pages)
-    else:
-        return False
+
+    return False
+
+def strip_minecraft_color_codes(text):
+    return re.sub(r'§.', '', text)
+
+def regular_expression(log_line):
+    # 含色碼版本
+    color_action_pattern = re.compile(
+        r'^\[\d{2}:\d{2}:\d{2}\] \[Render thread/INFO\]: \[System\] \[CHAT\] '
+        r'(\d+\.\d+)/(h|d|m) ago §[0-9a-fk-or][+-] (\w+)§f (added|removed) x(\d+) (\w+)§f\.$'
+    )
+
+    # 無色碼版本
+    plain_action_pattern = re.compile(
+        r'^\[\d{2}:\d{2}:\d{2}\] \[Render thread/INFO\]: \[System\] \[CHAT\] '
+        r'(\d+\.\d+)/(h|d|m) ago\s+[ac][+-]\s+(\w+)\s+f\s+(added|removed) x(\d+) (\w+)\s+f\.$'
+    )
+
+    # 頁碼（不受色碼影響）
+    page_pattern = re.compile(r'f(\d+)/(\d+)')
+
+    # 嘗試含色碼版本
+    match = color_action_pattern.match(log_line)
+    if match:
+        _, _, username, action, count, item = match.groups()
+        return {
+            "user": username,
+            "action": 1 if action == "added" else -1,
+            "item": item,
+            "count": int(count)
+        }
+
+    # 若不成功，轉成無色碼再匹配
+    cleaned_line = strip_minecraft_color_codes(log_line)
+    match = plain_action_pattern.match(cleaned_line)
+    if match:
+        _, _, username, action, count, item = match.groups()
+        return {
+            "user": username,
+            "action": 1 if action == "added" else -1,
+            "item": item,
+            "count": int(count)
+        }
+
+    # 頁碼檢查
+    match = page_pattern.search(log_line)
+    if match:
+        return (int(match.group(1)), int(match.group(2)))
+
+    return False
 
 #忽略名單
 IGNORELIST = {}
-def check_changed_item(filtered, playerLog, ignore):
-    if ignore: IGNORELIST = {"XmasTiramisu", "pxpxpx6666"}
-    else: IGNORELIST = {}
-    amountChange = {"experience_bottle":0, "dragon_breath":0, "sunflower":0, "prismarine_crystals":0, "prismarine_shard":0, "nether_star":0, "gray_dye":0, "firework_star":0}
+
+def check_changed_item(filtered, playerLog, ignore, nbt):
+    if ignore:
+        IGNORELIST = {"XmasTiramisu", "pxpxpx6666"}
+    else:
+        IGNORELIST = {}
+
+    amountChange = {
+        "experience_bottle": 0,
+        "dragon_breath": 0,
+        "sunflower": 0,
+        "prismarine_crystals": 0,
+        "prismarine_shard": 0,
+        "nether_star": 0,
+        "gray_dye": 0,
+        "firework_star": 0
+    }
+
     CURRENCYMAP = {
-    "experience_bottle": "<:experience_bottle:1397875984484798475> XP",
-    "dragon_breath": "<:concentrated_experience:1397875964796469389> CXP",
-    "sunflower": "<:hyperexperience:1397875942000558223> HXP",
-    "prismarine_shard": "<:crystalline_shard:1397875907338960986> CS",
-    "prismarine_crystals": "<:compressed_crystalline_shard:1397875885146640404> CCS",
-    "nether_star": "<:hyper_crystalline_shard:1397875853693554688> HCS",
-    "gray_dye": "<:archos_ring:1397875715105624145> AR",
-    "firework_star": "<:hyperchromatic_archos_ring:1397875820386848852> HAR"
-}
+        "experience_bottle": "<:experience_bottle:1397875984484798475> XP",
+        "dragon_breath": "<:concentrated_experience:1397875964796469389> CXP",
+        "sunflower": "<:hyperexperience:1397875942000558223> HXP",
+        "prismarine_shard": "<:crystalline_shard:1397875907338960986> CS",
+        "prismarine_crystals": "<:compressed_crystalline_shard:1397875885146640404> CCS",
+        "nether_star": "<:hyper_crystalline_shard:1397875853693554688> HCS",
+        "gray_dye": "<:archos_ring:1397875715105624145> AR",
+        "firework_star": "<:hyperchromatic_archos_ring:1397875820386848852> HAR"
+    }
+
     result = ""
+    updatedLog = {}
 
     for action in filtered:
         user = action["user"]
         item = action["item"]
         count = int(action["count"]) * action["action"]
+
         if user in IGNORELIST:
             continue
-        if item in amountChange and not user in IGNORELIST:
+
+        if item in amountChange:
             amountChange[item] += count
-        if user not in playerLog and not user in IGNORELIST:
+
+        if user not in playerLog:
             playerLog[user] = {}
-        if item not in playerLog[user] and not user in IGNORELIST:
+
+        if item not in playerLog[user]:
             playerLog[user][item] = 0
         playerLog[user][item] += count
+
+    if nbt != "":
+        for user, items in playerLog.items():
+            if nbt in items:
+                updatedLog[user] = items
+        playerLog = updatedLog
 
     for currency, amount in amountChange.items():
         if amount != 0:
             result += " └ " + CURRENCYMAP[currency] + " " + str(amount) + "\n"
-    
+
     return (result, playerLog) if result else ("貨幣數量無變動\n", playerLog)
 
 def check_parameter(parameter):
-    pattern = r"b(\d+(?:\.\d+)?)\s+s(\d+(?:\.\d+)?)\s+(XP|CXP|HXP|CS|CCS|HCS|AR|HAR)\s+(0|1)"
+    pattern = r"(\d+(?:\.\d+)?)\s+(\d+(?:\.\d+)?)\s+(XP|CXP|HXP|CS|CCS|HCS|AR|HAR)(?:\s+(0|1))?(?:\s+(0|1))?(?:\s+(.+))?"
 
     match = re.fullmatch(pattern, parameter, re.IGNORECASE)
     if match:
-        buy = float(match.group(1))
-        sell = float(match.group(2))
-        currency = match.group(3).upper()
-        ignore = bool(int(match.group(4)))
-    
-        return {"buyPrice": buy, "sellPrice": sell, "target": currency, "ignore": ignore}
+        buy_price = float(match.group(1))
+        sell_price = float(match.group(2))
+        unit = match.group(3)
+        ignore_owner = bool(int(match.group(4) if match.group(4) is not None else "0"))
+        ignore_correct_trade = bool(int(match.group(5) if match.group(5) is not None else "0"))
+        nbt = match.group(6) if match.group(6) is not None else ""
+        return {"buyPrice": buy_price, "sellPrice": sell_price, "unit": unit, "ignore_owner": ignore_owner, "ignore_correct_trade":ignore_correct_trade, "nbt":nbt}
     else:
         return False
 
@@ -313,6 +384,66 @@ def ai_calculate_mistrade(user_input: str):
 
     return response.text
 
+def get_full_class_name(class_name: str) -> str:
+    class_tree = {
+        "Alchemist": ["Harbinger", "Apothecary"],
+        "Cleric": ["Paladin", "Hierophant"],
+        "Mage": ["Arcanist", "Elementalist"],
+        "Rogue": ["Swordsage", "Assassin"],
+        "Scout": ["Ranger", "Hunter"],
+        "Warlock": ["Reaper", "Tenebrist"],
+        "Warrior": ["Berserker", "Guardian"],
+    }
+
+    # 去除前後空白與統一大小寫
+    input_clean = class_name.strip()
+
+    for base_class, subclasses in class_tree.items():
+        if input_clean == base_class:
+            return base_class
+        elif input_clean in subclasses:
+            return f"{base_class} ({input_clean})"
+
+    return False
+
+def display_skill_grid(skillpoint):
+    skill_map = {
+    '0': '⬜⬜⬛',
+    '1': '🟧⬜⬛',
+    '2': '🟧🟧⬛',
+    '3': '🟧⬜⭐',
+    '4': '🟧🟧⭐'
+}
+    first_job = skillpoint[0]
+    second_job = skillpoint[1]
+    
+    first_job = list(skillpoint[0])
+    second_job = list(skillpoint[1])
+    first_job_icons = [skill_map[pt] for pt in first_job]
+
+    second_job_icons = []
+    for pt in second_job:
+        icon = skill_map[pt]
+        if icon.endswith('⬛'):
+            icon = icon[:-1]
+        second_job_icons.append(icon)
+
+    result = "└⚔️技能點配置 : \n"
+
+    num_rows = 4
+    for i in range(num_rows):
+        row = "    "
+        left1 = first_job_icons[i]
+        left2 = first_job_icons[i + 4]
+        row += f"{left1}        {left2}"
+    
+        if i < len(second_job_icons):
+            spaces = " " * (10 + i * 6)
+            row += f"{spaces}{second_job_icons[i]}"
+    
+        result += row + "\n"
+    return result
+
 def manage_build(buildCommand, sender):
     # 解析名稱與連結
     if len(buildCommand) >= 3:
@@ -324,6 +455,7 @@ def manage_build(buildCommand, sender):
         parsed = urlparse(build_link)
         if not parsed.netloc in ["odetomisery.vercel.app", "ohthemisery-psi.vercel.app"] or parsed.scheme != "https":
             return "build連結錯誤"
+        
         # 建立新的 build 資料
         new_build = {
             build_name: {
@@ -365,30 +497,81 @@ def manage_build(buildCommand, sender):
             return f"⚠️ 沒有找到名稱為「{build_name}」的 build。"
     
     #搜尋已存在build
-    elif buildCommand[1] == "find" and len(buildCommand) >= 3:
-        keyword = buildCommand[2].lower()
+    elif (buildCommand[1] == "find" and len(buildCommand) >= 3) or buildCommand[1] == "own":
+        if buildCommand[1] == "find":
+            keyword = buildCommand[2].lower()
+        
         with open("build.json", "r", encoding="utf-8") as f:
             data = json.load(f)
 
         matched = []
         for name, info in data.items():
-            if keyword in name.lower():
+            if buildCommand[1] == "find" and keyword in name.lower():
+                matched.append((name, info))
+            elif buildCommand[1] == "own" and info["作者"] == sender:
                 matched.append((name, info))
         if not matched:
-            return "🔍 沒有找到符合的 build 名稱。"
+            return "🔍 沒有找到符合的 build 。"
         else:
             top_results = matched[:5]
             # 建立結果訊息
             result_lines = ["🔎 找到以下符合的 build："]
+            hasClass = False
             for name, info in top_results:
+                for a, b in info.items():
+                    if bool(re.fullmatch(r"[A-Za-z]", a[0])):
+                        hasClass = True
+                        className = f"└🗡️ 職業：{a} \n"
+                        if b != []: skillPoints = display_skill_grid(b) + "\n"
+                if not hasClass:
+                    skillPoints = ""
+                    className = ""
+
                 result_lines.append(
                     f"# **{name}**\n"
                     f"└🔗 連結：[{name}]({info['連結']})\n"
                     f"└👤 作者：{info['作者']}\n"
+                    f"{className}"
+                    f"{skillPoints}"
                     f"└🗒️ 資訊：{info.get('資訊', '（無）')}"
                 )
 
             return "\n".join(result_lines)
+
+    #修改職業/技能點
+    elif buildCommand[1] == "setclass" and len(buildCommand) >= 4:
+        setClass = get_full_class_name(buildCommand[3].capitalize())
+        if not setClass:
+            return f"⚠️ 職業名稱錯誤!"
+        if len(buildCommand) >= 5:
+            skillPoints = buildCommand[4]
+            classSkillPoints = skillPoints[:8]
+            specSkillPoints = skillPoints[8:11]
+            #判斷書入點數是否合法
+            if len(skillPoints) != 8 and len(skillPoints) != 11:
+                return f"⚠️ 技能點數量錯誤!"
+            for pt in classSkillPoints:
+                if pt not in ["0", "1", "2", "3", "4"]:
+                    return f"⚠️ 一般技能點只能為 0/1/2/3"
+            for pt in specSkillPoints:
+                if pt not in ["0", "1", "2"]:
+                    return f"⚠️ 二轉技能點只能為 0/1/2"
+        else:
+            classSkillPoints = "00000000"
+            specSkillPoints = "000"
+        with open("build.json", "r", encoding="utf-8") as f:
+            data = json.load(f)
+            #確認build是否存在
+            buildName = buildCommand[2]
+            if data.get(buildName, False):
+                if data[buildName].get("作者") == sender:
+                    data[buildName][setClass] = [classSkillPoints, specSkillPoints]
+                    op = "修改"
+                    data[buildName] = {k: v for k, v in data[buildName].items() if k in ["連結", "作者", "資訊", setClass]}
+                else:
+                    return f"⛔ {sender} 不是作者。"
+            else:
+                return f"⚠️ 沒有找到名稱為「{buildName}」的 build。"
 
     else:
         return f"<:ghost_technology_4:1293185676086481039> 指令格式錯誤!"
@@ -400,3 +583,5 @@ def manage_build(buildCommand, sender):
         return f"✅ 已成功{op}Build「 [{build_name}]({build_link}) 」！"
     elif op == "刪除":
         return f"✅ 已成功{op}Build「 {build_name} 」！"
+    elif op == "修改":
+        return f"✅ 已成功{op}Build「 {build_name} 」的職業！"

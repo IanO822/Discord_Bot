@@ -2,7 +2,7 @@ import json
 import os
 import requests
 import re
-import google.generativeai as genai
+#import google.generativeai as genai
 from urllib.parse import urlparse, parse_qs
 
 
@@ -344,45 +344,45 @@ def split_log_result(log_result: str, limit: int = 2000):
 
     return messages
 
-def ai_calculate_mistrade(user_input: str):
-    api_key = os.getenv('GOOGLE_TOKEN')
-    genai.configure(api_key=api_key)
+# def ai_calculate_mistrade(user_input: str):
+#     api_key = os.getenv('GOOGLE_TOKEN')
+#     genai.configure(api_key=api_key)
 
-    # 指定模型為 gemini-2.0-flash-001
-    model = genai.GenerativeModel(model_name="gemini-2.0-flash-001")
+#     # 指定模型為 gemini-2.0-flash-001
+#     model = genai.GenerativeModel(model_name="gemini-2.0-flash-001")
 
-    prompt = f"""
-    你是一個專門解析 Minecraft CoreProtect 外掛訊息的分析工具。
+#     prompt = f"""
+#     你是一個專門解析 Minecraft CoreProtect 外掛訊息的分析工具。
 
-    請依據以下規則分析用戶輸入的聊天記錄，輸出格式為：
-    {{玩家1: {{"物品名稱1": 數量, "物品名稱2": 數量}}, 玩家2: {{...}}}}
+#     請依據以下規則分析用戶輸入的聊天記錄，輸出格式為：
+#     {{玩家1: {{"物品名稱1": 數量, "物品名稱2": 數量}}, 玩家2: {{...}}}}
 
-    ### 分析任務：
-    1. 僅分析 CoreProtect 插件輸出的訊息，忽略非插件訊息。
-    2. 辨識交易雙方的玩家名稱與物品變動數量。
-    3. 統計每位玩家持有物品的最終變動數量（只記錄不為 0 的項目）。
+#     ### 分析任務：
+#     1. 僅分析 CoreProtect 插件輸出的訊息，忽略非插件訊息。
+#     2. 辨識交易雙方的玩家名稱與物品變動數量。
+#     3. 統計每位玩家持有物品的最終變動數量（只記錄不為 0 的項目）。
 
-    ### 替代詞規則（NBT → 名稱）：
-    - experience_bottle → XP
-    - dragon_breath → CXP
-    - sunflower → HXP
-    - prismarine_shard → CS
-    - prismarine_crystals → CCS
-    - nether_star → HCS
-    - gray_dye → AR
-    - firework_star → HAR
-    - 若為其他 NBT，使用原始 NBT 名稱。
+#     ### 替代詞規則（NBT → 名稱）：
+#     - experience_bottle → XP
+#     - dragon_breath → CXP
+#     - sunflower → HXP
+#     - prismarine_shard → CS
+#     - prismarine_crystals → CCS
+#     - nether_star → HCS
+#     - gray_dye → AR
+#     - firework_star → HAR
+#     - 若為其他 NBT，使用原始 NBT 名稱。
 
 
-    ### 現在請依據以上規則，分析以下聊天紀錄：
+#     ### 現在請依據以上規則，分析以下聊天紀錄：
 
-    {user_input}
-    """
+#     {user_input}
+#     """
 
-    # 使用模型生成回應
-    response = model.generate_content(prompt)
+#     # 使用模型生成回應
+#     response = model.generate_content(prompt)
 
-    return response.text
+#     return response.text
 
 def get_full_class_name(class_name: str) -> str:
     class_tree = {

@@ -30,7 +30,8 @@ intents.message_content = True
 intents.voice_states = True
 intents.guilds = True
 intents.members = True
-bot = commands.Bot(command_prefix='!', intents=intents)
+PREFIX = "!"
+bot = commands.Bot(command_prefix=PREFIX, intents=intents)
 
 BOT_ADMIN = {
     "ian0822", "1an0822", #擁有者
@@ -68,7 +69,10 @@ for song_file in os.listdir(music_folder):
             })
         except Exception as e:
             print(f"⚠️ 無法讀取 {song_file}: {e}")
+all_songs = [song["檔名"] for song in metadata_list]
 kano_songs = [song["檔名"] for song in metadata_list if "鹿乃" in song["演出者"]]
+random.shuffle(all_songs)
+random.shuffle(kano_songs)
 
 def load_and_index_data():
     global item_data, search_index
@@ -91,8 +95,8 @@ async def on_message(message):
         return
 
     # ----------------- 查詢指令 -----------------
-    if message.content.startswith('!find '):
-        itemsToFind = message.content[len("!find"):].strip()
+    if message.content.startswith(f'{PREFIX}find '):
+        itemsToFind = message.content[len(f"{PREFIX}find"):].strip()
         if not itemsToFind:
             await message.channel.send("<:ghost_technology_4:1293185676086481039> 請提供要查詢的名稱。")
             return
@@ -114,7 +118,7 @@ async def on_message(message):
         await message.channel.send("\n".join(msg_lines))
 
     # ----------------- 尋找錯誤交易 -----------------
-    if message.content.startswith('!mistrade'):
+    if message.content.startswith(f'{PREFIX}mistrade'):
         doCalculateMistrader = False
         parameter = None
         if bool(re.search(r"(\d+(?:\.\d+)?)\s+(\d+(?:\.\d+)?)\s+(XP|CXP|HXP|CS|CCS|HCS|AR|HAR)(?:\s+(0|1))?(?:\s+(0|1))?(?:\s+(.+))?", message.content, re.IGNORECASE)):
@@ -161,7 +165,7 @@ async def on_message(message):
                     filtered.update({pageNumber:pageDataTemp})
                     pageDataTemp = []
         #計算結果
-        if filtered:
+        if filtered and parameter:
             parameter_setting = (
     f'**:gear:參數 (Parameters):** \n'
     f'└ 買價(Buy Price): {parameter["buyPrice"]} {parameter["unit"]}\n'
@@ -228,7 +232,7 @@ async def on_message(message):
             await message.reply('<:ghost_technology_4:1293185676086481039> 格式錯誤，應為!mistrade 紀錄(或.txt) <買價 賣價 單位 [忽略店主] [忽略正確交易] [尋找特定nbt]>')
 
     # ----------------- Menta職業建構者 -----------------
-    if message.content.startswith('!build '):
+    if message.content.startswith(f'{PREFIX}build '):
         buildCommand = [word for word in message.content.split()]
         if len(buildCommand) >= 2:
             result = manage_build(buildCommand, message.author.name)
@@ -238,7 +242,7 @@ async def on_message(message):
             await message.channel.send('<:ghost_technology_4:1293185676086481039> 格式錯誤')
             
     # ----------------- 管理員功能 -----------------
-    if message.content.startswith("!updateAPI"):
+    if message.content.startswith(f"{PREFIX}updateAPI"):
         username = message.author.name
 
         if username not in BOT_ADMIN:
@@ -249,6 +253,7 @@ async def on_message(message):
 
         success = update_item_data()
         if success:
+            load_and_index_data()
             await message.channel.send("✅ 成功更新道具資料！")
         else:
             await message.channel.send("<:ghost_technology_4:1293185676086481039> 更新失敗，請稍後再試。")
@@ -263,6 +268,9 @@ async def join(ctx):
 
 @bot.command()
 async def leave(ctx):
+    if ctx.author.name == ".ssusus.":
+        await ctx.reply("你以為這有用嗎，口合 口合，怎麼不去洗1洗?")
+        return
     if ctx.voice_client:
         if ctx.voice_client.is_playing():
             ctx.voice_client.stop()
@@ -271,7 +279,7 @@ async def leave(ctx):
         await ctx.send("機器人不在語音頻道")
 
 @bot.command()
-async def play(ctx, *, song_name: str = None):
+async def play(ctx, *, playlist: str = "all"):
     if not ctx.voice_client:
         if ctx.author.voice:
             await ctx.author.voice.channel.connect(self_deaf=False)
@@ -279,9 +287,20 @@ async def play(ctx, *, song_name: str = None):
             await ctx.send("你必須先加入語音頻道")
             return
 
-    if not song_name:
-        song_name = random.choice(kano_songs)
-        await ctx.send(f"開始隨機撥放")
+    if playlist == "kano":
+        current_playerlist = kano_songs.copy()
+        await ctx.send(f"開始隨機撥放播放清單 : 鹿乃")
+    elif playlist == "all":
+        current_playerlist = all_songs.copy()
+        await ctx.send(f"開始隨機撥放播放清單 : 全部歌曲")
+    else:
+        await ctx.send("未知撥放清單")
+        return
+
+    random.shuffle(current_playerlist)
+    ctx.current_playerlist = current_playerlist
+    ctx.song_index = 1
+    song_name = current_playerlist[0]
 
     if ctx.voice_client.is_playing():
         ctx.voice_client.stop()
@@ -292,11 +311,9 @@ async def play_song(ctx, song_name):
     if not ctx.voice_client or not ctx.voice_client.is_connected():
         print("目前未連接語音頻道，取消播放")
         return
-    # 初始化變數
-    artist = "無"
-    album = "無"
 
     # 播放資訊
+    artist, album = "無", "無"
     for song in metadata_list:
         if song.get("檔名") == song_name:
             artist = song.get("演出者", "無")
@@ -323,7 +340,12 @@ async def play_song(ctx, song_name):
         if error:
             print(f"播放錯誤: {error}")
         elif ctx.voice_client and ctx.voice_client.is_connected():
-            next_song = random.choice(kano_songs)
+            if ctx.song_index >= len(ctx.current_playerlist):
+                ctx.song_index = 0
+                random.shuffle(ctx.current_playerlist)
+
+            next_song = ctx.current_playerlist[ctx.song_index]
+            ctx.song_index += 1
             fut = asyncio.run_coroutine_threadsafe(play_song(ctx, next_song), bot.loop)
         else:
             print("已離開語音頻道，不再自動播放")

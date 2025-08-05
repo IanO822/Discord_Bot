@@ -2,8 +2,12 @@ import json
 import os
 import requests
 import re
+import os
 #import google.generativeai as genai
 from urllib.parse import urlparse, parse_qs
+from dotenv import load_dotenv
+load_dotenv()
+BOT_PREFIX = os.getenv("BOT_PREFIX")
 
 
 def update_item_data():
@@ -123,9 +127,6 @@ def format_item_short(item):
 
     return False
 
-def strip_minecraft_color_codes(text):
-    return re.sub(r'§.', '', text)
-
 def regular_expression(log_line):
     # 含色碼版本
     color_action_pattern = re.compile(
@@ -154,7 +155,7 @@ def regular_expression(log_line):
         }
 
     # 若不成功，轉成無色碼再匹配
-    cleaned_line = strip_minecraft_color_codes(log_line)
+    cleaned_line = re.sub(r'§.', '', log_line)
     match = plain_action_pattern.match(cleaned_line)
     if match:
         _, _, username, action, count, item = match.groups()
@@ -172,12 +173,9 @@ def regular_expression(log_line):
 
     return False
 
-#忽略名單
-IGNORELIST = {}
-
 def check_changed_item(filtered, playerLog, ignore, nbt):
     if ignore:
-        IGNORELIST = {"XmasTiramisu", "pxpxpx6666"}
+        IGNORELIST = {"XmasTiramisu"}
     else:
         IGNORELIST = {}
 
@@ -239,7 +237,7 @@ def check_changed_item(filtered, playerLog, ignore, nbt):
 def check_parameter(parameter):
     pattern = r"(\d+(?:\.\d+)?)\s+(\d+(?:\.\d+)?)\s+(XP|CXP|HXP|CS|CCS|HCS|AR|HAR)(?:\s+(0|1))?(?:\s+(0|1))?(?:\s+(.+))?"
 
-    match = re.fullmatch(pattern, parameter, re.IGNORECASE)
+    match = re.search(pattern, parameter, re.IGNORECASE)
     if match:
         buy_price = float(match.group(1))
         sell_price = float(match.group(2))
@@ -249,7 +247,7 @@ def check_parameter(parameter):
         nbt = match.group(6) if match.group(6) is not None else ""
         return {"buyPrice": buy_price, "sellPrice": sell_price, "unit": unit, "ignore_owner": ignore_owner, "ignore_correct_trade":ignore_correct_trade, "nbt":nbt}
     else:
-        return False
+        return {"buyPrice": None, "sellPrice": None, "unit": "", "ignore_owner": False, "ignore_correct_trade":False, "nbt":""}
 
 def mistrade_calculator(userData, target, buyPrice, sellPrice):
     from decimal import Decimal, getcontext
@@ -322,6 +320,107 @@ def mistrade_calculator(userData, target, buyPrice, sellPrice):
     
     return wrong_payment, wrong_currency_usage
 
+def handle_trade_log(message, file_lines):
+    CURRENCYMAP = {
+    "experience_bottle": "<:experience_bottle:1397875984484798475> XP",
+    "dragon_breath": "<:concentrated_experience:1397875964796469389> CXP",
+    "sunflower": "<:hyperexperience:1397875942000558223> HXP",
+    "prismarine_shard": "<:crystalline_shard:1397875907338960986> CS",
+    "prismarine_crystals": "<:compressed_crystalline_shard:1397875885146640404> CCS",
+    "nether_star": "<:hyper_crystalline_shard:1397875853693554688> HCS",
+    "gray_dye": "<:archos_ring:1397875715105624145> AR",
+    "firework_star": "<:hyperchromatic_archos_ring:1397875820386848852> HAR"
+}
+    final_message = []
+    filtered = {}
+    parameter = check_parameter(message)
+    #過濾訊息
+    pageDataTemp = []
+    for lines in file_lines:
+        regexResult = regular_expression(lines)
+        if isinstance(regexResult, dict):
+            pageDataTemp.append(regexResult)
+        elif isinstance(regexResult, tuple) and regexResult[0] > 0:
+            pageNumber = regexResult[0]
+            maxPageNumber = regexResult[1]
+            filtered.update({pageNumber:pageDataTemp})
+            pageDataTemp = []
+    #計算結果
+    if filtered:
+        parameter_setting = (
+        f'**:gear:參數 (Parameters):** \n'
+        f'└ 買價(Buy Price): {parameter["buyPrice"]} {parameter["unit"]}\n'
+        f'└ 賣價(Sell Price): {parameter["sellPrice"]} {parameter["unit"]}\n'
+        f'└ 忽略店主(Ignore Owner): {parameter["ignore_owner"]} \n'
+        f'└ 忽略正確交易(Ignore Correct Trade): {parameter["ignore_correct_trade"]} \n'
+        f'└ NBT 標籤(NBT tag): {parameter["nbt"] if parameter["nbt"] else "無 (None)"} \n')
+        for paramater_setting_message_line in split_log_result(("<:ghost_technology_4:1293185676086481039> 參數未提供或格式錯誤，使用預設參數。\n" if (parameter["buyPrice"] == None) else "") + '<:ghost_technology:1292853415465975849> 正在計算交易結果...\n' + "⚠️ 注意：某些物品 (如 nether_star) 同時作為貨幣與商品使用，建議手動確認 NBT 或交易內容以避免誤判。\n" + parameter_setting):
+            final_message.append(paramater_setting_message_line)
+            #清除tradelog.txt
+            with open("tradelog.txt", "w", encoding="utf-8") as f:
+                f.write("")
+        playerLog = {}
+        #pageResult = ""
+        for pageNumber, pageData in filtered.items():
+            result = check_changed_item(pageData, playerLog, parameter["ignore_owner"], parameter["nbt"])
+            playerLog = result[1]
+        #     pageResult += ("📄 以下是第**" + str(pageNumber) + "/" + str(maxPageNumber) + "**頁的結果: \n" + result[0])
+        # for log in split_log_result(pageResult):
+        #     await message.channel.send(log)
+        logResult = ""
+        mistradeMessage = ""
+        wrongPayment = {}
+        wrongUsage = {}
+        userMistraded = False
+        hidden_correct_trade_count = 0
+        players_in_log = []
+        #建立錯誤交易名單
+        if parameter["buyPrice"] != None:
+            wrongPayment, wrongUsage = mistrade_calculator(playerLog, parameter["unit"], parameter["buyPrice"], parameter["sellPrice"])
+
+        for playerName, changedItems in playerLog.items():
+            fixedName = playerName.replace("_", "\\_")
+            players_in_log.append(fixedName)
+            userMistraded = False
+            mistradeMessage = ""
+            if any(value != 0 for value in changedItems.values()):
+                #檢測玩家是否支付錯數量
+                if wrongPayment.get(playerName, False):
+                    userMistraded = True
+                    if wrongPayment[playerName] > 0:
+                        mistradeMessage +=  f"@{fixedName} 多支付了 (overpaid) {wrongPayment[playerName]} {parameter['unit']} \n"
+                    elif wrongPayment[playerName] < 0:
+                        mistradeMessage += f"@{fixedName} 欠了 (underpaid) {-wrongPayment[playerName]} {parameter['unit']} \n"
+                #檢測玩家是否支付錯貨幣
+                if wrongUsage.get(playerName, False):
+                    userMistraded = True
+                    mistradeMessage += f"@{fixedName} 支付了錯誤的貨幣 (paid with the wrong currency): {wrongUsage[playerName]} \n"
+                    
+                #是否顯示正確交易者
+                if parameter["ignore_correct_trade"]:
+                    if userMistraded:
+                        logResult += ":warning: <:ghost_technology_5:1293185945461461013> " + "**" + fixedName + "**: \n"
+                    else:
+                        hidden_correct_trade_count += 1
+                else:
+                    logResult += (":warning: <:ghost_technology_5:1293185945461461013> " if userMistraded else "") + "**" + fixedName + "**: \n"
+                    
+                for itemName, count in changedItems.items():
+                    if count != 0 and not (parameter["ignore_correct_trade"] and not userMistraded):
+                        logResult += " └ " + CURRENCYMAP.get(itemName, " ".join(word.capitalize() for word in itemName.split("_"))) + " " + str(count) + "\n"
+                if userMistraded:
+                    logResult += "\n" + mistradeMessage
+                    logResult += "\n"
+        if logResult == "": logResult = "<:ghost_technology_4:1293185676086481039> 物品無變動 (No item changes were made)\n"
+        if hidden_correct_trade_count > 0: logResult += f"✅ 共有 {hidden_correct_trade_count} 筆正確交易被隱藏 (Correct trade entries were hidden)\n"
+        if len(players_in_log) > 0: logResult += f"✅ 共有 {len(players_in_log)} 個玩家參與交易 (Players participated in the trade):\n"
+        logResult += " ".join(players_in_log)
+        for log in split_log_result(f"# 📜 交易結果 (Trade result) \n {logResult}"):
+            final_message.append(log)
+    else:
+        final_message.append(f'<:ghost_technology_4:1293185676086481039> 格式錯誤，應為{BOT_PREFIX}mistrade 紀錄(或.txt) <買價 賣價 單位 [忽略店主] [忽略正確交易] [尋找特定nbt]>')
+    return final_message
+
 def split_log_result(log_result: str, limit: int = 2000):
     lines = log_result.split('\n')
     messages = []
@@ -343,46 +442,6 @@ def split_log_result(log_result: str, limit: int = 2000):
         messages.append(current_message)
 
     return messages
-
-# def ai_calculate_mistrade(user_input: str):
-#     api_key = os.getenv('GOOGLE_TOKEN')
-#     genai.configure(api_key=api_key)
-
-#     # 指定模型為 gemini-2.0-flash-001
-#     model = genai.GenerativeModel(model_name="gemini-2.0-flash-001")
-
-#     prompt = f"""
-#     你是一個專門解析 Minecraft CoreProtect 外掛訊息的分析工具。
-
-#     請依據以下規則分析用戶輸入的聊天記錄，輸出格式為：
-#     {{玩家1: {{"物品名稱1": 數量, "物品名稱2": 數量}}, 玩家2: {{...}}}}
-
-#     ### 分析任務：
-#     1. 僅分析 CoreProtect 插件輸出的訊息，忽略非插件訊息。
-#     2. 辨識交易雙方的玩家名稱與物品變動數量。
-#     3. 統計每位玩家持有物品的最終變動數量（只記錄不為 0 的項目）。
-
-#     ### 替代詞規則（NBT → 名稱）：
-#     - experience_bottle → XP
-#     - dragon_breath → CXP
-#     - sunflower → HXP
-#     - prismarine_shard → CS
-#     - prismarine_crystals → CCS
-#     - nether_star → HCS
-#     - gray_dye → AR
-#     - firework_star → HAR
-#     - 若為其他 NBT，使用原始 NBT 名稱。
-
-
-#     ### 現在請依據以上規則，分析以下聊天紀錄：
-
-#     {user_input}
-#     """
-
-#     # 使用模型生成回應
-#     response = model.generate_content(prompt)
-
-#     return response.text
 
 def get_full_class_name(class_name: str) -> str:
     class_tree = {

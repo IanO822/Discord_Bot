@@ -17,6 +17,7 @@ from utils import format_item_short
 from utils import manage_build
 from utils import split_log_result
 from utils import handle_trade_log
+from collections import defaultdict
 
 load_dotenv()
 
@@ -129,7 +130,55 @@ async def on_message(message):
             return
 
         # 3. 處理交易紀錄
-        for log_line in handle_trade_log(message.content, file_lines):
+        pattern_1 = re.compile(r'\(x(-?\d+)/y(-?\d+)/z(-?\d+)\)(?!/)')
+        pattern_2 = re.compile(r'\(x(-?\d+)/y(-?\d+)/z(-?\d+)/Project_Epic-plots\)')
+
+        current_coords = None
+        auto_detect = False
+        trade_log = {}
+
+        for i, line in enumerate(file_lines):
+            match_2 = pattern_2.search(line)
+            match_1 = pattern_1.search(line)
+            page_pattern = re.compile(r'f\d+/\d+')
+            #自動
+            if match_2:
+                x, y, z = map(int, match_2.groups())
+                current_coords = (x, y, z)
+                auto_detect = True
+
+            #手動
+            elif match_1:
+                x, y, z = map(int, match_1.groups())
+                current_coords = (x, y, z)
+                auto_detect = False
+        
+            if auto_detect:
+                previous_line = file_lines[i - 1] if i > 0 else "<無法取得前一行>"
+                if not page_pattern.search(previous_line):
+                    if current_coords in trade_log:
+                        trade_log[current_coords].append(previous_line)
+                    elif current_coords != None:
+                        trade_log[current_coords] = [previous_line]
+        
+            elif not auto_detect:
+                if current_coords in trade_log:
+                    trade_log[current_coords].append(line)
+                elif current_coords != None:
+                    trade_log[current_coords] = []
+
+        if auto_detect:
+            for key, value in trade_log.items():
+                value.append("f1/1")
+        
+        fianl_message = f"# 📜 交易結果 (Trade result) \n"
+
+        for coord, log in trade_log.items():
+            result = handle_trade_log(message.content, log, coord, auto_detect)
+            fianl_message += result[0]
+            auto_detect = result[1]
+        
+        for log_line in split_log_result(fianl_message):
             await message.channel.send(log_line)
 
     # ----------------- Menta職業建構者 -----------------
@@ -280,6 +329,5 @@ async def changenick(ctx, *, new_nick):
 @bot.event
 async def on_command_error(ctx, error):
     pass
-
 
 bot.run(TOKEN)

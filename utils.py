@@ -3,7 +3,7 @@ import os
 import requests
 import re
 import os
-#import google.generativeai as genai
+import ast
 from urllib.parse import urlparse, parse_qs
 from dotenv import load_dotenv
 load_dotenv()
@@ -191,14 +191,14 @@ def check_changed_item(filtered, playerLog, ignore, nbt):
     }
 
     CURRENCYMAP = {
-        "experience_bottle": "<:experience_bottle:1397875984484798475> XP",
-        "dragon_breath": "<:concentrated_experience:1397875964796469389> CXP",
-        "sunflower": "<:hyperexperience:1397875942000558223> HXP",
-        "prismarine_shard": "<:crystalline_shard:1397875907338960986> CS",
-        "prismarine_crystals": "<:compressed_crystalline_shard:1397875885146640404> CCS",
-        "nether_star": "<:hyper_crystalline_shard:1397875853693554688> HCS",
-        "gray_dye": "<:archos_ring:1397875715105624145> AR",
-        "firework_star": "<:hyperchromatic_archos_ring:1397875820386848852> HAR"
+        "experience_bottle": "<:xp:1397875984484798475> XP",
+        "dragon_breath": "<:cxp:1397875964796469389> CXP",
+        "sunflower": "<:hxp:1397875942000558223> HXP",
+        "prismarine_shard": "<:cs:1397875907338960986> CS",
+        "prismarine_crystals": "<:ccs:1397875885146640404> CCS",
+        "nether_star": "<:hcs:1397875853693554688> HCS",
+        "gray_dye": "<:ar:1397875715105624145> AR",
+        "firework_star": "<:har:1397875820386848852> HAR"
     }
 
     result = ""
@@ -320,19 +320,20 @@ def mistrade_calculator(userData, target, buyPrice, sellPrice):
     
     return wrong_payment, wrong_currency_usage
 
-def handle_trade_log(message, file_lines):
+def handle_trade_log(message, file_lines, coord, auto_detect):
     CURRENCYMAP = {
-    "experience_bottle": "<:experience_bottle:1397875984484798475> XP",
-    "dragon_breath": "<:concentrated_experience:1397875964796469389> CXP",
-    "sunflower": "<:hyperexperience:1397875942000558223> HXP",
-    "prismarine_shard": "<:crystalline_shard:1397875907338960986> CS",
-    "prismarine_crystals": "<:compressed_crystalline_shard:1397875885146640404> CCS",
-    "nether_star": "<:hyper_crystalline_shard:1397875853693554688> HCS",
-    "gray_dye": "<:archos_ring:1397875715105624145> AR",
-    "firework_star": "<:hyperchromatic_archos_ring:1397875820386848852> HAR"
+    "experience_bottle": "<:xp:1397875984484798475> XP",
+    "dragon_breath": "<:cxp:1397875964796469389> CXP",
+    "sunflower": "<:hxp:1397875942000558223> HXP",
+    "prismarine_shard": "<:cs:1397875907338960986> CS",
+    "prismarine_crystals": "<:ccs:1397875885146640404> CCS",
+    "nether_star": "<:hcs:1397875853693554688> HCS",
+    "gray_dye": "<:ar:1397875715105624145> AR",
+    "firework_star": "<:har:1397875820386848852> HAR"
 }
-    final_message = []
+    final_message = ""
     filtered = {}
+    shop_name = "未知商店"
     parameter = check_parameter(message)
     #過濾訊息
     pageDataTemp = []
@@ -345,6 +346,30 @@ def handle_trade_log(message, file_lines):
             maxPageNumber = regexResult[1]
             filtered.update({pageNumber:pageDataTemp})
             pageDataTemp = []
+    
+    # 讀取 barrel_data.json
+    with open("barrel_data.json", "r", encoding="utf-8") as f:
+        raw_data = json.load(f)
+        barrel_data = {}
+    
+    for key_str, value in raw_data.items():
+        key_tuple = ast.literal_eval(key_str)
+        barrel_data[key_tuple] = value
+    
+    #範圍查找模式自動隱藏非資料庫座標
+    if coord not in barrel_data and auto_detect:
+        return final_message, auto_detect
+
+    # 從barrel_data中取得商店價格
+    if barrel_data.get(coord, False):
+        parameter["buyPrice"] = barrel_data[coord]["buyPrice"]
+        parameter["sellPrice"] = barrel_data[coord]["sellPrice"]
+        parameter["unit"] = barrel_data[coord]["unit"]
+        parameter["ignore_correct_trade"] = True
+        parameter["ignore_owner"] = True
+        auto_detect = True
+        shop_name = barrel_data[coord]["name"]
+    
     #計算結果
     if filtered:
         parameter_setting = (
@@ -354,19 +379,17 @@ def handle_trade_log(message, file_lines):
         f'└ 忽略店主(Ignore Owner): {parameter["ignore_owner"]} \n'
         f'└ 忽略正確交易(Ignore Correct Trade): {parameter["ignore_correct_trade"]} \n'
         f'└ NBT 標籤(NBT tag): {parameter["nbt"] if parameter["nbt"] else "無 (None)"} \n')
-        for paramater_setting_message_line in split_log_result(("<:ghost_technology_4:1293185676086481039> 參數未提供或格式錯誤，使用預設參數。\n" if (parameter["buyPrice"] == None) else "") + '<:ghost_technology:1292853415465975849> 正在計算交易結果...\n' + "⚠️ 注意：某些物品 (如 nether_star) 同時作為貨幣與商品使用，建議手動確認 NBT 或交易內容以避免誤判。\n" + parameter_setting):
-            final_message.append(paramater_setting_message_line)
-            #清除tradelog.txt
-            with open("tradelog.txt", "w", encoding="utf-8") as f:
-                f.write("")
+        if not auto_detect:
+            for paramater_setting_message_line in split_log_result(("<:ghost_technology_4:1293185676086481039> 參數未提供或格式錯誤，使用預設參數。\n" if (parameter["buyPrice"] == None) else "") + '<:ghost_technology:1292853415465975849> 正在計算交易結果...\n' + "⚠️ 注意：某些物品 (如 nether_star) 同時作為貨幣與商品使用，建議手動確認 NBT 或交易內容以避免誤判。\n" + parameter_setting):
+                final_message += paramater_setting_message_line + "\n"
         playerLog = {}
         #pageResult = ""
         for pageNumber, pageData in filtered.items():
             result = check_changed_item(pageData, playerLog, parameter["ignore_owner"], parameter["nbt"])
             playerLog = result[1]
-        #     pageResult += ("📄 以下是第**" + str(pageNumber) + "/" + str(maxPageNumber) + "**頁的結果: \n" + result[0])
-        # for log in split_log_result(pageResult):
-        #     await message.channel.send(log)
+            #pageResult += ("📄 以下是第**" + str(pageNumber) + "/" + str(maxPageNumber) + "**頁的結果: \n" + result[0])
+        #for log in split_log_result(pageResult):
+            #await message.channel.send(log)
         logResult = ""
         mistradeMessage = ""
         wrongPayment = {}
@@ -415,11 +438,14 @@ def handle_trade_log(message, file_lines):
         if hidden_correct_trade_count > 0: logResult += f"✅ 共有 {hidden_correct_trade_count} 筆正確交易被隱藏 (Correct trade entries were hidden)\n"
         if len(players_in_log) > 0: logResult += f"✅ 共有 {len(players_in_log)} 個玩家參與交易 (Players participated in the trade):\n"
         logResult += " ".join(players_in_log)
-        for log in split_log_result(f"# 📜 交易結果 (Trade result) \n {logResult}"):
-            final_message.append(log)
+        auto_detect = "[Auto]" if auto_detect else ""
+        buy_price = str(parameter["buyPrice"]) + parameter["unit"].upper()
+        sell_price = str(parameter["sellPrice"]) + parameter["unit"].upper()
+        for log in split_log_result(f"# **{shop_name} {coord} {auto_detect}** \n **買價(Buy Price): {buy_price}** \n **賣價(Sell Price): {sell_price}** \n {logResult}"):
+            final_message += log + "\n"
     else:
-        final_message.append(f'<:ghost_technology_4:1293185676086481039> 格式錯誤，應為{BOT_PREFIX}mistrade 紀錄(或.txt) <買價 賣價 單位 [忽略店主] [忽略正確交易] [尋找特定nbt]>')
-    return final_message
+        final_message += f'<:ghost_technology_4:1293185676086481039> 格式錯誤，應為{BOT_PREFIX}mistrade 紀錄(或.txt) <買價 賣價 單位 [忽略店主] [忽略正確交易] [尋找特定nbt]>\n'
+    return final_message, auto_detect
 
 def split_log_result(log_result: str, limit: int = 2000):
     lines = log_result.split('\n')

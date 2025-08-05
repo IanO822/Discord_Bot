@@ -1,0 +1,962 @@
+{
+    "(-613, 46, 1089)": {
+        "name": "White Rare Frag 1",
+        "buyPrice": 16,
+        "sellPrice": 14,
+        "unit": "CXP"
+    },
+    "(-613, 45, 1089)": {
+        "name": "White Rare Frag 2",
+        "buyPrice": 14,
+        "sellPrice": 12,
+        "unit": "CXP"
+    },
+    "(-613, 44, 1089)": {
+        "name": "White Rare Frag 3",
+        "buyPrice": 12,
+        "sellPrice": 10,
+        "unit": "CXP"
+    },
+    "(-613, 43, 1089)": {
+        "name": "White Rare Frag 4",
+        "buyPrice": 10,
+        "sellPrice": 8,
+        "unit": "CXP"
+    },
+    "(-613, 42, 1089)": {
+        "name": "White Rare Frag 5",
+        "buyPrice": 8,
+        "sellPrice": 6,
+        "unit": "CXP"
+    },
+    "(-612, 46, 1089)": {
+        "name": "Orange Rare Frag 1",
+        "buyPrice": 16,
+        "sellPrice": 14,
+        "unit": "CXP"
+    },
+    "(-612, 45, 1089)": {
+        "name": "Orange Rare Frag 2",
+        "buyPrice": 14,
+        "sellPrice": 12,
+        "unit": "CXP"
+    },
+    "(-612, 44, 1089)": {
+        "name": "Orange Rare Frag 3",
+        "buyPrice": 12,
+        "sellPrice": 10,
+        "unit": "CXP"
+    },
+    "(-612, 43, 1089)": {
+        "name": "Orange Rare Frag 4",
+        "buyPrice": 10,
+        "sellPrice": 8,
+        "unit": "CXP"
+    },
+    "(-612, 42, 1089)": {
+        "name": "Orange Rare Frag 5",
+        "buyPrice": 8,
+        "sellPrice": 6,
+        "unit": "CXP"
+    },
+    "(-611, 46, 1089)": {
+        "name": "Megenta Rare Frag 1",
+        "buyPrice": 16,
+        "sellPrice": 14,
+        "unit": "CXP"
+    },
+    "(-611, 45, 1089)": {
+        "name": "Megenta Rare Frag 2",
+        "buyPrice": 14,
+        "sellPrice": 12,
+        "unit": "CXP"
+    },
+    "(-611, 44, 1089)": {
+        "name": "Megenta Rare Frag 3",
+        "buyPrice": 12,
+        "sellPrice": 10,
+        "unit": "CXP"
+    },
+    "(-611, 43, 1089)": {
+        "name": "Megenta Rare Frag 4",
+        "buyPrice": 10,
+        "sellPrice": 8,
+        "unit": "CXP"
+    },
+    "(-611, 42, 1089)": {
+        "name": "Megenta Rare Frag 5",
+        "buyPrice": 8,
+        "sellPrice": 6,
+        "unit": "CXP"
+    },
+    "(-610, 46, 1089)": {
+        "name": "Light Blue Rare Frag 1",
+        "buyPrice": 16,
+        "sellPrice": 14,
+        "unit": "CXP"
+    },
+    "(-610, 45, 1089)": {
+        "name": "Light Blue Rare Frag 2",
+        "buyPrice": 14,
+        "sellPrice": 12,
+        "unit": "CXP"
+    },
+    "(-610, 44, 1089)": {
+        "name": "Light Blue Rare Frag 3",
+        "buyPrice": 12,
+        "sellPrice": 10,
+        "unit": "CXP"
+    },
+    "(-610, 43, 1089)": {
+        "name": "Light Blue Rare Frag 4",
+        "buyPrice": 10,
+        "sellPrice": 8,
+        "unit": "CXP"
+    },
+    "(-610, 42, 1089)": {
+        "name": "Light Blue Rare Frag 5",
+        "buyPrice": 8,
+        "sellPrice": 6,
+        "unit": "CXP"
+    },
+    "(-609, 46, 1089)": {
+        "name": "Yellow Rare Frag 1",
+        "buyPrice": 16,
+        "sellPrice": 14,
+        "unit": "CXP"
+    },
+    "(-609, 45, 1089)": {
+        "name": "Yellow Rare Frag 2",
+        "buyPrice": 14,
+        "sellPrice": 12,
+        "unit": "CXP"
+    },
+    "(-609, 44, 1089)": {
+        "name": "Yellow Rare Frag 3",
+        "buyPrice": 12,
+        "sellPrice": 10,
+        "unit": "CXP"
+    },
+    "(-609, 43, 1089)": {
+        "name": "Yellow Rare Frag 4",
+        "buyPrice": 10,
+        "sellPrice": 8,
+        "unit": "CXP"
+    },
+    "(-609, 42, 1089)": {
+        "name": "Yellow Rare Frag 5",
+        "buyPrice": 8,
+        "sellPrice": 6,
+        "unit": "CXP"
+    },
+    "(-608, 46, 1089)": {
+        "name": "Reverie Artifact 1",
+        "buyPrice": 80,
+        "sellPrice": 72,
+        "unit": "CXP"
+    },
+    "(-608, 45, 1089)": {
+        "name": "Reverie Artifact 2",
+        "buyPrice": 72,
+        "sellPrice": 64,
+        "unit": "CXP"
+    },
+    "(-608, 44, 1089)": {
+        "name": "Reverie Artifact 3",
+        "buyPrice": 64,
+        "sellPrice": 56,
+        "unit": "CXP"
+    },
+    "(-608, 43, 1089)": {
+        "name": "Reverie Artifact 4",
+        "buyPrice": 56,
+        "sellPrice": 48,
+        "unit": "CXP"
+    },
+    "(-608, 42, 1089)": {
+        "name": "Reverie Artifact 5",
+        "buyPrice": 48,
+        "sellPrice": 40,
+        "unit": "CXP"
+    },
+    "(-607, 46, 1089)": {
+        "name": "Willows Rare Frag 1",
+        "buyPrice": 80,
+        "sellPrice": 72,
+        "unit": "CXP"
+    },
+    "(-607, 45, 1089)": {
+        "name": "Willows Rare Frag 2",
+        "buyPrice": 72,
+        "sellPrice": 64,
+        "unit": "CXP"
+    },
+    "(-607, 44, 1089)": {
+        "name": "Willows Rare Frag 3",
+        "buyPrice": 64,
+        "sellPrice": 56,
+        "unit": "CXP"
+    },
+    "(-607, 43, 1089)": {
+        "name": "Willows Rare Frag 4",
+        "buyPrice": 56,
+        "sellPrice": 48,
+        "unit": "CXP"
+    },
+    "(-607, 42, 1089)": {
+        "name": "Willows Rare Frag 5",
+        "buyPrice": 48,
+        "sellPrice": 40,
+        "unit": "CXP"
+    },
+    "(-606, 46, 1089)": {
+        "name": "EC Artifact Rare Frag 1",
+        "buyPrice": 80,
+        "sellPrice": 72,
+        "unit": "CXP"
+    },
+    "(-606, 45, 1089)": {
+        "name": "EC Artifact Rare Frag 2",
+        "buyPrice": 72,
+        "sellPrice": 64,
+        "unit": "CXP"
+    },
+    "(-606, 44, 1089)": {
+        "name": "EC Artifact Rare Frag 3",
+        "buyPrice": 64,
+        "sellPrice": 56,
+        "unit": "CXP"
+    },
+    "(-606, 43, 1089)": {
+        "name": "EC Artifact Rare Frag 4",
+        "buyPrice": 56,
+        "sellPrice": 48,
+        "unit": "CXP"
+    },
+    "(-606, 42, 1089)": {
+        "name": "EC Artifact Rare Frag 5",
+        "buyPrice": 48,
+        "sellPrice": 40,
+        "unit": "CXP"
+    },
+    "(-604, 46, 1089)": {
+        "name": "Lime Rare Frag 1",
+        "buyPrice": 32,
+        "sellPrice": 28,
+        "unit": "CCS"
+    },
+    "(-604, 45, 1089)": {
+        "name": "Lime Rare Frag 2",
+        "buyPrice": 28,
+        "sellPrice": 24,
+        "unit": "CCS"
+    },
+    "(-604, 44, 1089)": {
+        "name": "Lime Rare Frag 3",
+        "buyPrice": 24,
+        "sellPrice": 20,
+        "unit": "CCS"
+    },
+    "(-604, 43, 1089)": {
+        "name": "Lime Rare Frag 4",
+        "buyPrice": 20,
+        "sellPrice": 16,
+        "unit": "CCS"
+    },
+    "(-604, 42, 1089)": {
+        "name": "Lime Rare Frag 5",
+        "buyPrice": 16,
+        "sellPrice": 12,
+        "unit": "CCS"
+    },
+    "(-604, 46, 1090)": {
+        "name": "Pink Rare Frag 1",
+        "buyPrice": 32,
+        "sellPrice": 28,
+        "unit": "CCS"
+    },
+    "(-604, 45, 1090)": {
+        "name": "Pink Rare Frag 2",
+        "buyPrice": 28,
+        "sellPrice": 24,
+        "unit": "CCS"
+    },
+    "(-604, 44, 1090)": {
+        "name": "Pink Rare Frag 3",
+        "buyPrice": 24,
+        "sellPrice": 20,
+        "unit": "CCS"
+    },
+    "(-604, 43, 1090)": {
+        "name": "Pink Rare Frag 4",
+        "buyPrice": 20,
+        "sellPrice": 16,
+        "unit": "CCS"
+    },
+    "(-604, 42, 1090)": {
+        "name": "Pink Rare Frag 5",
+        "buyPrice": 16,
+        "sellPrice": 12,
+        "unit": "CCS"
+    },
+    "(-604, 46, 1091)": {
+        "name": "Gray Rare Frag 1",
+        "buyPrice": 32,
+        "sellPrice": 28,
+        "unit": "CCS"
+    },
+    "(-604, 45, 1091)": {
+        "name": "Gray Rare Frag 2",
+        "buyPrice": 28,
+        "sellPrice": 24,
+        "unit": "CCS"
+    },
+    "(-604, 44, 1091)": {
+        "name": "Gray Rare Frag 3",
+        "buyPrice": 24,
+        "sellPrice": 20,
+        "unit": "CCS"
+    },
+    "(-604, 43, 1091)": {
+        "name": "Gray Rare Frag 4",
+        "buyPrice": 20,
+        "sellPrice": 16,
+        "unit": "CCS"
+    },
+    "(-604, 42, 1091)": {
+        "name": "Gray Rare Frag 5",
+        "buyPrice": 16,
+        "sellPrice": 12,
+        "unit": "CCS"
+    },
+    "(-604, 46, 1092)": {
+        "name": "Light Gray Rare Frag 1",
+        "buyPrice": 32,
+        "sellPrice": 28,
+        "unit": "CCS"
+    },
+    "(-604, 45, 1092)": {
+        "name": "Light Gray Rare Frag 2",
+        "buyPrice": 28,
+        "sellPrice": 24,
+        "unit": "CCS"
+    },
+    "(-604, 44, 1092)": {
+        "name": "Light Gray Rare Frag 3",
+        "buyPrice": 24,
+        "sellPrice": 20,
+        "unit": "CCS"
+    },
+    "(-604, 43, 1092)": {
+        "name": "Light Gray Rare Frag 4",
+        "buyPrice": 20,
+        "sellPrice": 16,
+        "unit": "CCS"
+    },
+    "(-604, 42, 1092)": {
+        "name": "Light Gray Rare Frag 5",
+        "buyPrice": 16,
+        "sellPrice": 12,
+        "unit": "CCS"
+    },
+    "(-604, 46, 1093)": {
+        "name": "Cyan Rare Frag 1",
+        "buyPrice": 32,
+        "sellPrice": 28,
+        "unit": "CCS"
+    },
+    "(-604, 45, 1093)": {
+        "name": "Cyan Rare Frag 2",
+        "buyPrice": 28,
+        "sellPrice": 24,
+        "unit": "CCS"
+    },
+    "(-604, 44, 1093)": {
+        "name": "Cyan Rare Frag 3",
+        "buyPrice": 24,
+        "sellPrice": 20,
+        "unit": "CCS"
+    },
+    "(-604, 43, 1093)": {
+        "name": "Cyan Rare Frag 4",
+        "buyPrice": 20,
+        "sellPrice": 16,
+        "unit": "CCS"
+    },
+    "(-604, 42, 1093)": {
+        "name": "Cyan Rare Frag 5",
+        "buyPrice": 16,
+        "sellPrice": 12,
+        "unit": "CCS"
+    },
+    "(-604, 46, 1094)": {
+        "name": "Purple Rare Frag 1",
+        "buyPrice": 32,
+        "sellPrice": 28,
+        "unit": "CCS"
+    },
+    "(-604, 45, 1094)": {
+        "name": "Purple Rare Frag 2",
+        "buyPrice": 28,
+        "sellPrice": 24,
+        "unit": "CCS"
+    },
+    "(-604, 44, 1094)": {
+        "name": "Purple Rare Frag 3",
+        "buyPrice": 24,
+        "sellPrice": 20,
+        "unit": "CCS"
+    },
+    "(-604, 43, 1094)": {
+        "name": "Purple Rare Frag 4",
+        "buyPrice": 20,
+        "sellPrice": 16,
+        "unit": "CCS"
+    },
+    "(-604, 42, 1094)": {
+        "name": "Purple Rare Frag 5",
+        "buyPrice": 16,
+        "sellPrice": 12,
+        "unit": "CCS"
+    },
+    "(-604, 46, 1095)": {
+        "name": "Teal Rare Frag 1",
+        "buyPrice": 32,
+        "sellPrice": 28,
+        "unit": "CCS"
+    },
+    "(-604, 45, 1095)": {
+        "name": "Teal Rare Frag 2",
+        "buyPrice": 28,
+        "sellPrice": 24,
+        "unit": "CCS"
+    },
+    "(-604, 44, 1095)": {
+        "name": "Teal Rare Frag 3",
+        "buyPrice": 24,
+        "sellPrice": 20,
+        "unit": "CCS"
+    },
+    "(-604, 43, 1095)": {
+        "name": "Teal Rare Frag 4",
+        "buyPrice": 20,
+        "sellPrice": 16,
+        "unit": "CCS"
+    },
+    "(-604, 42, 1095)": {
+        "name": "Teal Rare Frag 5",
+        "buyPrice": 16,
+        "sellPrice": 12,
+        "unit": "CCS"
+    },
+    "(-604, 46, 1096)": {
+        "name": "Shifting Rare Frag 1",
+        "buyPrice": 32,
+        "sellPrice": 28,
+        "unit": "CCS"
+    },
+    "(-604, 45, 1096)": {
+        "name": "Shifting Rare Frag 2",
+        "buyPrice": 28,
+        "sellPrice": 24,
+        "unit": "CCS"
+    },
+    "(-604, 44, 1096)": {
+        "name": "Shifting Rare Frag 3",
+        "buyPrice": 24,
+        "sellPrice": 20,
+        "unit": "CCS"
+    },
+    "(-604, 43, 1096)": {
+        "name": "Shifting Rare Frag 4",
+        "buyPrice": 20,
+        "sellPrice": 16,
+        "unit": "CCS"
+    },
+    "(-604, 42, 1096)": {
+        "name": "Shifting Rare Frag 5",
+        "buyPrice": 16,
+        "sellPrice": 12,
+        "unit": "CCS"
+    },
+    "(-604, 46, 1097)": {
+        "name": "Forum Rare Frag 1",
+        "buyPrice": 32,
+        "sellPrice": 28,
+        "unit": "CCS"
+    },
+    "(-604, 45, 1097)": {
+        "name": "Forum Rare Frag 2",
+        "buyPrice": 28,
+        "sellPrice": 24,
+        "unit": "CCS"
+    },
+    "(-604, 44, 1097)": {
+        "name": "Forum Rare Frag 3",
+        "buyPrice": 24,
+        "sellPrice": 20,
+        "unit": "CCS"
+    },
+    "(-604, 43, 1097)": {
+        "name": "Forum Rare Frag 4",
+        "buyPrice": 20,
+        "sellPrice": 16,
+        "unit": "CCS"
+    },
+    "(-604, 42, 1097)": {
+        "name": "Forum Rare Frag 5",
+        "buyPrice": 16,
+        "sellPrice": 12,
+        "unit": "CCS"
+    },
+    "(-604, 46, 1098)": {
+        "name": "DD Artifact 1",
+        "buyPrice": 2.0,
+        "sellPrice": 1.75,
+        "unit": "HCS"
+    },
+    "(-604, 45, 1098)": {
+        "name": "DD Artifact 2",
+        "buyPrice": 1.75,
+        "sellPrice": 1.5,
+        "unit": "HCS"
+    },
+    "(-604, 44, 1098)": {
+        "name": "DD Artifact 3",
+        "buyPrice": 1.5,
+        "sellPrice": 1.25,
+        "unit": "HCS"
+    },
+    "(-604, 43, 1098)": {
+        "name": "DD Artifact 4",
+        "buyPrice": 1.25,
+        "sellPrice": 1.0,
+        "unit": "HCS"
+    },
+    "(-604, 42, 1098)": {
+        "name": "DD Artifact 5",
+        "buyPrice": 1.0,
+        "sellPrice": 0.75,
+        "unit": "HCS"
+    },
+    "(-604, 46, 1099)": {
+        "name": "CZ Rare 1",
+        "buyPrice": 2.25,
+        "sellPrice": 2.0,
+        "unit": "HAR"
+    },
+    "(-604, 45, 1099)": {
+        "name": "CZ Rare 2",
+        "buyPrice": 2.0,
+        "sellPrice": 1.75,
+        "unit": "HAR"
+    },
+    "(-604, 44, 1099)": {
+        "name": "CZ Rare 3",
+        "buyPrice": 1.75,
+        "sellPrice": 1.5,
+        "unit": "HAR"
+    },
+    "(-604, 43, 1099)": {
+        "name": "CZ Rare 4",
+        "buyPrice": 1.5,
+        "sellPrice": 1.25,
+        "unit": "HAR"
+    },
+    "(-604, 42, 1099)": {
+        "name": "CZ Rare 5",
+        "buyPrice": 1.25,
+        "sellPrice": 1.0,
+        "unit": "HAR"
+    },
+    "(-606, 46, 1099)": {
+        "name": "Wolfswood Rare Frag 1",
+        "buyPrice": 2.25,
+        "sellPrice": 2.0,
+        "unit": "HAR"
+    },
+    "(-606, 45, 1099)": {
+        "name": "Wolfswood Rare Frag 2",
+        "buyPrice": 2.0,
+        "sellPrice": 1.75,
+        "unit": "HAR"
+    },
+    "(-606, 44, 1099)": {
+        "name": "Wolfswood Rare Frag 3",
+        "buyPrice": 1.75,
+        "sellPrice": 1.5,
+        "unit": "HAR"
+    },
+    "(-606, 43, 1099)": {
+        "name": "Wolfswood Rare Frag 4",
+        "buyPrice": 1.5,
+        "sellPrice": 1.25,
+        "unit": "HAR"
+    },
+    "(-606, 42, 1099)": {
+        "name": "Wolfswood Rare Frag 5",
+        "buyPrice": 1.25,
+        "sellPrice": 1.0,
+        "unit": "HAR"
+    },
+    "(-607, 46, 1099)": {
+        "name": "Pelia's Keep Rare Frag 1",
+        "buyPrice": 2.25,
+        "sellPrice": 2.0,
+        "unit": "HAR"
+    },
+    "(-607, 45, 1099)": {
+        "name": "Pelia's Keep Rare Frag 2",
+        "buyPrice": 2.0,
+        "sellPrice": 1.75,
+        "unit": "HAR"
+    },
+    "(-607, 44, 1099)": {
+        "name": "Pelia's Keep Rare Frag 3",
+        "buyPrice": 1.75,
+        "sellPrice": 1.5,
+        "unit": "HAR"
+    },
+    "(-607, 43, 1099)": {
+        "name": "Pelia's Keep Rare Frag 4",
+        "buyPrice": 1.5,
+        "sellPrice": 1.25,
+        "unit": "HAR"
+    },
+    "(-607, 42, 1099)": {
+        "name": "Pelia's Keep Rare Frag 5",
+        "buyPrice": 1.25,
+        "sellPrice": 1.0,
+        "unit": "HAR"
+    },
+    "(-608, 46, 1099)": {
+        "name": "Star Point Rare Frag 1",
+        "buyPrice": 2.25,
+        "sellPrice": 2.0,
+        "unit": "HAR"
+    },
+    "(-608, 45, 1099)": {
+        "name": "Star Point Rare Frag 2",
+        "buyPrice": 2.0,
+        "sellPrice": 1.75,
+        "unit": "HAR"
+    },
+    "(-608, 44, 1099)": {
+        "name": "Star Point Rare Frag 3",
+        "buyPrice": 1.75,
+        "sellPrice": 1.5,
+        "unit": "HAR"
+    },
+    "(-608, 43, 1099)": {
+        "name": "Star Point Rare Frag 4",
+        "buyPrice": 1.5,
+        "sellPrice": 1.25,
+        "unit": "HAR"
+    },
+    "(-608, 42, 1099)": {
+        "name": "Star Point Rare Frag 5",
+        "buyPrice": 1.25,
+        "sellPrice": 1.0,
+        "unit": "HAR"
+    },
+    "(-609, 46, 1099)": {
+        "name": "Blue Rare Frag 1",
+        "buyPrice": 2.25,
+        "sellPrice": 2.0,
+        "unit": "HAR"
+    },
+    "(-609, 45, 1099)": {
+        "name": "Blue Rare Frag 2",
+        "buyPrice": 2.0,
+        "sellPrice": 1.75,
+        "unit": "HAR"
+    },
+    "(-609, 44, 1099)": {
+        "name": "Blue Rare Frag 3",
+        "buyPrice": 1.75,
+        "sellPrice": 1.5,
+        "unit": "HAR"
+    },
+    "(-609, 43, 1099)": {
+        "name": "Blue Rare Frag 4",
+        "buyPrice": 1.5,
+        "sellPrice": 1.25,
+        "unit": "HAR"
+    },
+    "(-609, 42, 1099)": {
+        "name": "Blue Rare Frag 5",
+        "buyPrice": 1.25,
+        "sellPrice": 1.0,
+        "unit": "HAR"
+    },
+    "(-610, 46, 1099)": {
+        "name": "Brown Rare Frag 1",
+        "buyPrice": 2.25,
+        "sellPrice": 2.0,
+        "unit": "HAR"
+    },
+    "(-610, 45, 1099)": {
+        "name": "Brown Rare Frag 2",
+        "buyPrice": 2.0,
+        "sellPrice": 1.75,
+        "unit": "HAR"
+    },
+    "(-610, 44, 1099)": {
+        "name": "Brown Rare Frag 3",
+        "buyPrice": 1.75,
+        "sellPrice": 1.5,
+        "unit": "HAR"
+    },
+    "(-610, 43, 1099)": {
+        "name": "Brown Rare Frag 4",
+        "buyPrice": 1.5,
+        "sellPrice": 1.25,
+        "unit": "HAR"
+    },
+    "(-610, 42, 1099)": {
+        "name": "Brown Rare Frag 5",
+        "buyPrice": 1.25,
+        "sellPrice": 1.0,
+        "unit": "HAR"
+    },
+    "(-611, 46, 1099)": {
+        "name": "SKT Rare Frag 1",
+        "buyPrice": 2.25,
+        "sellPrice": 2.0,
+        "unit": "HAR"
+    },
+    "(-611, 45, 1099)": {
+        "name": "SKT Rare Frag 2",
+        "buyPrice": 2.0,
+        "sellPrice": 1.75,
+        "unit": "HAR"
+    },
+    "(-611, 44, 1099)": {
+        "name": "SKT Rare Frag 3",
+        "buyPrice": 1.75,
+        "sellPrice": 1.5,
+        "unit": "HAR"
+    },
+    "(-611, 43, 1099)": {
+        "name": "SKT Rare Frag 4",
+        "buyPrice": 1.5,
+        "sellPrice": 1.25,
+        "unit": "HAR"
+    },
+    "(-611, 42, 1099)": {
+        "name": "SKT Rare Frag 5",
+        "buyPrice": 1.25,
+        "sellPrice": 1.0,
+        "unit": "HAR"
+    },
+    "(-612, 46, 1099)": {
+        "name": "Hexfall Rare Frag 1",
+        "buyPrice": 2.25,
+        "sellPrice": 2.0,
+        "unit": "HAR"
+    },
+    "(-612, 45, 1099)": {
+        "name": "Hexfall Rare Frag 2",
+        "buyPrice": 2.0,
+        "sellPrice": 1.75,
+        "unit": "HAR"
+    },
+    "(-612, 44, 1099)": {
+        "name": "Hexfall Rare Frag 3",
+        "buyPrice": 1.75,
+        "sellPrice": 1.5,
+        "unit": "HAR"
+    },
+    "(-612, 43, 1099)": {
+        "name": "Hexfall Rare Frag 4",
+        "buyPrice": 1.5,
+        "sellPrice": 1.25,
+        "unit": "HAR"
+    },
+    "(-612, 42, 1099)": {
+        "name": "Hexfall Rare Frag 5",
+        "buyPrice": 1.25,
+        "sellPrice": 1.0,
+        "unit": "HAR"
+    },
+    "(-614, 46, 1092)": {
+        "name": "R1 Casino Rare Frag 1",
+        "buyPrice": 18,
+        "sellPrice": 16,
+        "unit": "CXP"
+    },
+    "(-614, 45, 1092)": {
+        "name": "R1 Casino Rare Frag 2",
+        "buyPrice": 16,
+        "sellPrice": 14,
+        "unit": "CXP"
+    },
+    "(-614, 44, 1092)": {
+        "name": "R1 Casino Rare Frag 3",
+        "buyPrice": 14,
+        "sellPrice": 12,
+        "unit": "CXP"
+    },
+    "(-614, 43, 1092)": {
+        "name": "R1 Casino Rare Frag 4",
+        "buyPrice": 12,
+        "sellPrice": 10,
+        "unit": "CXP"
+    },
+    "(-614, 42, 1092)": {
+        "name": "R1 Casino Rare Frag 5",
+        "buyPrice": 10,
+        "sellPrice": 8,
+        "unit": "CXP"
+    },
+    "(-614, 46, 1091)": {
+        "name": "R1 Overworld Rare Frag 1",
+        "buyPrice": 18,
+        "sellPrice": 16,
+        "unit": "CXP"
+    },
+    "(-614, 45, 1091)": {
+        "name": "R1 Overworld Rare Frag 2",
+        "buyPrice": 16,
+        "sellPrice": 14,
+        "unit": "CXP"
+    },
+    "(-614, 44, 1091)": {
+        "name": "R1 Overworld Rare Frag 3",
+        "buyPrice": 14,
+        "sellPrice": 12,
+        "unit": "CXP"
+    },
+    "(-614, 43, 1091)": {
+        "name": "R1 Overworld Rare Frag 4",
+        "buyPrice": 12,
+        "sellPrice": 10,
+        "unit": "CXP"
+    },
+    "(-614, 42, 1091)": {
+        "name": "R1 Overworld Rare Frag 5",
+        "buyPrice": 10,
+        "sellPrice": 8,
+        "unit": "CXP"
+    },
+    "(-614, 46, 1094)": {
+        "name": "R2 Overworld Rare Frag 1",
+        "buyPrice": 32,
+        "sellPrice": 28,
+        "unit": "CCS"
+    },
+    "(-614, 45, 1094)": {
+        "name": "R2 Overworld Rare Frag 2",
+        "buyPrice": 28,
+        "sellPrice": 24,
+        "unit": "CCS"
+    },
+    "(-614, 44, 1094)": {
+        "name": "R2 Overworld Rare Frag 3",
+        "buyPrice": 24,
+        "sellPrice": 20,
+        "unit": "CCS"
+    },
+    "(-614, 43, 1094)": {
+        "name": "R2 Overworld Rare Frag 4",
+        "buyPrice": 20,
+        "sellPrice": 16,
+        "unit": "CCS"
+    },
+    "(-614, 42, 1094)": {
+        "name": "R2 Overworld Rare Frag 5",
+        "buyPrice": 16,
+        "sellPrice": 12,
+        "unit": "CCS"
+    },
+    "(-614, 46, 1095)": {
+        "name": "R2 Casino Rare Frag 1",
+        "buyPrice": 96,
+        "sellPrice": 80,
+        "unit": "CCS"
+    },
+    "(-614, 45, 1095)": {
+        "name": "R2 Casino Rare Frag 2",
+        "buyPrice": 80,
+        "sellPrice": 64,
+        "unit": "CCS"
+    },
+    "(-614, 44, 1095)": {
+        "name": "R2 Casino Rare Frag 3",
+        "buyPrice": 64,
+        "sellPrice": 56,
+        "unit": "CCS"
+    },
+    "(-614, 43, 1095)": {
+        "name": "R2 Casino Rare Frag 4",
+        "buyPrice": 56,
+        "sellPrice": 48,
+        "unit": "CCS"
+    },
+    "(-614, 42, 1095)": {
+        "name": "R2 Casino Rare Frag 5",
+        "buyPrice": 48,
+        "sellPrice": 40,
+        "unit": "CCS"
+    },
+    "(-614, 46, 1096)": {
+        "name": "Forum Artifact 1",
+        "buyPrice": 48,
+        "sellPrice": 40,
+        "unit": "CCS"
+    },
+    "(-614, 45, 1096)": {
+        "name": "Forum Artifact 2",
+        "buyPrice": 40,
+        "sellPrice": 36,
+        "unit": "CCS"
+    },
+    "(-614, 44, 1096)": {
+        "name": "Forum Artifact 3",
+        "buyPrice": 36,
+        "sellPrice": 32,
+        "unit": "CCS"
+    },
+    "(-614, 43, 1096)": {
+        "name": "Forum Artifact 4",
+        "buyPrice": 32,
+        "sellPrice": 28,
+        "unit": "CCS"
+    },
+    "(-614, 42, 1096)": {
+        "name": "Forum Artifact 5",
+        "buyPrice": 28,
+        "sellPrice": 24,
+        "unit": "CCS"
+    },
+    "(-614, 46, 1097)": {
+        "name": "Teal Artifact 1",
+        "buyPrice": 96,
+        "sellPrice": 88,
+        "unit": "CCS"
+    },
+    "(-614, 45, 1097)": {
+        "name": "Teal Artifact 2",
+        "buyPrice": 88,
+        "sellPrice": 80,
+        "unit": "CCS"
+    },
+    "(-614, 44, 1097)": {
+        "name": "Teal Artifact 3",
+        "buyPrice": 80,
+        "sellPrice": 72,
+        "unit": "CCS"
+    },
+    "(-614, 43, 1097)": {
+        "name": "Teal Artifact 4",
+        "buyPrice": 72,
+        "sellPrice": 64,
+        "unit": "CCS"
+    },
+    "(-614, 42, 1097)": {
+        "name": "Teal Artifact 5",
+        "buyPrice": 64,
+        "sellPrice": 56,
+        "unit": "CCS"
+    }
+}

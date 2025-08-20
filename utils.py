@@ -4,6 +4,7 @@ import requests
 import re
 import os
 import ast
+import emoji
 from urllib.parse import urlparse, parse_qs
 from dotenv import load_dotenv
 load_dotenv()
@@ -253,6 +254,11 @@ def mistrade_calculator(userData, target, buyPrice, sellPrice):
     from decimal import Decimal, getcontext
     getcontext().prec = 10
 
+    #開啟 PIG 會員名單
+    with open("pig_vip.json", "r", encoding="utf-8") as f:
+        vip_data = json.load(f)
+    pig_vip = vip_data["PIG"]
+
     CURRENCYMAP = {
         "experience_bottle": "XP",
         "dragon_breath": "CXP",
@@ -303,7 +309,10 @@ def mistrade_calculator(userData, target, buyPrice, sellPrice):
         wrong_payment_value = Decimal(0)
         #玩家購買
         if changedProductCount < 0:
-            totalBuyPrice = abs(Decimal(changedProductCount)) * Decimal(buyPrice)
+            if userName not in pig_vip:
+                totalBuyPrice = abs(Decimal(changedProductCount)) * Decimal(buyPrice)
+            elif userName in pig_vip:
+                totalBuyPrice = abs(Decimal(changedProductCount)) * Decimal(sellPrice)
             wrong_payment_value = paid_value - totalBuyPrice
         #玩家販售
         elif changedProductCount > 0:
@@ -370,6 +379,11 @@ def handle_trade_log(message, file_lines, coord, auto_detect):
         auto_detect = True
         shop_name = barrel_data[coord]["name"]
     
+    #開啟 PIG 會員名單
+    with open("pig_vip.json", "r", encoding="utf-8") as f:
+        vip_data = json.load(f)
+    pig_vip = vip_data["PIG"]
+
     #計算結果
     if filtered:
         parameter_setting = (
@@ -397,6 +411,7 @@ def handle_trade_log(message, file_lines, coord, auto_detect):
         userMistraded = False
         hidden_correct_trade_count = 0
         players_in_log = []
+        vip_in_log = []
         #建立錯誤交易名單
         if parameter["buyPrice"] != None:
             wrongPayment, wrongUsage = mistrade_calculator(playerLog, parameter["unit"], parameter["buyPrice"], parameter["sellPrice"])
@@ -404,6 +419,8 @@ def handle_trade_log(message, file_lines, coord, auto_detect):
         for playerName, changedItems in playerLog.items():
             fixedName = playerName.replace("_", "\\_")
             players_in_log.append(fixedName)
+            if playerName in pig_vip:
+                vip_in_log.append(fixedName)
             userMistraded = False
             mistradeMessage = ""
             if any(value != 0 for value in changedItems.values()):
@@ -436,8 +453,16 @@ def handle_trade_log(message, file_lines, coord, auto_detect):
                     logResult += "\n"
         if logResult == "": logResult = "<:ghost_technology_4:1293185676086481039> 物品無變動 (No item changes were made)\n"
         if hidden_correct_trade_count > 0: logResult += f"✅ 共有 {hidden_correct_trade_count} 筆正確交易被隱藏 (Correct trade entries were hidden)\n"
-        if len(players_in_log) > 0: logResult += f"✅ 共有 {len(players_in_log)} 個玩家參與交易 (Players participated in the trade):\n"
-        logResult += " ".join(players_in_log)
+        
+        if len(players_in_log) > 0:
+            logResult += f"✅ 共有 {len(players_in_log)} 個玩家參與交易 (Players participated in the trade):\n"
+            logResult += " ".join(players_in_log)
+            logResult += "\n"
+        if len(vip_in_log) > 0:
+            logResult += f"✅ 共有 {len(vip_in_log)} 個會員參與交易 (Vips participated in the trade):\n"
+            logResult += " ".join(vip_in_log)
+            logResult += "\n"
+        
         auto_detect = "[Auto]" if auto_detect else ""
         buy_price = str(parameter["buyPrice"]) + parameter["unit"].upper()
         sell_price = str(parameter["sellPrice"]) + parameter["unit"].upper()
@@ -611,10 +636,10 @@ def manage_build(buildCommand, sender):
                 if not hasClass:
                     skillPoints = ""
                     className = ""
-
+                name_without_emoji = emoji.replace_emoji(name, replace='')
                 result_lines.append(
                     f"# **{name}**\n"
-                    f"└🔗 連結：[{name}]({info['連結']})\n"
+                    f"└🔗 連結：[{name_without_emoji}]({info['連結']})\n"
                     f"└👤 作者：{info['作者']}\n"
                     f"{className}"
                     f"{skillPoints}"
@@ -670,3 +695,30 @@ def manage_build(buildCommand, sender):
         return f"✅ 已成功{op}Build「 {build_name} 」！"
     elif op == "修改":
         return f"✅ 已成功{op}Build「 {build_name} 」的職業！"
+    
+def manage_pig_vip(action, user = ""):
+    #開啟 JSON 檔案
+    with open("pig_vip.json", "r", encoding="utf-8") as f:
+        vip_data = json.load(f)
+    
+    pig_vip = vip_data["PIG"]
+    
+    if action == "add" and user not in pig_vip:
+        pig_vip.append(user)
+        vip_data["PIG"] = pig_vip
+        # 寫回 JSON 檔案
+        with open("pig_vip.json", "w", encoding="utf-8") as f:
+            json.dump(vip_data, f, ensure_ascii=False, indent=4)
+        return f"✅ 已新增PIG商店會員 **{user}** !"
+    elif action == "remove" and user in pig_vip:
+        pig_vip.remove(user)
+        vip_data["PIG"] = pig_vip
+        # 寫回 JSON 檔案
+        with open("pig_vip.json", "w", encoding="utf-8") as f:
+            json.dump(vip_data, f, ensure_ascii=False, indent=4)
+        return f"✅ 已移除PIG商店會員 **{user}** !"
+    elif action == "list":
+        sanitized = [player.replace('_', '\\_') for player in pig_vip]
+        return "🔍 以下為PIG商店會員名單:\n" + "".join(f"**{p}**\n" for p in sanitized)
+    else:
+        return "❌ 未知指令"

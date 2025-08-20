@@ -579,15 +579,19 @@
     "stats": {
       "tactical_maneuver_cooldown_percent": {
         "locked": false,
-        "value": -40
+        "value": -50
       },
       "tactical_maneuver_velocity_percent": {
         "locked": false,
-        "value": -60
+        "value": -50
       },
-      "tactical_maneuver_stun_duration_flat": {
+      "tactical_maneuver_stun_duration_percent": {
         "locked": false,
-        "value": -10
+        "value": -50
+      },
+      "tactical_maneuver_charge_flat": {
+        "locked": false,
+        "value": -1
       }
     },
     "type": "Charm",
@@ -892,7 +896,7 @@
     "region": "Ring",
     "tier": "Rare",
     "name": "Zoetic Geas",
-    "power": 2,
+    "power": 3,
     "base_item": "Amethyst Shard",
     "release_status": "public",
     "stats": {
@@ -902,11 +906,11 @@
       },
       "hand_of_light_range_percent": {
         "locked": false,
-        "value": -40
+        "value": -20
       },
       "hand_of_light_healing_percent": {
         "locked": false,
-        "value": -100
+        "value": -50
       }
     },
     "type": "Charm",
@@ -1439,11 +1443,14 @@
     "lore": "Epic Crafting Material\nAimless spores float through the\nair, now a reminder of the control\nthe Godspore once held."
   },
   "Tainted Spores": {
+    "location": "Architect's Ring",
     "mmlore": [
       "Through the insidious infection",
       "of the Hollow, a link could be",
       "found to its source."
     ],
+    "region": "Ring",
+    "tier": "Currency",
     "name": "Tainted Spores",
     "base_item": "Beetroot Seeds",
     "release_status": "public",
@@ -1542,7 +1549,7 @@
       "shielding": 1,
       "triage": 2,
       "attack_speed_percent": 20,
-      "armor": 3.5
+      "armor": 4
     },
     "lore": "A requiem does not help the dead.\nRather, it comforts those that remain."
   },
@@ -1728,25 +1735,17 @@
     "base_item": "Bell",
     "release_status": "public",
     "stats": {
-      "choir_bells_damage_percent": {
-        "locked": false,
-        "value": 100
-      },
       "choir_bells_slowness_amplifier_percent": {
         "locked": false,
         "value": 25
       },
-      "choir_bells_vulnerability_amplifier_percent": {
-        "locked": false,
-        "value": -25
-      },
       "choir_bells_weakness_amplifier_percent": {
         "locked": false,
-        "value": -15
+        "value": 15
       },
-      "choir_bells_debuff_duration_percent": {
+      "choir_bells_vulnerability_amplifier_percent": {
         "locked": false,
-        "value": -50
+        "value": -20
       }
     },
     "type": "Charm",
@@ -2668,11 +2667,11 @@
     "stats": {
       "luminous_infusion_damage_percent": {
         "locked": false,
-        "value": 10
+        "value": 5
       },
       "luminous_infusion_radius_percent": {
         "locked": false,
-        "value": 50
+        "value": 35
       }
     },
     "type": "Charm",
@@ -2727,7 +2726,7 @@
     "stats": {
       "luminous_infusion_damage_percent": {
         "locked": false,
-        "value": 35
+        "value": 20
       }
     },
     "type": "Charm",
@@ -2890,7 +2889,7 @@
     "stats": {
       "luminous_infusion_damage_percent": {
         "locked": false,
-        "value": 20
+        "value": 10
       }
     },
     "type": "Charm",
@@ -2967,6 +2966,7 @@
     "release_status": "public",
     "type": "Offhand",
     "stats": {
+      "adaptability": 1,
       "inferno": 5,
       "melee_protection": 2,
       "reflexes": 1,
@@ -2992,10 +2992,11 @@
     "release_status": "public",
     "type": "Offhand",
     "stats": {
+      "adaptability": 1,
       "inferno": 5,
       "melee_protection": 2,
       "reflexes": 1,
-      "sustenance": 1,
+      "sustenance": 2,
       "max_health_flat": 6,
       "speed_percent": 15
     },
@@ -3017,10 +3018,11 @@
     "release_status": "public",
     "type": "Offhand",
     "stats": {
+      "adaptability": 1,
       "inferno": 5,
       "melee_protection": 3,
       "reflexes": 1,
-      "sustenance": 1,
+      "sustenance": 2,
       "max_health_flat": 6,
       "speed_percent": 15
     },
@@ -3054,7 +3056,7 @@
     "stats": {
       "luminous_infusion_damage_percent": {
         "locked": false,
-        "value": 10
+        "value": 5
       }
     },
     "type": "Charm",
@@ -3149,10 +3151,11 @@
     "release_status": "public",
     "type": "Offhand",
     "stats": {
-      "trivium": 4,
       "inferno": 3,
+      "trivium": 4,
       "speed_percent": 10,
-      "agility": 7
+      "agility": 7,
+      "armor": 7.5
     },
     "lore": "An eternal flame, burning with the\nheat of a source yet unknown."
   },
@@ -3170,10 +3173,11 @@
     "release_status": "public",
     "type": "Offhand",
     "stats": {
-      "trivium": 4,
       "inferno": 3,
+      "trivium": 4,
       "speed_percent": 15,
-      "agility": 7.5
+      "agility": 7.5,
+      "armor": 8
     },
     "lore": "An eternal flame, burning with the\nheat of a source yet unknown."
   },
@@ -3191,10 +3195,11 @@
     "release_status": "public",
     "type": "Offhand",
     "stats": {
-      "trivium": 4,
       "inferno": 3,
+      "trivium": 4,
       "speed_percent": 15,
-      "agility": 8
+      "agility": 8,
+      "armor": 8.5
     },
     "lore": "An eternal flame, burning with the\nheat of a source yet unknown."
   },
@@ -4986,8 +4991,8 @@
       "knockback": 1,
       "shielding": 1,
       "attack_speed_base": 0.8,
-      "attack_damage_base": 18.5,
-      "spell_power_base": 55
+      "spell_power_base": 55,
+      "attack_damage_base": 20
     },
     "lore": "In time before the time you know,\nthe Giants shaped these lands. Shaped\nfrom the mantle, ocean floor, turned\nthen to ice and sand."
   },
@@ -5696,14 +5701,14 @@
     "release_status": "public",
     "type": "Offhand",
     "stats": {
-      "melee_protection": 2,
-      "projectile_protection": 1,
+      "melee_protection": 3,
       "poise": 2,
-      "armor": 3,
+      "projectile_protection": 1,
       "max_health_percent": -25,
       "speed_percent": 15,
       "attack_speed_percent": 10,
-      "attack_damage_percent": 25
+      "attack_damage_percent": 25,
+      "armor": 3
     },
     "lore": "The power of the infernal slowly\ndemands more and more, with diminishing\nreturns..."
   },
@@ -5726,7 +5731,7 @@
       "max_health_percent": 10,
       "speed_percent": 10,
       "magic_damage_percent": 10,
-      "armor": 2.5
+      "armor": 3.5
     },
     "lore": "The legendary folio, composed by ancient hands.\nIt tells of Giants long ago, who shaped these verdant lands."
   },
@@ -7337,7 +7342,7 @@
       "knockback_resistance_flat": 5,
       "projectile_speed_base": 1.5,
       "speed_percent": -20,
-      "projectile_damage_base": 16
+      "projectile_damage_base": 16.5
     },
     "lore": "The untold power of a tide frozen in\ntime ripples through this bow."
   },
@@ -7856,7 +7861,7 @@
       "shielding": 1,
       "stamina": 3,
       "projectile_speed_base": 2.5,
-      "projectile_damage_base": 26
+      "projectile_damage_base": 26.5
     },
     "lore": "Silver Knight Ppanvel tore through the tangled\nfen of the Wolfswoods. The ground was stained\nwith glistening lifeblood. He had to hurry. The\nGreat Wolf, Harrakfar, could heal swiftly and\nwould outlast him if he didn't finish his hunt soon."
   },
@@ -7994,8 +7999,8 @@
       "infinity": 1,
       "thunder_aspect": 5,
       "unbreakable": 1,
-      "projectile_speed_base": 1.2,
-      "projectile_damage_base": 27.5
+      "projectile_damage_base": 27.5,
+      "projectile_speed_base": 1.3
     },
     "lore": "Kaul's anger still lingers, even\nin slumber, a pain felt by all\nattuned to nature."
   },
@@ -8020,8 +8025,8 @@
       "infinity": 1,
       "thunder_aspect": 5,
       "unbreakable": 1,
-      "projectile_speed_base": 1.2,
-      "projectile_damage_base": 28.5
+      "projectile_damage_base": 28.5,
+      "projectile_speed_base": 1.3
     },
     "lore": "Kaul's anger still lingers, even\nin slumber, a pain felt by all\nattuned to nature."
   },
@@ -8046,8 +8051,8 @@
       "infinity": 1,
       "thunder_aspect": 5,
       "unbreakable": 1,
-      "projectile_speed_base": 1.2,
-      "projectile_damage_base": 29.5
+      "projectile_damage_base": 29.5,
+      "projectile_speed_base": 1.3
     },
     "lore": "Kaul's anger still lingers, even\nin slumber, a pain felt by all\nattuned to nature."
   },
@@ -8087,12 +8092,12 @@
     "release_status": "public",
     "type": "Bow",
     "stats": {
-      "unbreaking": 1,
-      "reflexes": 1,
       "fire_aspect": 2,
       "knockback": 2,
-      "projectile_damage_base": 14,
-      "projectile_speed_base": 0.5
+      "melee_protection": 2,
+      "unbreaking": 1,
+      "projectile_speed_base": 0.5,
+      "projectile_damage_base": 14.5
     },
     "lore": "With every shot, the destruction\nof the past echoes out."
   },
@@ -9276,7 +9281,7 @@
     "region": "Ring",
     "tier": "Rare",
     "name": "Fungal Fortitude",
-    "power": 3,
+    "power": 2,
     "base_item": "Brown Mushroom",
     "release_status": "public",
     "stats": {
@@ -10265,10 +10270,10 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
+      "magic_protection": 2,
+      "mending": 1,
       "steadfast": 2,
       "unbreaking": 1,
-      "mending": 1,
-      "magic_protection": 2,
       "max_health_flat": -2,
       "knockback_resistance_flat": 2.5,
       "armor": 6.5
@@ -10289,10 +10294,10 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
+      "magic_protection": 2,
+      "mending": 1,
       "steadfast": 2,
       "unbreaking": 2,
-      "mending": 1,
-      "magic_protection": 2,
       "max_health_flat": -2,
       "knockback_resistance_flat": 2.5,
       "armor": 7
@@ -10313,13 +10318,13 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
+      "magic_protection": 2,
+      "mending": 1,
       "steadfast": 2,
       "unbreaking": 3,
-      "mending": 1,
-      "magic_protection": 2,
       "max_health_flat": -2,
       "knockback_resistance_flat": 2.5,
-      "armor": 7.5
+      "armor": 8
     },
     "lore": "If we cannot wield this Magic, no one\ncan. Chain them up. Forever."
   },
@@ -10380,12 +10385,11 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
+      "depth_strider": 1,
       "feather_falling": 1,
       "mending": 1,
       "tempo": 2,
-      "depth_strider": 1,
-      "speed_percent": -10,
-      "agility": 4.5
+      "agility": 5.5
     },
     "lore": "The scales seem to fuse to your feet\nas you drift deeper into darkness."
   },
@@ -10605,7 +10609,7 @@
       "max_health_flat": -2,
       "projectile_damage_percent": 35,
       "projectile_speed_percent": 5,
-      "armor": 7
+      "armor": 7.5
     },
     "lore": "Aurora's forces wear boots of strange\nstarmetal. These in particular have been\nhardened by the blood of the stars."
   },
@@ -10624,13 +10628,13 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
-      "magic_protection": 1,
+      "magic_protection": 2,
       "tempo": 1,
       "unbreaking": 9,
       "max_health_flat": -2,
       "projectile_damage_percent": 35,
       "projectile_speed_percent": 10,
-      "armor": 7.5
+      "armor": 8
     },
     "lore": "Aurora's forces wear boots of strange\nstarmetal. These in particular have been\nhardened by the blood of the stars."
   },
@@ -10722,9 +10726,9 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
-      "unbreaking": 6,
       "ethereal": 1,
       "magic_protection": 2,
+      "unbreaking": 6,
       "knockback_resistance_flat": 2,
       "agility": 6.5
     },
@@ -10746,11 +10750,11 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
-      "unbreaking": 6,
       "ethereal": 1,
       "magic_protection": 2,
-      "knockback_resistance_flat": 2,
-      "agility": 7
+      "unbreaking": 6,
+      "agility": 7,
+      "knockback_resistance_flat": 3
     },
     "lore": "For on that day young Pelias would\nsee his blessed empire fall. His name\nnow cursed, for what he did brought\nholy wrath upon us all."
   },
@@ -10770,11 +10774,11 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
-      "unbreaking": 7,
       "ethereal": 1,
       "magic_protection": 2,
-      "knockback_resistance_flat": 2,
-      "agility": 7.5
+      "unbreaking": 7,
+      "agility": 7.5,
+      "knockback_resistance_flat": 3
     },
     "lore": "For on that day young Pelias would\nsee his blessed empire fall. His name\nnow cursed, for what he did brought\nholy wrath upon us all."
   },
@@ -10794,11 +10798,11 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
-      "unbreaking": 8,
       "ethereal": 1,
       "magic_protection": 2,
-      "knockback_resistance_flat": 3,
-      "agility": 8
+      "unbreaking": 8,
+      "agility": 8,
+      "knockback_resistance_flat": 4
     },
     "lore": "For on that day young Pelias would\nsee his blessed empire fall. His name\nnow cursed, for what he did brought\nholy wrath upon us all."
   },
@@ -10818,11 +10822,11 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
-      "unbreaking": 9,
       "ethereal": 1,
       "magic_protection": 3,
+      "unbreaking": 9,
       "agility": 8,
-      "knockback_resistance_flat": 4
+      "knockback_resistance_flat": 5
     },
     "lore": "For on that day young Pelias would\nsee his blessed empire fall. His name\nnow cursed, for what he did brought\nholy wrath upon us all."
   },
@@ -10847,7 +10851,7 @@
       "projectile_fragility": 2,
       "tempo": 2,
       "unbreaking": 8,
-      "agility": 6
+      "agility": 7
     },
     "lore": "Dark blades of metal feathers decorate\nthe otherwise unassuming boots. The\nformidable hawk's likeness lends itself\nwell here, a testament to its strength."
   },
@@ -10872,7 +10876,7 @@
       "projectile_fragility": 2,
       "tempo": 2,
       "unbreaking": 9,
-      "agility": 6
+      "agility": 7
     },
     "lore": "Dark blades of metal feathers decorate\nthe otherwise unassuming boots. The\nformidable hawk's likeness lends itself\nwell here, a testament to its strength."
   },
@@ -11483,12 +11487,12 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
-      "feather_falling": 2,
-      "unbreakable": 1,
+      "feather_falling": 1,
+      "reflexes": 1,
       "regeneration": 4,
-      "tempo": 1,
-      "max_health_percent": -20,
-      "agility": 6.5
+      "unbreakable": 1,
+      "agility": 6.5,
+      "max_health_percent": -10
     },
     "lore": "As his actions caught up to his legend,\nZanil came to repent for his crimes."
   },
@@ -11507,11 +11511,11 @@
     "type": "Boots",
     "stats": {
       "feather_falling": 2,
-      "unbreakable": 1,
+      "reflexes": 1,
       "regeneration": 4,
-      "tempo": 1,
-      "max_health_percent": -20,
-      "agility": 7
+      "unbreakable": 1,
+      "agility": 7,
+      "max_health_percent": -10
     },
     "lore": "As his actions caught up to his legend,\nZanil came to repent for his crimes."
   },
@@ -11530,11 +11534,11 @@
     "type": "Boots",
     "stats": {
       "feather_falling": 2,
-      "unbreakable": 1,
+      "reflexes": 1,
       "regeneration": 4,
-      "tempo": 1,
-      "max_health_percent": -20,
-      "agility": 8
+      "unbreakable": 1,
+      "agility": 8,
+      "max_health_percent": -10
     },
     "lore": "As his actions caught up to his legend,\nZanil came to repent for his crimes."
   },
@@ -11553,11 +11557,11 @@
     "type": "Boots",
     "stats": {
       "feather_falling": 2,
-      "unbreakable": 1,
+      "reflexes": 1,
       "regeneration": 5,
-      "tempo": 1,
-      "max_health_percent": -20,
-      "agility": 8
+      "unbreakable": 1,
+      "agility": 8,
+      "max_health_percent": -10
     },
     "lore": "As his actions caught up to his legend,\nZanil came to repent for his crimes."
   },
@@ -11571,9 +11575,9 @@
     "type": "Boots",
     "stats": {
       "fire_protection": 1,
-      "unbreaking": 2,
       "shielding": 1,
-      "armor": 5
+      "unbreaking": 2,
+      "armor": 5.5
     }
   },
   "Adamantium Skin (chest)": {
@@ -11586,9 +11590,9 @@
     "type": "Chestplate",
     "stats": {
       "fire_protection": 1,
-      "unbreaking": 2,
       "shielding": 1,
-      "armor": 5
+      "unbreaking": 2,
+      "armor": 5.5
     }
   },
   "Adventurer's Chestplate": {
@@ -11773,12 +11777,12 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
-      "unbreaking": 7,
       "blast_protection": 4,
-      "shielding": 1,
       "magic_protection": 3,
+      "shielding": 1,
+      "unbreaking": 7,
       "max_health_flat": -4,
-      "armor": 10
+      "armor": 10.5
     },
     "lore": "If the existence of a watch insists a\nwatchmaker, then does not the craftsman\nrequire a maker of their own? But\nwhat being could've begotten the Machine?"
   },
@@ -11798,12 +11802,12 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
-      "unbreaking": 8,
       "blast_protection": 4,
-      "shielding": 1,
       "magic_protection": 4,
+      "shielding": 1,
+      "unbreaking": 8,
       "max_health_flat": -4,
-      "armor": 10
+      "armor": 10.5
     },
     "lore": "If the existence of a watch insists a\nwatchmaker, then does not the craftsman\nrequire a maker of their own? But\nwhat being could've begotten the Machine?"
   },
@@ -11823,12 +11827,12 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
-      "unbreaking": 8,
       "blast_protection": 4,
-      "shielding": 1,
       "magic_protection": 4,
+      "shielding": 1,
+      "unbreaking": 8,
       "max_health_flat": -4,
-      "armor": 11
+      "armor": 11.5
     },
     "lore": "If the existence of a watch insists a\nwatchmaker, then does not the craftsman\nrequire a maker of their own? But\nwhat being could've begotten the Machine?"
   },
@@ -11851,8 +11855,8 @@
       "reflexes": 1,
       "regicide": 1,
       "unbreaking": 3,
-      "agility": 7,
-      "magic_damage_percent": 20
+      "magic_damage_percent": 20,
+      "agility": 7.5
     },
     "lore": "The mind protects against what cannot be understood\nby rejecting it. The lxxxxxxx's true form was simply\ntoo damaging for any creature to lay eyes upon."
   },
@@ -11871,10 +11875,11 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
-      "melee_fragility": 2,
+      "projectile_fragility": 2,
       "reflexes": 2,
       "unbreaking": 7,
-      "agility": 7
+      "agility": 7.5,
+      "speed_percent": 5
     },
     "lore": "Ribs of an unknown monster that dwells\nat the bottom of the bloody ocean\nsurrounding the nightmare."
   },
@@ -11893,11 +11898,11 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
-      "melee_fragility": 2,
+      "projectile_fragility": 2,
       "reflexes": 2,
       "unbreaking": 8,
-      "agility": 7.5,
-      "speed_percent": 5
+      "agility": 8,
+      "speed_percent": 10
     },
     "lore": "Ribs of an unknown monster that dwells\nat the bottom of the bloody ocean\nsurrounding the nightmare."
   },
@@ -11916,11 +11921,11 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
-      "melee_fragility": 2,
+      "projectile_fragility": 2,
       "reflexes": 2,
       "unbreaking": 9,
-      "speed_percent": 5,
-      "agility": 8
+      "agility": 8.5,
+      "speed_percent": 10
     },
     "lore": "Ribs of an unknown monster that dwells\nat the bottom of the bloody ocean\nsurrounding the nightmare."
   },
@@ -11937,17 +11942,17 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
-      "mending": 1,
+      "blast_protection": 2,
       "feather_falling": 2,
-      "shielding": 1,
       "fire_protection": 2,
       "melee_protection": 2,
-      "blast_protection": 2,
+      "mending": 1,
+      "shielding": 1,
       "max_health_flat": -2,
       "max_health_percent": -10,
       "attack_damage_percent": 30,
       "attack_speed_percent": 10,
-      "armor": 3
+      "armor": 3.5
     },
     "lore": "In the light of the Prophet, it\nall returns to nothing."
   },
@@ -12209,10 +12214,10 @@
     "type": "Chestplate",
     "stats": {
       "regeneration": 2,
+      "sustenance": 2,
       "triage": 2,
       "unbreaking": 4,
-      "armor": 4,
-      "attack_damage_percent": 15
+      "armor": 4
     },
     "lore": "You would think the small icy lacings would\nbe uncomfortable, but they seem to keep\nyou healthy, alert, and energized."
   },
@@ -12406,10 +12411,10 @@
     "type": "Chestplate",
     "stats": {
       "regeneration": 1,
-      "stamina": 3,
+      "stamina": 2,
       "unbreaking": 6,
       "attack_speed_percent": -10,
-      "armor": 10
+      "armor": 9
     },
     "lore": "The miners toiled constantly, every\nrock they chipped away an insult\nto their God. Yet they had no choice\nbut to continue."
   },
@@ -12430,7 +12435,7 @@
     "type": "Chestplate",
     "stats": {
       "regeneration": 1,
-      "stamina": 4,
+      "stamina": 2,
       "unbreaking": 6,
       "attack_speed_percent": -10,
       "armor": 10
@@ -12454,10 +12459,10 @@
     "type": "Chestplate",
     "stats": {
       "regeneration": 1,
-      "stamina": 4,
+      "stamina": 3,
       "unbreaking": 7,
       "attack_speed_percent": -10,
-      "armor": 10.5
+      "armor": 10
     },
     "lore": "The miners toiled constantly, every\nrock they chipped away an insult\nto their God. Yet they had no choice\nbut to continue."
   },
@@ -12522,10 +12527,11 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
+      "inure": 1,
       "regeneration": 1,
       "unbreaking": 3,
-      "armor": 5,
-      "max_health_flat": 2
+      "armor": 4,
+      "projectile_damage_percent": 10
     },
     "lore": "To watch the oasis bloom and wither and bloom again.\nThe patience of Ammi blesses the Ishnir dunes."
   },
@@ -12544,9 +12550,9 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
-      "adrenaline": 1,
-      "inferno": 2,
-      "reflexes": 1,
+      "adrenaline": 3,
+      "fire_protection": 2,
+      "inferno": 3,
       "unbreaking": 6,
       "agility": 8
     },
@@ -12567,9 +12573,9 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
-      "adrenaline": 1,
-      "inferno": 2,
-      "reflexes": 1,
+      "adrenaline": 3,
+      "fire_protection": 3,
+      "inferno": 3,
       "unbreaking": 7,
       "agility": 8.5
     },
@@ -12590,9 +12596,9 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
-      "adrenaline": 1,
-      "inferno": 2,
-      "reflexes": 1,
+      "adrenaline": 3,
+      "fire_protection": 3,
+      "inferno": 3,
       "unbreaking": 8,
       "agility": 9
     },
@@ -12613,11 +12619,11 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
-      "adrenaline": 2,
-      "inferno": 2,
-      "reflexes": 1,
+      "adrenaline": 3,
+      "fire_protection": 3,
+      "inferno": 3,
       "unbreaking": 9,
-      "agility": 9
+      "agility": 10
     },
     "lore": "The scars of the Silver Conquest\nlasted eons, a searing brand\non Hycenea's heart."
   },
@@ -12684,7 +12690,7 @@
       "sustenance": 1,
       "unbreaking": 5,
       "knockback_resistance_flat": 4,
-      "armor": 6
+      "armor": 6.5
     },
     "lore": "A blessing of the divine.\nA gift from a father.\nA tool for a Paladin."
   },
@@ -12703,9 +12709,9 @@
     "stats": {
       "steadfast": 1,
       "unbreaking": 4,
-      "armor": 5,
       "attack_speed_percent": 10,
-      "attack_damage_percent": 10
+      "attack_damage_percent": 10,
+      "armor": 5.5
     },
     "lore": "Outside the bounds of this known realm,\nknow that eternally you fall under my watchful eye."
   },
@@ -12945,6 +12951,7 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
+      "blast_protection": 1,
       "inure": 2,
       "unbreaking": 7,
       "armor": 6.5,
@@ -12968,6 +12975,7 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
+      "blast_protection": 1,
       "inure": 2,
       "unbreaking": 8,
       "armor": 7.5,
@@ -12991,10 +12999,11 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
+      "blast_protection": 2,
       "inure": 2,
       "unbreaking": 9,
-      "armor": 8,
-      "thorns_flat": 9
+      "thorns_flat": 9,
+      "armor": 8
     },
     "lore": "The Abello were to be returned to\nthe rootmind. Then, the Dichen threat\nwould be dealt with the same way it\nhad so long ago. Infection."
   },
@@ -13347,7 +13356,7 @@
       "poise": 1,
       "unbreaking": 3,
       "armor": 4,
-      "max_health_flat": 2
+      "max_health_flat": 3
     },
     "lore": "A chill grips your heart and lungs.\nFrost lingers on your breath.\nDespite the discomfort, you feel refreshed."
   },
@@ -13518,9 +13527,9 @@
     "type": "Helmet",
     "stats": {
       "fire_protection": 1,
-      "unbreaking": 2,
       "shielding": 1,
-      "armor": 5
+      "unbreaking": 2,
+      "armor": 5.5
     }
   },
   "Adventurer's Helm": {
@@ -13629,10 +13638,11 @@
     "type": "Helmet",
     "stats": {
       "curse_of_corruption": 1,
-      "regeneration": 1,
       "life_drain": 1,
       "mending": 1,
       "poise": 1,
+      "regeneration": 1,
+      "sustenance": 1,
       "armor": 5.5
     },
     "lore": "At the edge of reality bubbles a substance\nknown as Void. Perhaps it will offer me\nmore than the Veil ever had."
@@ -13672,10 +13682,10 @@
     "type": "Helmet",
     "stats": {
       "curse_of_anemia": 2,
-      "unbreaking": 3,
       "inure": 2,
-      "armor": 8,
-      "max_health_flat": -2
+      "unbreaking": 3,
+      "max_health_flat": -2,
+      "armor": 9.5
     },
     "lore": "A crown woven from chains. Adorned\nwith Lilacs and Roses, it was rusted\nin the Spring rains."
   },
@@ -13712,13 +13722,13 @@
     "release_status": "public",
     "type": "Helmet",
     "stats": {
-      "unbreaking": 4,
-      "shielding": 1,
       "ethereal": 1,
+      "shielding": 1,
+      "unbreaking": 4,
       "attack_speed_percent": -10,
       "speed_percent": 10,
       "max_health_flat": 2,
-      "attack_damage_percent": 50
+      "attack_damage_percent": 60
     },
     "lore": "Visions of the future leak from\nevery shimmering chain link."
   },
@@ -13948,9 +13958,9 @@
     "type": "Helmet",
     "stats": {
       "ethereal": 1,
-      "first_strike": 2,
       "unbreakable": 1,
-      "agility": 6
+      "agility": 6.5,
+      "attack_damage_percent": 15
     },
     "lore": "Decades of rituals have twisted\nGhalkor's very bones into something\nnearly inhuman."
   },
@@ -14665,9 +14675,9 @@
     "type": "Leggings",
     "stats": {
       "fire_protection": 1,
-      "unbreaking": 2,
       "shielding": 1,
-      "armor": 5
+      "unbreaking": 2,
+      "armor": 5.5
     }
   },
   "Adventurer's Greaves": {
@@ -14732,9 +14742,10 @@
       "adrenaline": 1,
       "life_drain": 1,
       "mending": 1,
+      "steadfast": 1,
       "attack_speed_percent": 10,
       "max_health_percent": -10,
-      "armor": 8.5
+      "armor": 6.5
     },
     "lore": "Under the scarlet glow of this new world,\na single spark of life emerged."
   },
@@ -14944,12 +14955,12 @@
     "release_status": "public",
     "type": "Leggings",
     "stats": {
-      "unbreaking": 4,
+      "adaptability": 1,
       "ethereal": 1,
       "regeneration": 1,
-      "adaptability": 1,
-      "armor": 5,
-      "speed_percent": 10
+      "unbreaking": 4,
+      "speed_percent": 10,
+      "armor": 5.5
     },
     "lore": "Adapting to the crushing depths,\neach step alters their form, concealing\nyou from watchful eyes. Are these\nchains... alive?"
   },
@@ -14989,14 +15000,14 @@
     "release_status": "public",
     "type": "Leggings",
     "stats": {
-      "unbreaking": 4,
-      "regeneration": 1,
       "magic_protection": 1,
       "poise": 1,
-      "armor": 6,
+      "regeneration": 1,
+      "unbreaking": 4,
       "max_health_percent": -20,
       "attack_damage_percent": 10,
-      "magic_damage_percent": 12
+      "magic_damage_percent": 12,
+      "armor": 6.5
     },
     "lore": "Frost may coat the lakes and streams,\nbut the greens of Spring lie beyond\nthe long and lonely Winter."
   },
@@ -15138,11 +15149,11 @@
     "release_status": "public",
     "type": "Leggings",
     "stats": {
-      "fire_protection": 3,
+      "fire_protection": 2,
       "shielding": 1,
-      "stamina": 2,
+      "stamina": 3,
       "unbreaking": 6,
-      "armor": 5.5
+      "armor": 6
     },
     "lore": "Ancient scales, scavenged by\nthe Blackflame cultists. What\nterrible Beasts once wore\nthem proudly?"
   },
@@ -15174,10 +15185,10 @@
     "release_status": "public",
     "type": "Leggings",
     "stats": {
+      "ethereal": 1,
       "feather_falling": 1,
       "unbreaking": 3,
-      "ethereal": 1,
-      "agility": 5.5
+      "agility": 6
     },
     "lore": "A ghostly howl rings through the air -\na chime that signals all to be wary."
   },
@@ -15239,9 +15250,10 @@
       "adrenaline": 1,
       "life_drain": 1,
       "mending": 1,
+      "steadfast": 1,
       "attack_speed_percent": 10,
       "max_health_percent": -10,
-      "armor": 8.5
+      "armor": 6.5
     },
     "lore": "Alric returned, his act was done.\nThen, alone, his Knights did kneel."
   },
@@ -15259,10 +15271,10 @@
     "release_status": "public",
     "type": "Leggings",
     "stats": {
+      "melee_protection": 2,
       "reflexes": 1,
       "unbreaking": 3,
-      "melee_protection": 2,
-      "agility": 4
+      "agility": 5
     },
     "lore": "Once owned by a professor of wind magic,\nthe greaves were lost in a levitation mishap,\nthen found in a separate one."
   },
@@ -15365,10 +15377,10 @@
     "release_status": "public",
     "type": "Leggings",
     "stats": {
+      "ethereal": 1,
       "feather_falling": 1,
       "unbreaking": 3,
-      "ethereal": 1,
-      "agility": 5.5
+      "agility": 6
     },
     "lore": "Nothing lost, nothing gained."
   },
@@ -15464,8 +15476,8 @@
       "gills": 1,
       "inure": 1,
       "unbreaking": 6,
-      "armor": 6.5,
       "attack_damage_percent": 15,
+      "armor": 7,
       "attack_speed_percent": -10
     },
     "lore": "The best of armor is tempered\nnot by the forge, but by the harsh\nextremes of nature."
@@ -15499,13 +15511,13 @@
     "release_status": "public",
     "type": "Leggings",
     "stats": {
-      "sustenance": 2,
-      "reflexes": 1,
-      "unbreaking": 8,
       "poise": 1,
+      "reflexes": 1,
+      "sustenance": 2,
+      "unbreaking": 8,
       "max_health_flat": -2,
       "speed_percent": 5,
-      "armor": 7
+      "armor": 8
     },
     "lore": "Often light is referred to as a last hope, save\nfor when it is twisted through countless refractions\nagain and again, becoming something truly malicious."
   },
@@ -15524,13 +15536,13 @@
     "release_status": "public",
     "type": "Leggings",
     "stats": {
-      "sustenance": 2,
-      "reflexes": 1,
-      "unbreaking": 9,
       "poise": 1,
+      "reflexes": 1,
+      "sustenance": 2,
+      "unbreaking": 9,
       "max_health_flat": -2,
       "speed_percent": 10,
-      "armor": 7.5
+      "armor": 8.5
     },
     "lore": "Often light is referred to as a last hope, save\nfor when it is twisted through countless refractions\nagain and again, becoming something truly malicious."
   },
@@ -15549,13 +15561,13 @@
     "release_status": "public",
     "type": "Leggings",
     "stats": {
-      "sustenance": 2,
-      "reflexes": 1,
-      "unbreaking": 10,
       "poise": 1,
+      "reflexes": 1,
+      "sustenance": 2,
+      "unbreaking": 10,
       "max_health_flat": -2,
-      "speed_percent": 10,
-      "armor": 8.5
+      "armor": 9,
+      "speed_percent": 15
     },
     "lore": "Often light is referred to as a last hope, save\nfor when it is twisted through countless refractions\nagain and again, becoming something truly malicious."
   },
@@ -15721,13 +15733,13 @@
     "release_status": "public",
     "type": "Leggings",
     "stats": {
-      "unbreaking": 4,
-      "inure": 1,
-      "blast_protection": 2,
       "adaptability": 1,
-      "agility": 4.5,
+      "blast_protection": 2,
+      "inure": 1,
+      "unbreaking": 4,
       "projectile_damage_percent": 12,
-      "magic_damage_percent": 12
+      "magic_damage_percent": 12,
+      "agility": 5
     },
     "lore": "Imbued with powers of old, from the bubbling\nbirth of earth, sea, and sky."
   },
@@ -15818,9 +15830,9 @@
       "inure": 1,
       "unbreaking": 9,
       "max_health_flat": 2,
-      "armor": 10,
       "speed_percent": -5,
-      "knockback_resistance_flat": 2
+      "knockback_resistance_flat": 2,
+      "armor": 10.5
     },
     "lore": "The mighty fist grasping the Wolfswood would serve\nas fuel for its people's passion. When a flower\nsurvives being crushed, it grows back ever stronger."
   },
@@ -16707,13 +16719,13 @@
     "type": "Wand",
     "stats": {
       "adaptability": 1,
-      "fire_aspect": 2,
+      "adrenaline": 3,
       "chaotic": 5,
       "curse_of_crippling": 1,
-      "adrenaline": 3,
+      "fire_aspect": 2,
       "tempo": 1,
       "attack_damage_base": 5,
-      "spell_power_base": 50
+      "spell_power_base": 55
     },
     "lore": "No one knows what happens if\nit should ever strike midnight."
   },
@@ -16732,8 +16744,8 @@
     "type": "Mainhand",
     "stats": {
       "adaptability": 1,
+      "regeneration": 3,
       "tempo": 2,
-      "regeneration": 2,
       "knockback_resistance_flat": 2
     },
     "lore": "Creating a Phylactery is not an easy task.\nThe failures are many and the cost is immense.\nThe ritual's taint still clings ominously."
@@ -19510,7 +19522,7 @@
       "curse_of_anemia": 1,
       "ethereal": 1,
       "max_health_flat": 4,
-      "magic_damage_percent": 22
+      "magic_damage_percent": 25
     },
     "lore": "\"OH, GREAT, ANOTHER IDIOT TO CARRY ME AROUND!\nWHAT NOW? WILL I BE LEFT TO SHATTER IN THE VOID?\nWAIT, NO, DON'T TEST THAT.\""
   },
@@ -20690,7 +20702,7 @@
       "unbreaking": 3,
       "projectile_speed_base": 1,
       "magic_damage_percent": 15,
-      "projectile_damage_base": 9
+      "projectile_damage_base": 9.5
     },
     "lore": "\"Leave a mark they'll\nnever forget.\""
   },
@@ -21339,7 +21351,7 @@
       "quick_charge": 1,
       "unbreaking": 2,
       "projectile_speed_base": 1.5,
-      "projectile_damage_base": 20
+      "projectile_damage_base": 20.5
     },
     "lore": "Magic be damned, cover of\nnight is all you need."
   },
@@ -21966,8 +21978,7 @@
       "<gray>within, as if they were in your inventory.",
       "<gray>50% of the time, the Firmament will place Prismarine",
       "<gray>instead of consuming any blocks.",
-      "<gray><key:key.sneak> + <key:key.swapOffhand> in main hand to disable Prismarine.",
-      "<!italic><gray>Prismarine <!italic><green>Enabled"
+      "<gray><key:key.sneak> + <key:key.swapOffhand> in main hand to disable Prismarine."
     ],
     "region": "Isles",
     "tier": "Epic",
@@ -21976,7 +21987,7 @@
     "release_status": "public",
     "type": "Misc",
     "stats": {},
-    "lore": "With just a thought, reshape the earth\nto your whims. Reclaim control.\n in inventory to store blocks\nwithin the Firmament.\n while holding to place blocks from\nwithin, as if they were in your inventory.\n50% of the time, the Firmament will place Prismarine\ninstead of consuming any blocks.\n +  in main hand to disable Prismarine.\nPrismarine Enabled"
+    "lore": "With just a thought, reshape the earth\nto your whims. Reclaim control.\n in inventory to store blocks\nwithin the Firmament.\n while holding to place blocks from\nwithin, as if they were in your inventory.\n50% of the time, the Firmament will place Prismarine\ninstead of consuming any blocks.\n +  in main hand to disable Prismarine."
   },
   "Iridium Injector": {
     "location": "Ruin",
@@ -22256,10 +22267,6 @@
       "heavenly_boon_enhancement_cooldown_reduction_percent": {
         "locked": false,
         "value": 30
-      },
-      "heavenly_boon_enhancement_cooldown_percent": {
-        "locked": false,
-        "value": -15
       },
       "heavenly_boon_healing_percent": {
         "locked": false,
@@ -22553,6 +22560,84 @@
     },
     "lore": "From shoar to shoar, no one\nwood dare oppose you."
   },
+  "Granzanber, Halberd of Ascension-2": {
+    "location": "Quest Reward",
+    "masterwork": "2",
+    "mmlore": [
+      "<dark_gray>Only one could cut into the Veil with such",
+      "<dark_gray>precision. Only one could gaze into Void.",
+      "<dark_gray>Only one could stand apart from the eye",
+      "<dark_gray>of the Architect. These are the lies Uriddan",
+      "<dark_gray>told himself before his Ascension."
+    ],
+    "region": "Ring",
+    "tier": "Rare",
+    "name": "Granzanber, Halberd of Ascension",
+    "base_item": "Diamond Axe",
+    "release_status": "public",
+    "type": "Axe",
+    "stats": {
+      "shielding": 1,
+      "technique": 1,
+      "unbreaking": 2,
+      "attack_speed_base": 1,
+      "knockback_resistance_flat": 3,
+      "attack_damage_base": 18
+    },
+    "lore": "Only one could cut into the Veil with such\nprecision. Only one could gaze into Void.\nOnly one could stand apart from the eye\nof the Architect. These are the lies Uriddan\ntold himself before his Ascension."
+  },
+  "Granzanber, Halberd of Ascension-3": {
+    "location": "Quest Reward",
+    "masterwork": "3",
+    "mmlore": [
+      "<dark_gray>Only one could cut into the Veil with such",
+      "<dark_gray>precision. Only one could gaze into Void.",
+      "<dark_gray>Only one could stand apart from the eye",
+      "<dark_gray>of the Architect. These are the lies Uriddan",
+      "<dark_gray>told himself before his Ascension."
+    ],
+    "region": "Ring",
+    "tier": "Rare",
+    "name": "Granzanber, Halberd of Ascension",
+    "base_item": "Diamond Axe",
+    "release_status": "public",
+    "type": "Axe",
+    "stats": {
+      "shielding": 1,
+      "technique": 1,
+      "unbreaking": 2,
+      "attack_speed_base": 1,
+      "knockback_resistance_flat": 4,
+      "attack_damage_base": 19
+    },
+    "lore": "Only one could cut into the Veil with such\nprecision. Only one could gaze into Void.\nOnly one could stand apart from the eye\nof the Architect. These are the lies Uriddan\ntold himself before his Ascension."
+  },
+  "Granzanber, Halberd of Ascension-4": {
+    "location": "Quest Reward",
+    "masterwork": "4",
+    "mmlore": [
+      "<dark_gray>Only one could cut into the Veil with such",
+      "<dark_gray>precision. Only one could gaze into Void.",
+      "<dark_gray>Only one could stand apart from the eye",
+      "<dark_gray>of the Architect. These are the lies Uriddan",
+      "<dark_gray>told himself before his Ascension."
+    ],
+    "region": "Ring",
+    "tier": "Artifact",
+    "name": "Granzanber, Halberd of Ascension",
+    "base_item": "Diamond Axe",
+    "release_status": "public",
+    "type": "Axe",
+    "stats": {
+      "shielding": 1,
+      "technique": 2,
+      "unbreaking": 2,
+      "attack_speed_base": 1,
+      "knockback_resistance_flat": 4,
+      "attack_damage_base": 19
+    },
+    "lore": "Only one could cut into the Veil with such\nprecision. Only one could gaze into Void.\nOnly one could stand apart from the eye\nof the Architect. These are the lies Uriddan\ntold himself before his Ascension."
+  },
   "Blighted Path-3": {
     "location": "Zenith",
     "masterwork": "3",
@@ -22834,7 +22919,7 @@
       "fractal": 3,
       "magic_fragility": 2,
       "mending": 1,
-      "armor": 10
+      "armor": 11
     },
     "lore": "Perhaps this was once Iridium, but the metal\nhas transformed in the Inversion of the city\ninto something anathema to reality instead."
   },
@@ -22858,7 +22943,7 @@
       "fractal": 4,
       "magic_fragility": 2,
       "mending": 1,
-      "armor": 10
+      "armor": 11
     },
     "lore": "Perhaps this was once Iridium, but the metal\nhas transformed in the Inversion of the city\ninto something anathema to reality instead."
   },
@@ -23092,7 +23177,7 @@
       "shielding": 1,
       "unbreakable": 1,
       "attack_speed_base": 0.8,
-      "attack_damage_base": 21
+      "attack_damage_base": 21.5
     },
     "lore": "Each spectral swing carves a path through\neternity, a needless blow to form."
   },
@@ -23261,7 +23346,7 @@
     "type": "Pickaxe",
     "stats": {
       "efficiency": 2,
-      "reflexes": 1,
+      "ethereal": 1,
       "sapper": 1,
       "agility": 2,
       "attack_damage_base": 5,
@@ -23287,7 +23372,7 @@
     "type": "Pickaxe",
     "stats": {
       "efficiency": 2,
-      "reflexes": 1,
+      "ethereal": 1,
       "sapper": 1,
       "agility": 2.5,
       "attack_damage_base": 5,
@@ -23314,7 +23399,7 @@
     "stats": {
       "drilling": 1,
       "efficiency": 2,
-      "reflexes": 1,
+      "ethereal": 1,
       "sapper": 1,
       "agility": 2.5,
       "attack_damage_base": 5,
@@ -23760,7 +23845,7 @@
       "cumbersome": 1,
       "ice_aspect": 1,
       "quake": 2,
-      "sweeping_edge": 5,
+      "sweeping_edge": 4,
       "unbreaking": 1,
       "attack_speed_base": 1.6,
       "attack_damage_base": 21
@@ -23901,11 +23986,11 @@
     "release_status": "public",
     "type": "Mainhand Sword",
     "stats": {
-      "regicide": 1,
+      "melee_protection": 2,
       "mending": 1,
-      "melee_protection": 1,
-      "attack_damage_base": 14.5,
-      "attack_speed_base": 1.6
+      "regicide": 1,
+      "attack_speed_base": 1.6,
+      "attack_damage_base": 14
     },
     "lore": "At last, The Stars have found a new way to satiate\ntheir hunger. A concealed gaze from The Great Beyond\nnow shining upon the vast world within their reach,\nready to be devoured."
   },
@@ -23986,33 +24071,33 @@
     "region": "Ring",
     "tier": "Rare",
     "name": "Magna Luna",
-    "power": 3,
+    "power": 4,
     "base_item": "Diamond Sword",
     "release_status": "public",
     "stats": {
-      "cosmic_moonblade_cooldown_cap_flat": {
+      "cosmic_moonblade_cooldown_cap_percent": {
         "locked": false,
-        "value": 1.5
+        "value": 200
       },
       "cosmic_moonblade_damage_percent": {
         "locked": false,
-        "value": 110
+        "value": 200
       },
       "cosmic_moonblade_range_percent": {
         "locked": false,
-        "value": 30
+        "value": 50
       },
       "cosmic_moonblade_cooldown_reduction_percent": {
         "locked": false,
-        "value": 10
-      },
-      "cosmic_moonblade_slashes_flat": {
-        "locked": false,
-        "value": -1
+        "value": 30
       },
       "cosmic_moonblade_cooldown_percent": {
         "locked": false,
         "value": 50
+      },
+      "cosmic_moonblade_slashes_flat": {
+        "locked": true,
+        "value": -1
       }
     },
     "type": "Charm",
@@ -24184,10 +24269,10 @@
     "type": "Offhand Sword",
     "stats": {
       "reflexes": 1,
-      "unbreakable": 1,
       "tempo": 1,
+      "unbreakable": 1,
       "projectile_damage_percent": 25,
-      "agility": 2.5
+      "agility": 3.5
     },
     "lore": "A massive talon tainted by Star Blight.\nOnce, the Sanctuary teemed with Blackflame.\nNow, the Lunacrest seek absolution in\nthe remnants of an empire."
   },
@@ -24208,10 +24293,10 @@
     "type": "Offhand Sword",
     "stats": {
       "reflexes": 1,
-      "unbreakable": 1,
       "tempo": 1,
+      "unbreakable": 1,
       "projectile_damage_percent": 25,
-      "agility": 3.5
+      "agility": 4
     },
     "lore": "A massive talon tainted by Star Blight.\nOnce, the Sanctuary teemed with Blackflame.\nNow, the Lunacrest seek absolution in\nthe remnants of an empire."
   },
@@ -24232,10 +24317,10 @@
     "type": "Offhand Sword",
     "stats": {
       "reflexes": 1,
-      "unbreakable": 1,
       "tempo": 1,
+      "unbreakable": 1,
       "projectile_damage_percent": 30,
-      "agility": 3.5
+      "agility": 4
     },
     "lore": "A massive talon tainted by Star Blight.\nOnce, the Sanctuary teemed with Blackflame.\nNow, the Lunacrest seek absolution in\nthe remnants of an empire."
   },
@@ -24256,10 +24341,10 @@
     "type": "Offhand Sword",
     "stats": {
       "reflexes": 1,
-      "unbreakable": 1,
       "tempo": 1,
+      "unbreakable": 1,
       "projectile_damage_percent": 30,
-      "agility": 4.5
+      "agility": 5
     },
     "lore": "A massive talon tainted by Star Blight.\nOnce, the Sanctuary teemed with Blackflame.\nNow, the Lunacrest seek absolution in\nthe remnants of an empire."
   },
@@ -24300,13 +24385,13 @@
     "release_status": "public",
     "type": "Offhand Sword",
     "stats": {
-      "inure": 1,
-      "unbreakable": 1,
-      "melee_protection": 3,
-      "life_drain": 1,
       "adaptability": 1,
-      "speed_percent": 10,
-      "attack_damage_percent": 30
+      "inure": 1,
+      "life_drain": 1,
+      "melee_protection": 3,
+      "unbreakable": 1,
+      "attack_damage_percent": 35,
+      "speed_percent": 10
     },
     "lore": "You peer into the blade and see only nothingness.\nSomething seems to draw you to gaze deeper..."
   },
@@ -24605,13 +24690,17 @@
     "region": "Ring",
     "tier": "Epic",
     "name": "Coven Vial",
-    "power": 5,
+    "power": 4,
     "base_item": "Dragon Breath",
     "release_status": "public",
     "stats": {
       "warding_remedy_pulses_flat": {
         "locked": false,
         "value": 8
+      },
+      "warding_remedy_max_absorption_health_flat": {
+        "locked": false,
+        "value": 2
       },
       "warding_remedy_pulse_delay_percent": {
         "locked": false,
@@ -24767,10 +24856,13 @@
     "class_name": "Warlock"
   },
   "Festering Toxin": {
+    "location": "Architect's Ring",
     "mmlore": [
       "Even their God would not withstand",
       "the greatest of Mycelian toxins."
     ],
+    "region": "Ring",
+    "tier": "Currency",
     "name": "Festering Toxin",
     "base_item": "Dragon Breath",
     "release_status": "public",
@@ -25013,10 +25105,9 @@
     "release_status": "public",
     "type": "Offhand",
     "stats": {
-      "melee_protection": 2,
-      "adrenaline": 2,
-      "life_drain": 1,
-      "agility": 5
+      "life_drain": 3,
+      "max_health_flat": 2,
+      "agility": 4.5
     },
     "lore": "The vial smells sickeningly sweet\neven from a distance. The outside\nis coated in warning labels... but\nhow dangerous could it be?"
   },
@@ -25622,7 +25713,7 @@
         "locked": false,
         "value": 25
       },
-      "lightning_totem_pulse_delay_percent": {
+      "lightning_totem_lightning_storm_pulse_delay_percent": {
         "locked": true,
         "value": -75
       },
@@ -27168,7 +27259,7 @@
       },
       "eagle_eye_radius_percent": {
         "locked": false,
-        "value": -70
+        "value": -50
       }
     },
     "type": "Charm",
@@ -29381,6 +29472,20 @@
     "stats": {},
     "lore": "Epic Crafting Material\nShimmering indigo particles clash with a\nconsuming, furious blight. Somehow they\nremain stable enough to hold."
   },
+  "Vesperidys Blightdust": {
+    "mmlore": [
+      "<dark_gray>It shimmers still, a reminder that the Vesperidys",
+      "<dark_gray>is scattered, but not truly dead.",
+      "<light_purple>* Quest Item *",
+      "<dark_gray>#Q226I01"
+    ],
+    "name": "Vesperidys Blightdust",
+    "base_item": "Glow Ink Sac",
+    "release_status": "public",
+    "type": "Misc",
+    "stats": {},
+    "lore": "It shimmers still, a reminder that the Vesperidys\nis scattered, but not truly dead.\n* Quest Item *\n#Q226I01"
+  },
   "Zooplankton": {
     "location": "Fishing",
     "mmlore": [
@@ -29846,10 +29951,10 @@
     "release_status": "public",
     "type": "Wand",
     "stats": {
-      "ethereal": 1,
       "adrenaline": 2,
-      "spell_power_base": 50,
-      "attack_damage_base": 5
+      "ethereal": 1,
+      "attack_damage_base": 5,
+      "spell_power_base": 55
     },
     "lore": "As long as greed is stronger\nthan compassion, there will\nalways be suffering."
   },
@@ -29959,9 +30064,13 @@
         "locked": false,
         "value": 100
       },
+      "by_my_blade_attack_speed_amplifier_percent": {
+        "locked": false,
+        "value": 20
+      },
       "by_my_blade_haste_amplifier_flat": {
         "locked": false,
-        "value": -2
+        "value": -1
       }
     },
     "type": "Charm",
@@ -30654,9 +30763,10 @@
       "cumbersome": 1,
       "impact": 3,
       "knockback": 4,
+      "sweeping_edge": 4,
       "unbreaking": 60,
-      "attack_damage_base": 29,
-      "attack_speed_base": 1.1
+      "attack_speed_base": 1,
+      "attack_damage_base": 28
     },
     "lore": "A gift from New Antium for the extermination of\nthe Hoglin infestation. A hammer so large only\na scant few could bear its monstrous weight."
   },
@@ -30678,9 +30788,10 @@
       "cumbersome": 1,
       "impact": 4,
       "knockback": 4,
+      "sweeping_edge": 4,
       "unbreaking": 70,
-      "attack_damage_base": 30,
-      "attack_speed_base": 1.1
+      "attack_damage_base": 28.5,
+      "attack_speed_base": 1
     },
     "lore": "A gift from New Antium for the extermination of\nthe Hoglin infestation. A hammer so large only\na scant few could bear its monstrous weight."
   },
@@ -30759,7 +30870,7 @@
     "stats": {
       "aptitude": 1,
       "life_drain": 1,
-      "magic_protection": 1,
+      "magic_protection": 2,
       "unbreaking": 55,
       "attack_speed_base": 1,
       "attack_damage_base": 19,
@@ -30943,10 +31054,13 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
-      "fire_protection": 3,
+      "fire_protection": 2,
+      "inferno": 2,
+      "projectile_protection": 2,
       "unbreaking": 7,
-      "inferno": 3,
-      "agility": 6.5
+      "magic_damage_percent": 8,
+      "speed_percent": 8,
+      "agility": 5.5
     },
     "lore": "He spilled the blood.\nFor his sacrifice, his dreams were actualized.\nSo too were his nightmares."
   },
@@ -30982,8 +31096,8 @@
       "sustenance": 2,
       "unbreaking": 9,
       "speed_percent": 10,
-      "magic_damage_percent": 5,
-      "armor": 7.5
+      "magic_damage_percent": 10,
+      "armor": 7
     },
     "lore": "Ripped from the corpse of\na Blackflame Cultist, their\nlifeblood still stains the\nbone it is shaped from."
   },
@@ -31182,8 +31296,8 @@
       "sustenance": 2,
       "unbreaking": 9,
       "speed_percent": 10,
-      "magic_damage_percent": 5,
-      "armor": 7.5
+      "magic_damage_percent": 10,
+      "armor": 7
     },
     "lore": "Ransacking and defiling our temples... Is\nnothing sacred to these sea rats?"
   },
@@ -31318,10 +31432,10 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
-      "unbreaking": 5,
       "magic_protection": 1,
       "tempo": 1,
-      "agility": 5
+      "unbreaking": 5,
+      "agility": 5.5
     }
   },
   "Patinated Sabatons": {
@@ -31402,7 +31516,7 @@
     "stats": {
       "tempo": 1,
       "unbreaking": 7,
-      "agility": 7.5
+      "agility": 8
     }
   },
   "Royal Anklets-2": {
@@ -31420,8 +31534,8 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
-      "sustenance": 1,
       "cloaked": 1,
+      "sustenance": 1,
       "unbreaking": 17,
       "agility": 8.5
     },
@@ -31442,10 +31556,11 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
-      "sustenance": 1,
       "cloaked": 1,
+      "sustenance": 1,
       "unbreaking": 20,
-      "agility": 9
+      "agility": 9,
+      "speed_percent": 5
     },
     "lore": "The blood-soaked bracelets retain their\nshape even inside the nightmare, leaving\na trail of blood behind them."
   },
@@ -31464,11 +31579,11 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
-      "sustenance": 1,
       "cloaked": 1,
+      "sustenance": 1,
       "unbreaking": 25,
-      "agility": 9.5,
-      "speed_percent": 5
+      "speed_percent": 5,
+      "agility": 10
     },
     "lore": "The blood-soaked bracelets retain their\nshape even inside the nightmare, leaving\na trail of blood behind them."
   },
@@ -31675,9 +31790,9 @@
     "type": "Chestplate",
     "stats": {
       "blast_protection": 2,
-      "unbreaking": 8,
+      "projectile_protection": 2,
       "shielding": 1,
-      "projectile_protection": 1,
+      "unbreaking": 8,
       "armor": 6,
       "thorns_flat": 2
     },
@@ -31748,11 +31863,11 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
+      "evasion": 1,
       "second_wind": 1,
       "sustenance": 1,
-      "reflexes": 1,
       "unbreaking": 5,
-      "agility": 5.5
+      "agility": 6.5
     },
     "lore": "The real Elysium was right\nhere, all along."
   },
@@ -32076,10 +32191,10 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
-      "unbreaking": 5,
       "magic_protection": 1,
       "tempo": 1,
-      "agility": 5
+      "unbreaking": 5,
+      "agility": 5.5
     }
   },
   "Patinated Cuirass": {
@@ -32158,7 +32273,7 @@
     "stats": {
       "tempo": 1,
       "unbreaking": 7,
-      "agility": 7.5
+      "agility": 8
     }
   },
   "Sacrosanct Necklace-1": {
@@ -32315,11 +32430,11 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
-      "regicide": 3,
-      "melee_protection": 1,
-      "unbreakable": 1,
       "inure": 1,
       "magic_protection": 2,
+      "melee_protection": 1,
+      "regicide": 3,
+      "unbreakable": 1,
       "armor": 7.5
     },
     "lore": "The nightmare felt the approach of the outsider.\nIt shivered in anticipation...\nSuch a lovely tapestry to paint..."
@@ -32339,12 +32454,12 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
-      "regicide": 3,
-      "melee_protection": 1,
-      "unbreakable": 1,
       "inure": 1,
       "magic_protection": 2,
-      "armor": 8
+      "melee_protection": 1,
+      "regicide": 3,
+      "unbreakable": 1,
+      "armor": 8.5
     },
     "lore": "The nightmare felt the approach of the outsider.\nIt shivered in anticipation...\nSuch a lovely tapestry to paint..."
   },
@@ -32478,13 +32593,12 @@
     "type": "Helmet",
     "stats": {
       "regicide": 1,
+      "sustenance": 3,
       "unbreakable": 1,
-      "armor": -100,
-      "agility": -100,
-      "max_health_percent": 100,
       "magic_damage_percent": 10,
       "projectile_damage_percent": 10,
-      "attack_damage_percent": 10
+      "attack_damage_percent": 10,
+      "max_health_percent": 30
     },
     "lore": "A gift brought to a queen of a golden land.\nUnfortunately, it was her downfall."
   },
@@ -32570,10 +32684,10 @@
     "type": "Helmet",
     "stats": {
       "ethereal": 1,
-      "magic_protection": 1,
+      "magic_protection": 2,
       "unbreaking": 8,
-      "agility": 6.5,
-      "speed_percent": -10
+      "speed_percent": -10,
+      "agility": 6.5
     },
     "lore": "They're quite hard to take off..."
   },
@@ -32926,10 +33040,10 @@
     "release_status": "public",
     "type": "Helmet",
     "stats": {
-      "unbreaking": 5,
       "magic_protection": 1,
       "tempo": 1,
-      "agility": 5
+      "unbreaking": 5,
+      "agility": 5.5
     }
   },
   "Patinated Helm": {
@@ -33000,8 +33114,8 @@
     "stats": {
       "tempo": 1,
       "unbreaking": 7,
-      "armor": 6.5,
-      "speed_percent": 10
+      "armor": 7.5,
+      "speed_percent": 15
     },
     "lore": "The cracked, ancient bronze is broken\nby one massive spike. Its fate seems\nfixed in history."
   },
@@ -33051,7 +33165,7 @@
     "stats": {
       "tempo": 1,
       "unbreaking": 7,
-      "agility": 7.5
+      "agility": 8
     }
   },
   "Sacrifice's Scream": {
@@ -33153,7 +33267,7 @@
       "cloaked": 1,
       "unbreaking": 23,
       "agility": 9,
-      "attack_damage_percent": 20
+      "attack_damage_percent": 25
     },
     "lore": "Uriddan knew these citadels well. They had\nsprung forth at the command of Indigo itself,\nbefore even he could remember."
   },
@@ -33510,11 +33624,11 @@
     "release_status": "public",
     "type": "Scythe",
     "stats": {
+      "melee_protection": 1,
       "reflexes": 1,
       "unbreaking": 30,
-      "melee_protection": 1,
-      "attack_damage_base": 11.5,
-      "attack_speed_base": 1.6
+      "attack_speed_base": 1.6,
+      "attack_damage_base": 12.5
     },
     "lore": "The mist of rage clouds raider's eyes.\nSink deeper still and claim your prize."
   },
@@ -33770,11 +33884,11 @@
     "release_status": "public",
     "type": "Scythe",
     "stats": {
+      "melee_protection": 1,
       "reflexes": 1,
       "unbreaking": 30,
-      "melee_protection": 1,
       "attack_speed_base": 1.6,
-      "attack_damage_base": 11.5
+      "attack_damage_base": 12.5
     },
     "lore": "Even the most ferocious of seafarers lost\nlimbs in their most storied battles. A spare few\ngained notoriety, seen wearing unorthodox\nprostheses into battle."
   },
@@ -33894,11 +34008,10 @@
     "type": "Leggings",
     "stats": {
       "curse_of_anemia": 1,
-      "inferno": 3,
+      "inferno": 5,
       "unbreaking": 20,
-      "projectile_damage_percent": 15,
-      "speed_percent": 7,
-      "agility": 9
+      "agility": 9,
+      "magic_damage_percent": 10
     },
     "lore": "Aether - liquid mana. The purest form\nof the Machine's spirit. Now hardened\ninto a protective shell."
   },
@@ -33918,11 +34031,10 @@
     "type": "Leggings",
     "stats": {
       "curse_of_anemia": 1,
-      "inferno": 3,
+      "inferno": 5,
       "unbreaking": 22,
-      "projectile_damage_percent": 20,
-      "speed_percent": 7,
-      "agility": 9
+      "magic_damage_percent": 10,
+      "agility": 9.5
     },
     "lore": "Aether - liquid mana. The purest form\nof the Machine's spirit. Now hardened\ninto a protective shell."
   },
@@ -33942,10 +34054,9 @@
     "type": "Leggings",
     "stats": {
       "curse_of_anemia": 1,
-      "inferno": 3,
+      "inferno": 6,
       "unbreaking": 25,
-      "projectile_damage_percent": 20,
-      "speed_percent": 7,
+      "magic_damage_percent": 10,
       "agility": 10
     },
     "lore": "Aether - liquid mana. The purest form\nof the Machine's spirit. Now hardened\ninto a protective shell."
@@ -34182,9 +34293,9 @@
       "poise": 1,
       "tempo": 1,
       "unbreaking": 35,
-      "magic_damage_percent": 20,
       "max_health_flat": -2,
-      "armor": 7.5
+      "armor": 7.5,
+      "magic_damage_percent": 25
     },
     "lore": "These chains that bind, they cling deeper.\nDeeper yet, the metal seeks weakness.\nDeeper yet, the metal seeks control.\nAbsolute control."
   },
@@ -34408,10 +34519,10 @@
     "release_status": "public",
     "type": "Leggings",
     "stats": {
-      "unbreaking": 5,
       "magic_protection": 1,
       "tempo": 1,
-      "agility": 5
+      "unbreaking": 5,
+      "agility": 5.5
     }
   },
   "Patinated Greaves": {
@@ -34535,7 +34646,7 @@
     "stats": {
       "tempo": 1,
       "unbreaking": 7,
-      "agility": 7.5
+      "agility": 8
     }
   },
   "Salazar's Greed": {
@@ -35363,7 +35474,7 @@
     "stats": {
       "decay": 2,
       "mending": 1,
-      "sweeping_edge": 4,
+      "sweeping_edge": 2,
       "unbreaking": 2,
       "attack_damage_base": 6,
       "attack_speed_base": 1.6
@@ -35538,9 +35649,10 @@
     "type": "Mainhand Sword",
     "stats": {
       "knockback": 3,
+      "sweeping_edge": 3,
       "unbreakable": 1,
-      "attack_damage_base": 6.5,
-      "attack_speed_base": 1.6
+      "attack_speed_base": 1.6,
+      "attack_damage_base": 6
     },
     "lore": "Fashioned from fragile glass, adorned with\na symbol that tugs at your memory."
   },
@@ -36724,14 +36836,14 @@
     "release_status": "public",
     "type": "Mainhand Sword",
     "stats": {
+      "bleeding": 1,
       "decay": 2,
-      "unbreaking": 30,
       "inure": 1,
       "quake": 4,
-      "bleeding": 1,
       "two_handed": 1,
-      "armor": 2.5,
-      "attack_speed_base": 1.1,
+      "unbreaking": 30,
+      "attack_speed_base": 1.2,
+      "armor": 3,
       "attack_damage_base": 17
     },
     "lore": "Only for the riches? Simply not true.\nWe live for the risk, the thrill, the possibility\nof losing it all. Such is the soul of gambling."
@@ -37307,7 +37419,7 @@
       "thunder_aspect": 3,
       "unbreaking": 10,
       "attack_speed_base": 1.6,
-      "attack_damage_base": 17.5
+      "attack_damage_base": 17
     },
     "lore": "Tavern tales in Mistport speak of a storm that\nappears once a century. They say the sea will\nthirst for blood, and not even a ghost ship\ncould escape Her calls."
   },
@@ -37346,10 +37458,10 @@
     "release_status": "public",
     "type": "Offhand Sword",
     "stats": {
-      "technique": 1,
-      "unbreakable": 1,
       "cloaked": 1,
       "melee_protection": 2,
+      "technique": 1,
+      "unbreakable": 1,
       "agility": 5.5,
       "attack_damage_percent": 15
     },
@@ -37369,12 +37481,12 @@
     "release_status": "public",
     "type": "Offhand Sword",
     "stats": {
-      "technique": 1,
-      "unbreakable": 1,
       "cloaked": 1,
       "melee_protection": 2,
-      "agility": 6,
-      "attack_damage_percent": 20
+      "technique": 1,
+      "unbreakable": 1,
+      "attack_damage_percent": 20,
+      "agility": 5.5
     },
     "lore": "The great gate would sit closed for moons on\nend to protect mortals from Silver wrath."
   },
@@ -37392,12 +37504,12 @@
     "release_status": "public",
     "type": "Offhand Sword",
     "stats": {
+      "cloaked": 1,
+      "melee_protection": 3,
       "technique": 1,
       "unbreakable": 1,
-      "cloaked": 1,
-      "melee_protection": 2,
-      "agility": 6.5,
-      "attack_damage_percent": 20
+      "attack_damage_percent": 20,
+      "agility": 6
     },
     "lore": "The great gate would sit closed for moons on\nend to protect mortals from Silver wrath."
   },
@@ -37415,12 +37527,12 @@
     "release_status": "public",
     "type": "Offhand Sword",
     "stats": {
-      "technique": 1,
-      "unbreakable": 1,
       "cloaked": 1,
       "melee_protection": 3,
-      "agility": 6.5,
-      "attack_damage_percent": 20
+      "technique": 2,
+      "unbreakable": 1,
+      "attack_damage_percent": 20,
+      "agility": 6
     },
     "lore": "The great gate would sit closed for moons on\nend to protect mortals from Silver wrath."
   },
@@ -38312,11 +38424,14 @@
     "class_name": "Scout"
   },
   "Hallowed Roots": {
+    "location": "Architect's Ring",
     "mmlore": [
       "Deep within the Mycelian caverns,",
       "the heart of the network could",
       "be felt in every living thing."
     ],
+    "region": "Ring",
+    "tier": "Currency",
     "name": "Hallowed Roots",
     "base_item": "Hanging Roots",
     "release_status": "public",
@@ -38730,6 +38845,10 @@
     "base_item": "Honeycomb",
     "release_status": "public",
     "stats": {
+      "taboo_potion_recharge_rate_flat": {
+        "locked": false,
+        "value": 0.15
+      },
       "taboo_damage_modifier_percent": {
         "locked": false,
         "value": 20
@@ -39797,11 +39916,11 @@
     "type": "Axe",
     "stats": {
       "ice_aspect": 3,
-      "unbreakable": 1,
       "quake": 3,
       "shielding": 1,
+      "unbreakable": 1,
       "attack_speed_base": 0.6,
-      "attack_damage_base": 23
+      "attack_damage_base": 23.5
     },
     "lore": "Such battle fierce, the storm did\nrage, then swift the axe did fall.\nLord Alric stumbled from the rift,\nfor he had slain them all."
   },
@@ -39833,15 +39952,17 @@
     "release_status": "public",
     "type": "Axe",
     "stats": {
+      "decay": 1,
+      "duelist": 1,
+      "fire_aspect": 1,
       "ice_aspect": 1,
       "knockback": 1,
       "mending": 1,
-      "duelist": 1,
       "slayer": 1,
       "smite": 1,
+      "sweeping_edge": 1,
       "thunder_aspect": 1,
-      "fire_aspect": 1,
-      "decay": 1,
+      "unbreaking": 1,
       "attack_damage_base": 12.5,
       "attack_speed_base": 0.9
     },
@@ -40066,8 +40187,9 @@
     "release_status": "public",
     "type": "Axe",
     "stats": {
-      "unbreaking": 4,
       "efficiency": 2,
+      "sweeping_edge": 2,
+      "unbreaking": 4,
       "armor": 2,
       "attack_damage_base": 12,
       "attack_speed_base": 1.1
@@ -40338,13 +40460,13 @@
     "release_status": "public",
     "type": "Axe",
     "stats": {
-      "unbreaking": 7,
-      "knockback": 1,
       "curse_of_crippling": 2,
+      "knockback": 1,
       "poise": 2,
+      "unbreaking": 7,
       "attack_speed_base": 0.7,
       "knockback_resistance_flat": 4,
-      "attack_damage_base": 25
+      "attack_damage_base": 26
     },
     "lore": "High-ranking Witchknights wielded large wrought-iron\nwaraxes, with iron knuckles forged into their crests.\nIts purpose was left unclear to their enemies.\nThen it hit them."
   },
@@ -40862,8 +40984,8 @@
       "guard": 1,
       "sustenance": 2,
       "unbreaking": 9,
-      "armor": 6,
-      "attack_damage_percent": 30
+      "attack_damage_percent": 30,
+      "armor": 6.5
     },
     "lore": "The Herald's touch has driven all life\nfrom this place. What is left is a mockery,\nanimated by dust from another universe."
   },
@@ -40880,11 +41002,11 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
+      "curse_of_corruption": 1,
       "steadfast": 1,
       "unbreaking": 4,
-      "curse_of_corruption": 1,
       "knockback_resistance_flat": 5,
-      "armor": 8
+      "armor": 8.5
     },
     "lore": "His steps are undaunted. The ice cannot make\nhim fall. He must be eternal if all is to remain."
   },
@@ -41102,10 +41224,9 @@
       "depth_strider": 2,
       "gills": 1,
       "regeneration": 2,
-      "stamina": 2,
       "technique": 2,
       "unbreaking": 9,
-      "armor": 8
+      "armor": 9.5
     },
     "lore": "Rapid, unusual breathing can be heard.\nYou can hear it churning within stagnant\nwater. It remains restless, yet patient."
   },
@@ -41123,13 +41244,13 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
-      "sustenance": 1,
-      "unbreaking": 3,
-      "tempo": 1,
       "poise": 1,
+      "sustenance": 1,
+      "tempo": 1,
+      "unbreaking": 3,
       "max_health_flat": 2,
       "speed_percent": 15,
-      "magic_damage_percent": 12
+      "magic_damage_percent": 20
     },
     "lore": "Impossibly light for boots of stone.\nThe tiles seem to rearrange themselves\nwhen out of sight."
   },
@@ -41281,11 +41402,11 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
+      "curse_of_corruption": 1,
       "steadfast": 1,
       "unbreaking": 4,
-      "curse_of_corruption": 1,
       "knockback_resistance_flat": 5,
-      "armor": 8
+      "armor": 8.5
     },
     "lore": "Where have all the roamers gone?\nThe walkers yet to dream?\nTheir footsteps make valleys.\nTheir lifeblood forms the streams."
   },
@@ -41630,7 +41751,7 @@
       "stamina": 1,
       "unbreaking": 5,
       "attack_speed_percent": 10,
-      "armor": 5.5
+      "armor": 6
     },
     "lore": "He gazed upon the warring tundra, and prayed\nhis gift would finally end it all."
   },
@@ -41805,7 +41926,7 @@
       "steadfast": 1,
       "unbreaking": 8,
       "attack_damage_percent": 40,
-      "agility": 2.5
+      "agility": 3.5
     },
     "lore": "A crude etching of a constellation is\nengraved into the metal. Something about\nit whispers hatred."
   },
@@ -41828,7 +41949,7 @@
       "steadfast": 1,
       "unbreaking": 9,
       "attack_damage_percent": 45,
-      "agility": 3
+      "agility": 4
     },
     "lore": "A crude etching of a constellation is\nengraved into the metal. Something about\nit whispers hatred."
   },
@@ -41851,7 +41972,7 @@
       "steadfast": 1,
       "unbreaking": 10,
       "attack_damage_percent": 50,
-      "agility": 3.5
+      "agility": 4.5
     },
     "lore": "A crude etching of a constellation is\nengraved into the metal. Something about\nit whispers hatred."
   },
@@ -41872,11 +41993,11 @@
     "type": "Chestplate",
     "stats": {
       "life_drain": 1,
-      "unbreaking": 9,
       "melee_protection": 1,
       "poise": 1,
+      "unbreaking": 9,
       "armor": 6,
-      "attack_damage_percent": 23
+      "attack_damage_percent": 25
     },
     "lore": "Ru'Ten's existence within the Sanctum was timeless.\nThe fragment is inscribed with thousands of rings,\nand splints like the leshen bark of the Wolfswood.\nHe had remained bound to this earthly prison."
   },
@@ -41951,12 +42072,12 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
-      "unbreaking": 5,
       "melee_protection": 3,
       "poise": 1,
-      "armor": 5,
+      "unbreaking": 5,
       "max_health_flat": -2,
-      "attack_damage_percent": 25
+      "attack_damage_percent": 25,
+      "armor": 5.5
     },
     "lore": "The metal itself seems prepared to spring\ninto action at a breath, yet rests as if\nit is all it has ever known."
   },
@@ -42291,8 +42412,8 @@
       "evasion": 1,
       "tempo": 1,
       "unbreaking": 10,
-      "agility": 5.5,
-      "magic_damage_percent": 18
+      "magic_damage_percent": 18,
+      "agility": 6
     },
     "lore": "Few have stepped outside the protection of\nthe Veil. Those who did took great precautions\nto ensure their return."
   },
@@ -42513,6 +42634,7 @@
     "release_status": "public",
     "type": "Helmet",
     "stats": {
+      "projectile_protection": 1,
       "shielding": 1,
       "unbreakable": 1,
       "speed_percent": -5,
@@ -42536,6 +42658,7 @@
     "release_status": "public",
     "type": "Helmet",
     "stats": {
+      "projectile_protection": 1,
       "shielding": 1,
       "unbreakable": 1,
       "speed_percent": -5,
@@ -42882,7 +43005,7 @@
       "stamina": 1,
       "trivium": 1,
       "unbreaking": 6,
-      "armor": 8.5
+      "armor": 9
     },
     "lore": "He knew they would come for him. He thought\nhis power, those ancient prisons of still-older\nminds would save him. But they too had fallen\nbefore Silver wrath."
   },
@@ -42908,7 +43031,7 @@
       "stamina": 1,
       "trivium": 1,
       "unbreaking": 7,
-      "armor": 9
+      "armor": 9.5
     },
     "lore": "He knew they would come for him. He thought\nhis power, those ancient prisons of still-older\nminds would save him. But they too had fallen\nbefore Silver wrath."
   },
@@ -42934,7 +43057,7 @@
       "stamina": 1,
       "trivium": 1,
       "unbreaking": 8,
-      "armor": 9.5
+      "armor": 10
     },
     "lore": "He knew they would come for him. He thought\nhis power, those ancient prisons of still-older\nminds would save him. But they too had fallen\nbefore Silver wrath."
   },
@@ -42960,7 +43083,7 @@
       "stamina": 1,
       "trivium": 1,
       "unbreaking": 9,
-      "armor": 10.5
+      "armor": 11
     },
     "lore": "He knew they would come for him. He thought\nhis power, those ancient prisons of still-older\nminds would save him. But they too had fallen\nbefore Silver wrath."
   },
@@ -43421,13 +43544,13 @@
     "release_status": "public",
     "type": "Wand",
     "stats": {
-      "knockback": 1,
-      "unbreaking": 3,
       "ineptitude": 2,
       "inure": 1,
+      "knockback": 1,
+      "unbreaking": 3,
       "attack_speed_base": 0.9,
       "spell_power_base": 50,
-      "attack_damage_base": 15.5
+      "attack_damage_base": 16
     },
     "lore": "\"Two worlds in a lullaby, neither alike.\nWhat might happen if we weave them together?\nNow watch as both twine together into one.\""
   },
@@ -43451,7 +43574,7 @@
       "shielding": 1,
       "unbreakable": 1,
       "attack_speed_base": 0.8,
-      "attack_damage_base": 21
+      "attack_damage_base": 21.5
     },
     "lore": "When work was done a rest deserved,\nso slumber did these gods. But soon\nthe waking ones did rise and for\ntheir power clawed."
   },
@@ -43515,7 +43638,7 @@
       "projectile_protection": 1,
       "unbreaking": 2,
       "attack_speed_base": 1.6,
-      "attack_damage_base": 9
+      "attack_damage_base": 9.5
     },
     "lore": "It takes great knowledge to supersede\nbiology, but even greater wisdom to\nunderstand the consequences."
   },
@@ -43572,11 +43695,11 @@
     "stats": {
       "ethereal": 1,
       "ice_aspect": 2,
-      "second_wind": 1,
+      "second_wind": 2,
       "two_handed": 1,
       "unbreaking": 3,
-      "attack_damage_base": 19,
-      "attack_speed_base": 1.4
+      "attack_speed_base": 1.4,
+      "attack_damage_base": 18.5
     },
     "lore": "Nothing known can cut the True Ice, yet\nthis tooth slices through like a hot knife!\nSurely this is of use to our archeologists!"
   },
@@ -44170,10 +44293,11 @@
       "ice_aspect": 1,
       "regicide": 1,
       "slayer": 2,
+      "sweeping_edge": 1,
       "unbreaking": 5,
       "attack_speed_base": 1.3,
       "speed_percent": 10,
-      "attack_damage_base": 20
+      "attack_damage_base": 19.5
     },
     "lore": "Their gleaming blades cut through\nthe very thread that binds the soul.\nThe spirits could not stand against\ntheir legions."
   },
@@ -44196,7 +44320,8 @@
       "cumbersome": 1,
       "ice_aspect": 1,
       "regicide": 1,
-      "slayer": 3,
+      "slayer": 2,
+      "sweeping_edge": 1,
       "unbreaking": 5,
       "attack_speed_base": 1.3,
       "speed_percent": 10,
@@ -44223,11 +44348,12 @@
       "cumbersome": 1,
       "ice_aspect": 1,
       "regicide": 1,
-      "slayer": 3,
+      "slayer": 2,
+      "sweeping_edge": 2,
       "unbreaking": 6,
       "attack_speed_base": 1.3,
       "speed_percent": 10,
-      "attack_damage_base": 21.5
+      "attack_damage_base": 20.5
     },
     "lore": "Their gleaming blades cut through\nthe very thread that binds the soul.\nThe spirits could not stand against\ntheir legions."
   },
@@ -44250,11 +44376,12 @@
       "cumbersome": 1,
       "ice_aspect": 1,
       "regicide": 1,
-      "slayer": 3,
+      "slayer": 2,
+      "sweeping_edge": 2,
       "unbreaking": 7,
       "speed_percent": 15,
-      "attack_damage_base": 22,
-      "attack_speed_base": 1.3
+      "attack_speed_base": 1.3,
+      "attack_damage_base": 21
     },
     "lore": "Their gleaming blades cut through\nthe very thread that binds the soul.\nThe spirits could not stand against\ntheir legions."
   },
@@ -44365,10 +44492,6 @@
         "locked": false,
         "value": -50
       },
-      "sanguine_harvest_knockback_percent": {
-        "locked": false,
-        "value": 500
-      },
       "sanguine_harvest_radius_percent": {
         "locked": false,
         "value": 50
@@ -44467,7 +44590,7 @@
     "region": "Ring",
     "tier": "Epic",
     "name": "Serebrian Lineage",
-    "power": 3,
+    "power": 2,
     "base_item": "Iron Ingot",
     "release_status": "public",
     "stats": {
@@ -44475,9 +44598,25 @@
         "locked": false,
         "value": 1
       },
+      "defensive_line_cooldown_percent": {
+        "locked": false,
+        "value": -50
+      },
+      "defensive_line_radius_percent": {
+        "locked": false,
+        "value": 100
+      },
+      "defensive_line_duration_percent": {
+        "locked": false,
+        "value": -50
+      },
+      "defensive_line_range_percent": {
+        "locked": false,
+        "value": -100
+      },
       "defensive_line_knockback_percent": {
         "locked": false,
-        "value": 200
+        "value": -400
       }
     },
     "type": "Charm",
@@ -44810,6 +44949,7 @@
     "type": "Leggings",
     "stats": {
       "poise": 1,
+      "projectile_protection": 1,
       "unbreaking": 9,
       "speed_percent": 15,
       "attack_speed_percent": 15,
@@ -44852,12 +44992,11 @@
     "type": "Leggings",
     "stats": {
       "curse_of_corruption": 1,
+      "melee_protection": 4,
       "unbreaking": 4,
-      "melee_protection": 3,
-      "thorns_flat": 4,
-      "thorns_percent": 25,
-      "attack_damage_percent": 25,
-      "armor": 5.5
+      "armor": 5.5,
+      "attack_damage_percent": 20,
+      "speed_percent": 20
     },
     "lore": "He wades through the fury of the blizzard,\nuntouched by the ants below his feet."
   },
@@ -44938,11 +45077,10 @@
     "type": "Leggings",
     "stats": {
       "curse_of_corruption": 1,
+      "melee_protection": 4,
       "unbreaking": 4,
-      "melee_protection": 3,
-      "thorns_flat": 4,
-      "thorns_percent": 25,
-      "attack_damage_percent": 25,
+      "speed_percent": 20,
+      "attack_damage_percent": 20,
       "armor": 5.5
     },
     "lore": "As the scourge of battle beset the land,\nthe hammers turned to swords.\nIce was shaped to armor\nas the giants stood for war."
@@ -45435,6 +45573,7 @@
     "type": "Wand",
     "stats": {
       "fractal": 2,
+      "melee_protection": 1,
       "poise": 1,
       "attack_damage_base": 8,
       "knockback_resistance_flat": 2,
@@ -45458,10 +45597,11 @@
     "type": "Wand",
     "stats": {
       "fractal": 2,
+      "melee_protection": 1,
       "poise": 1,
       "attack_damage_base": 9,
-      "spell_power_base": 72,
-      "knockback_resistance_flat": 4
+      "knockback_resistance_flat": 2,
+      "spell_power_base": 72
     },
     "lore": "A polished ring, remarking the absence of those\nunfortunate enough to be claimed by the Outworld.\nAn ever-changing landscape, leaving no witnesses."
   },
@@ -45536,13 +45676,14 @@
     "release_status": "public",
     "type": "Pickaxe",
     "stats": {
-      "reflexes": 1,
-      "unbreaking": 5,
       "adrenaline": 1,
       "efficiency": 2,
+      "eruption": 1,
+      "reflexes": 1,
+      "unbreaking": 5,
       "agility": 1.5,
-      "attack_damage_base": 4,
-      "attack_speed_base": 1.2
+      "attack_speed_base": 2,
+      "attack_damage_base": 10
     },
     "lore": "Strike while the rocks are warm, for a\ncity must be built. A haven, void of war.\nA gift to the world."
   },
@@ -46347,9 +46488,9 @@
     "release_status": "public",
     "type": "Offhand Sword",
     "stats": {
-      "unbreakable": 1,
       "shielding": 1,
       "stamina": 3,
+      "unbreakable": 1,
       "armor": 6,
       "attack_damage_percent": 5
     },
@@ -46370,9 +46511,9 @@
     "release_status": "public",
     "type": "Offhand Sword",
     "stats": {
-      "unbreakable": 1,
       "shielding": 1,
       "stamina": 3,
+      "unbreakable": 1,
       "armor": 6.5,
       "attack_damage_percent": 5
     },
@@ -46393,9 +46534,9 @@
     "release_status": "public",
     "type": "Offhand Sword",
     "stats": {
-      "unbreakable": 1,
       "shielding": 1,
       "stamina": 4,
+      "unbreakable": 1,
       "armor": 6.5,
       "attack_damage_percent": 5
     },
@@ -46416,9 +46557,9 @@
     "release_status": "public",
     "type": "Offhand Sword",
     "stats": {
-      "unbreakable": 1,
       "shielding": 1,
       "stamina": 4,
+      "unbreakable": 1,
       "armor": 7,
       "attack_damage_percent": 10
     },
@@ -46439,11 +46580,11 @@
     "release_status": "public",
     "type": "Offhand Sword",
     "stats": {
-      "unbreakable": 1,
       "shielding": 1,
       "stamina": 4,
+      "unbreakable": 1,
       "armor": 7.5,
-      "attack_damage_percent": 10
+      "attack_damage_percent": 15
     },
     "lore": "The liquid metal flows and pulses around your hand.\nIts gentle rhythm mimics that of breathing, or a heartbeat.\nSomething is alive within."
   },
@@ -46469,8 +46610,8 @@
       "poise": 1,
       "tempo": 1,
       "unbreakable": 1,
-      "agility": 4,
-      "attack_damage_percent": 25
+      "attack_damage_percent": 25,
+      "agility": 4
     },
     "lore": "The whispers had drawn Aggripa into the\nsmoldering Forge below Antium, but there\nwas a horror hidden below he had not\nanticipated - an Exhibitor, while the Knights\nabove marched on another land."
   },
@@ -46496,8 +46637,8 @@
       "poise": 1,
       "tempo": 1,
       "unbreakable": 1,
-      "agility": 4,
-      "attack_damage_percent": 30
+      "attack_damage_percent": 30,
+      "agility": 4.5
     },
     "lore": "The whispers had drawn Aggripa into the\nsmoldering Forge below Antium, but there\nwas a horror hidden below he had not\nanticipated - an Exhibitor, while the Knights\nabove marched on another land."
   },
@@ -46523,8 +46664,8 @@
       "poise": 1,
       "tempo": 1,
       "unbreakable": 1,
-      "agility": 4,
-      "attack_damage_percent": 30
+      "attack_damage_percent": 30,
+      "agility": 4.5
     },
     "lore": "The whispers had drawn Aggripa into the\nsmoldering Forge below Antium, but there\nwas a horror hidden below he had not\nanticipated - an Exhibitor, while the Knights\nabove marched on another land."
   },
@@ -46607,7 +46748,7 @@
       "from the bomb in his brain."
     ],
     "region": "Valley",
-    "tier": "Unique",
+    "tier": "Uncommon",
     "name": "Antimagic Ward",
     "base_item": "Iron Sword",
     "release_status": "public",
@@ -46824,12 +46965,12 @@
     "release_status": "public",
     "type": "Mainhand Sword",
     "stats": {
+      "adrenaline": 1,
       "reflexes": 1,
       "unbreaking": 5,
-      "adrenaline": 1,
       "knockback_resistance_flat": 2,
       "attack_speed_base": 1.6,
-      "attack_damage_base": 13
+      "attack_damage_base": 14
     },
     "lore": "The Dichen offered the Narsen Crew\nsupport in the assault on the Masked\nhideout. In the process, bonds would\nbe forged and Masks would be broken."
   },
@@ -46849,12 +46990,12 @@
     "release_status": "public",
     "type": "Mainhand Sword",
     "stats": {
+      "adrenaline": 1,
       "reflexes": 1,
       "unbreaking": 6,
-      "adrenaline": 1,
       "knockback_resistance_flat": 2,
       "attack_speed_base": 1.6,
-      "attack_damage_base": 13.5
+      "attack_damage_base": 14.5
     },
     "lore": "The Dichen offered the Narsen Crew\nsupport in the assault on the Masked\nhideout. In the process, bonds would\nbe forged and Masks would be broken."
   },
@@ -46874,12 +47015,12 @@
     "release_status": "public",
     "type": "Mainhand Sword",
     "stats": {
+      "adrenaline": 1,
       "reflexes": 1,
       "unbreaking": 7,
-      "adrenaline": 1,
       "attack_speed_base": 1.6,
-      "attack_damage_base": 14,
-      "knockback_resistance_flat": 3
+      "knockback_resistance_flat": 3,
+      "attack_damage_base": 15
     },
     "lore": "The Dichen offered the Narsen Crew\nsupport in the assault on the Masked\nhideout. In the process, bonds would\nbe forged and Masks would be broken."
   },
@@ -47048,10 +47189,11 @@
     "type": "Offhand Sword",
     "stats": {
       "first_strike": 2,
+      "shielding": 1,
       "unbreakable": 1,
       "knockback_resistance_flat": 3,
-      "armor": 6,
-      "attack_damage_percent": 15
+      "throw_rate_percent": 10,
+      "armor": 5
     },
     "lore": "Not a step back, impale the marauders\nupon this line!"
   },
@@ -47291,7 +47433,7 @@
       "life_drain": 1,
       "unbreakable": 1,
       "attack_speed_percent": 10,
-      "agility": 5.5
+      "agility": 6
     },
     "lore": "A faint glow emerges from the carnage.\nThe fury of steel, silenced, but not forgotten."
   },
@@ -47332,11 +47474,11 @@
     "type": "Mainhand Sword",
     "stats": {
       "ice_aspect": 3,
-      "unbreakable": 1,
-      "sweeping_edge": 1,
       "shielding": 1,
+      "sweeping_edge": 3,
+      "unbreakable": 1,
       "attack_speed_base": 0.7,
-      "attack_damage_base": 23
+      "attack_damage_base": 24
     },
     "lore": "So out set Alric, brave and strong,\nhis steel clutched tight in hand. The\nicy chill would gnaw his bones, but\nblood was his demand."
   },
@@ -47636,11 +47778,10 @@
     "release_status": "public",
     "type": "Offhand Sword",
     "stats": {
-      "unbreakable": 1,
       "melee_protection": 3,
-      "armor": 4.5,
-      "attack_damage_percent": 15,
-      "attack_speed_percent": 15
+      "unbreakable": 1,
+      "attack_speed_percent": 25,
+      "armor": 5
     },
     "lore": "The metal is covered in notches, where thousands\nof swords have struck - then shattered into\nfragments of pure magic."
   },
@@ -47672,11 +47813,11 @@
     "release_status": "public",
     "type": "Offhand Sword",
     "stats": {
-      "unbreakable": 1,
-      "inure": 1,
       "gills": 1,
+      "inure": 1,
+      "unbreakable": 1,
       "speed_percent": 15,
-      "armor": 4
+      "armor": 4.5
     },
     "lore": "The weapon itself is living. A\nsymbiotic relationship between\nbiology and metallurgy."
   },
@@ -48125,7 +48266,7 @@
     "release_status": "public",
     "type": "Mainhand Sword",
     "stats": {
-      "decay": 1,
+      "decay": 2,
       "ethereal": 1,
       "unbreaking": 3,
       "attack_speed_base": 1.6,
@@ -48227,9 +48368,9 @@
     "type": "Mainhand Sword",
     "stats": {
       "guard": 1,
+      "sweeping_edge": 3,
       "thunder_aspect": 2,
       "unbreaking": 5,
-      "sweeping_edge": 3,
       "attack_speed_base": 0.8,
       "armor": 1.5,
       "attack_damage_base": 21
@@ -48251,12 +48392,12 @@
     "type": "Mainhand Sword",
     "stats": {
       "guard": 1,
+      "sweeping_edge": 3,
       "thunder_aspect": 2,
       "unbreaking": 6,
-      "sweeping_edge": 3,
       "attack_speed_base": 0.8,
       "armor": 1.5,
-      "attack_damage_base": 21.5
+      "attack_damage_base": 22
     },
     "lore": "Each swing clicks dangerously along a\npredefined path none can hope to follow."
   },
@@ -48275,12 +48416,12 @@
     "type": "Mainhand Sword",
     "stats": {
       "guard": 1,
+      "sweeping_edge": 3,
       "thunder_aspect": 2,
       "unbreaking": 7,
-      "sweeping_edge": 3,
       "attack_speed_base": 0.8,
-      "armor": 2,
-      "attack_damage_base": 22
+      "attack_damage_base": 22,
+      "armor": 2.5
     },
     "lore": "Each swing clicks dangerously along a\npredefined path none can hope to follow."
   },
@@ -48438,10 +48579,11 @@
     "type": "Mainhand Sword",
     "stats": {
       "abyssal": 1,
-      "decay": 8,
+      "decay": 6,
+      "sweeping_edge": 3,
       "unbreaking": 4,
-      "attack_damage_base": 12,
-      "attack_speed_base": 1.6
+      "attack_speed_base": 1.6,
+      "attack_damage_base": 11
     },
     "lore": "The last remnants of a fallen crew,\nswallowed by the beyond."
   },
@@ -48647,8 +48789,8 @@
     "stats": {
       "reflexes": 1,
       "unbreakable": 1,
-      "agility": 6,
-      "attack_damage_percent": 15
+      "attack_damage_percent": 20,
+      "agility": 6.5
     },
     "lore": "A shield? Best not to rely on one. After\nall, no one can parry a dragon's tail\nor a manticore's claws."
   },
@@ -48685,7 +48827,7 @@
     "release_status": "public",
     "type": "Mainhand Sword",
     "stats": {
-      "sweeping_edge": 10,
+      "sweeping_edge": 5,
       "unbreaking": 1,
       "attack_damage_base": 7.5,
       "attack_speed_base": 1.6
@@ -48903,7 +49045,7 @@
     "release_status": "public",
     "type": "Mainhand Sword",
     "stats": {
-      "decay": 1,
+      "decay": 3,
       "ethereal": 1,
       "unbreaking": 4,
       "attack_speed_base": 1.6,
@@ -49061,11 +49203,12 @@
     "release_status": "public",
     "type": "Offhand Sword",
     "stats": {
+      "adrenaline": 2,
+      "sustenance": 2,
       "unbreakable": 1,
-      "tempo": 1,
       "max_health_flat": -2,
-      "agility": 5.5,
-      "attack_damage_percent": 40
+      "attack_damage_percent": 30,
+      "agility": 6
     },
     "lore": "The researchers were always sad to see\na plant put down. Mostly because\neuthanasia required being a bit too\nclose for comfort."
   },
@@ -49498,6 +49641,27 @@
     "type": "Charm",
     "class_name": "Scout"
   },
+  "Distant Bolstering Charm": {
+    "location": "Architect's Ring",
+    "region": "Ring",
+    "tier": "Base",
+    "name": "Distant Bolstering Charm",
+    "power": 2,
+    "base_item": "Lantern",
+    "release_status": "public",
+    "stats": {
+      "touch_of_radiance_cast_range_percent": {
+        "locked": false,
+        "value": 50
+      },
+      "touch_of_radiance_buff_duration_flat": {
+        "locked": false,
+        "value": 1
+      }
+    },
+    "type": "Charm",
+    "class_name": "Cleric"
+  },
   "Fallen Lantern": {
     "location": "Willows",
     "mmlore": [
@@ -49536,6 +49700,48 @@
       "knockback_resistance_flat": 8
     },
     "lore": "Saia's Grace had claimed another mind,\nforever imprisoned beneath the ashes\nand the clay. Beneath the sands and\nstones of Ishnir."
+  },
+  "Greater Bolstering Charm": {
+    "location": "Architect's Ring",
+    "region": "Ring",
+    "tier": "Base",
+    "name": "Greater Bolstering Charm",
+    "power": 2,
+    "base_item": "Lantern",
+    "release_status": "public",
+    "stats": {
+      "touch_of_radiance_self_cooldown_recharge_rate_percent": {
+        "locked": false,
+        "value": 8
+      },
+      "touch_of_radiance_ally_cooldown_recharge_rate_percent": {
+        "locked": false,
+        "value": 4
+      }
+    },
+    "type": "Charm",
+    "class_name": "Cleric"
+  },
+  "Lesser Bolstering Charm": {
+    "location": "Architect's Ring",
+    "region": "Ring",
+    "tier": "Base",
+    "name": "Lesser Bolstering Charm",
+    "power": 1,
+    "base_item": "Lantern",
+    "release_status": "public",
+    "stats": {
+      "touch_of_radiance_self_cooldown_recharge_rate_percent": {
+        "locked": false,
+        "value": 4
+      },
+      "touch_of_radiance_ally_cooldown_recharge_rate_percent": {
+        "locked": false,
+        "value": 2
+      }
+    },
+    "type": "Charm",
+    "class_name": "Cleric"
   },
   "Nullwick Lantern": {
     "location": "Skr",
@@ -49597,6 +49803,18 @@
     "type": "Misc",
     "stats": {},
     "lore": "The Black Mist rolls forth,\ncalling to unsuspecting heroes.\nCompletion of The End Chimes is required and\n4+ players are recommended for this Strike!\nThis Strike requires breaking spawners\nto progress to the final boss.\nPlayers: 1-6 (One life per player)\nGrants access to The Black Mist Strike."
+  },
+  "Swift Bolstering Charm": {
+    "location": "Architect's Ring",
+    "region": "Ring",
+    "tier": "Legacy",
+    "name": "Swift Bolstering Charm",
+    "power": 2,
+    "base_item": "Lantern",
+    "release_status": "public",
+    "stats": {},
+    "type": "Charm",
+    "class_name": "Generalist"
   },
   "Means": {
     "location": "Celsian Isles",
@@ -49774,7 +49992,7 @@
     "region": "Ring",
     "tier": "Rare",
     "name": "Sailor's Rope",
-    "power": 4,
+    "power": 3,
     "base_item": "Lead",
     "release_status": "public",
     "stats": {
@@ -49786,12 +50004,8 @@
         "locked": false,
         "value": 50
       },
-      "hallowed_beam_cooldown_percent": {
-        "locked": false,
-        "value": 50
-      },
       "hallowed_beam_charge_flat": {
-        "locked": false,
+        "locked": true,
         "value": -2
       }
     },
@@ -49810,6 +50024,10 @@
       "deadly_ronde_max_stacks_flat": {
         "locked": false,
         "value": 1
+      },
+      "deadly_ronde_speed_amplifier_percent": {
+        "locked": false,
+        "value": 10
       }
     },
     "type": "Charm",
@@ -50587,12 +50805,12 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
+      "ethereal": 1,
       "fire_protection": 2,
       "unbreaking": 12,
-      "ethereal": 1,
       "speed_percent": 10,
-      "agility": 4,
-      "attack_damage_percent": 25
+      "attack_damage_percent": 25,
+      "agility": 4.5
     },
     "lore": "One must be swift on their feet to safely\nnavigate the Dunes of Ishnir."
   },
@@ -50889,8 +51107,8 @@
     "stats": {
       "reflexes": 1,
       "unbreaking": 6,
-      "speed_percent": 5,
-      "agility": 4.5
+      "agility": 4.5,
+      "speed_percent": 10
     },
     "lore": "Each step sends a spike of hatred\ndeep into the rotting earth."
   },
@@ -51188,13 +51406,13 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
-      "unbreaking": 17,
       "blast_protection": 2,
-      "tempo": 1,
       "first_strike": 1,
+      "tempo": 1,
+      "unbreaking": 17,
       "speed_percent": 15,
       "agility": 7,
-      "attack_damage_percent": 5
+      "attack_damage_percent": 10
     },
     "lore": "The rhythm has been forgotten,\nnow torment is their only song,\nhowled at an uncaring moon."
   },
@@ -51213,13 +51431,13 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
-      "unbreaking": 25,
       "blast_protection": 2,
-      "tempo": 1,
       "first_strike": 1,
+      "tempo": 1,
+      "unbreaking": 25,
       "speed_percent": 15,
       "agility": 7.5,
-      "attack_damage_percent": 5
+      "attack_damage_percent": 10
     },
     "lore": "The rhythm has been forgotten,\nnow torment is their only song,\nhowled at an uncaring moon."
   },
@@ -51238,13 +51456,13 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
-      "unbreaking": 30,
       "blast_protection": 2,
-      "tempo": 1,
       "first_strike": 1,
+      "tempo": 1,
+      "unbreaking": 30,
       "speed_percent": 20,
-      "attack_damage_percent": 10,
-      "agility": 7.5
+      "agility": 7.5,
+      "attack_damage_percent": 15
     },
     "lore": "The rhythm has been forgotten,\nnow torment is their only song,\nhowled at an uncaring moon."
   },
@@ -51263,13 +51481,13 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
-      "unbreaking": 35,
       "blast_protection": 2,
-      "tempo": 1,
       "first_strike": 1,
+      "tempo": 1,
+      "unbreaking": 35,
       "speed_percent": 20,
-      "attack_damage_percent": 15,
-      "agility": 8
+      "agility": 8,
+      "attack_damage_percent": 20
     },
     "lore": "The rhythm has been forgotten,\nnow torment is their only song,\nhowled at an uncaring moon."
   },
@@ -51324,7 +51542,7 @@
       "regicide": 1,
       "unbreakable": 1,
       "speed_percent": 10,
-      "agility": 6.5
+      "agility": 7.5
     },
     "lore": "Now as the mist grew dark and deep\nand the fog grew piercing eyes,\nthe black ship sailed through blackest night\nand aboard they cried goodbyes."
   },
@@ -51422,7 +51640,7 @@
       "tempo": 1,
       "unbreakable": 1,
       "speed_percent": 15,
-      "agility": 3
+      "agility": 3.5
     },
     "lore": "Whispers echo through the air,\nthe harrowed souls will never rest."
   },
@@ -51445,7 +51663,7 @@
       "unbreaking": 10,
       "speed_percent": 10,
       "max_health_flat": -2,
-      "agility": 8
+      "agility": 8.5
     },
     "lore": "Through sea and snow the stars have guided us.\nIn the distance, I see a gleaming visage.\nThe moonlight glows familiar."
   },
@@ -51753,6 +51971,28 @@
       "knockback_resistance_flat": 2.5
     }
   },
+  "Riftborn Walkers": {
+    "location": "Delves",
+    "mmlore": [
+      "Traces of the Void drip from the soles",
+      "of these strange boots, a reminder of",
+      "the cost to travel the space between."
+    ],
+    "region": "Isles",
+    "tier": "Artifact",
+    "name": "Riftborn Walkers",
+    "base_item": "Leather Boots",
+    "release_status": "public",
+    "type": "Boots",
+    "stats": {
+      "soul_speed": 2,
+      "technique": 2,
+      "unbreaking": 20,
+      "knockback_resistance_flat": 3,
+      "agility": 8
+    },
+    "lore": "Traces of the Void drip from the soles\nof these strange boots, a reminder of\nthe cost to travel the space between."
+  },
   "Runner's Boots": {
     "location": "King's Valley",
     "region": "Valley",
@@ -51883,7 +52123,7 @@
       "melee_protection": 3,
       "poise": 1,
       "unbreaking": 8,
-      "armor": 4
+      "armor": 4.5
     },
     "lore": "Tibia honest, it's humerus that real\nskeletons aren't as receptive to our\nphalang-enius puns."
   },
@@ -52029,11 +52269,10 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
-      "second_wind": 1,
-      "reflexes": 1,
-      "unbreaking": 5,
-      "projectile_protection": 2,
       "magic_protection": 3,
+      "projectile_protection": 3,
+      "second_wind": 3,
+      "unbreaking": 5,
       "speed_percent": 15
     },
     "lore": "She soon came to the cold realization\nof the truth. Kaul was no longer in this\nplace. He had forsaken them all."
@@ -52562,10 +52801,10 @@
     "type": "Boots",
     "stats": {
       "reflexes": 1,
-      "unbreakable": 1,
       "regicide": 1,
+      "unbreakable": 1,
       "speed_percent": 10,
-      "agility": 6.5
+      "agility": 7.5
     },
     "lore": "Now as the Void drew ever closer\nand the eyes gained presence nigh,\nMy mind escaping realms uncharted\nThere is nothing left to hide."
   },
@@ -52606,11 +52845,11 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
+      "evasion": 1,
       "second_wind": 1,
       "unbreaking": 15,
-      "evasion": 1,
-      "adrenaline": 1,
-      "agility": 8.5
+      "agility": 7.5,
+      "magic_damage_percent": 10
     },
     "lore": "The cool shade of the Fen veiled\ngreat power. As the Silver shadow\nwaxed and waned over the Ring, the\nCoven forever remained."
   },
@@ -52630,11 +52869,11 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
+      "evasion": 1,
       "second_wind": 1,
       "unbreaking": 30,
-      "evasion": 1,
-      "adrenaline": 1,
-      "agility": 9
+      "agility": 8,
+      "magic_damage_percent": 12
     },
     "lore": "The cool shade of the Fen veiled\ngreat power. As the Silver shadow\nwaxed and waned over the Ring, the\nCoven forever remained."
   },
@@ -52654,11 +52893,11 @@
     "release_status": "public",
     "type": "Boots",
     "stats": {
+      "evasion": 1,
       "second_wind": 1,
       "unbreaking": 35,
-      "evasion": 1,
-      "adrenaline": 2,
-      "agility": 9
+      "magic_damage_percent": 15,
+      "agility": 8.5
     },
     "lore": "The cool shade of the Fen veiled\ngreat power. As the Silver shadow\nwaxed and waned over the Ring, the\nCoven forever remained."
   },
@@ -52731,7 +52970,7 @@
       "unbreaking": 15,
       "armor": 4,
       "max_health_flat": 2,
-      "magic_damage_percent": 12
+      "magic_damage_percent": 16
     },
     "lore": "The thrashing of the tide brings\ngreat uncertainty, as deep within,\na withering grimace lays, undisturbed."
   },
@@ -52816,11 +53055,11 @@
     "type": "Chestplate",
     "stats": {
       "cloaked": 1,
-      "unbreaking": 25,
-      "melee_protection": 2,
       "magic_protection": 1,
+      "melee_protection": 2,
+      "unbreaking": 25,
       "speed_percent": 10,
-      "agility": 7
+      "agility": 7.5
     },
     "lore": "The Emperor was too important to the\nMachine to lose. His new form was outfitted\nwith highly protective armors that should\nprotect from any unwanted accidents."
   },
@@ -52841,11 +53080,11 @@
     "type": "Chestplate",
     "stats": {
       "cloaked": 1,
-      "unbreaking": 30,
-      "melee_protection": 2,
       "magic_protection": 1,
+      "melee_protection": 2,
+      "unbreaking": 30,
       "speed_percent": 15,
-      "agility": 7.5
+      "agility": 8
     },
     "lore": "The Emperor was too important to the\nMachine to lose. His new form was outfitted\nwith highly protective armors that should\nprotect from any unwanted accidents."
   },
@@ -52866,11 +53105,11 @@
     "type": "Chestplate",
     "stats": {
       "cloaked": 1,
-      "unbreaking": 30,
-      "melee_protection": 2,
       "magic_protection": 2,
+      "melee_protection": 2,
+      "unbreaking": 30,
       "speed_percent": 15,
-      "agility": 8
+      "agility": 8.5
     },
     "lore": "The Emperor was too important to the\nMachine to lose. His new form was outfitted\nwith highly protective armors that should\nprotect from any unwanted accidents."
   },
@@ -53022,8 +53261,8 @@
       "mending": 1,
       "shielding": 1,
       "unbreaking": 4,
-      "knockback_resistance_flat": 4,
-      "armor": 6
+      "armor": 6,
+      "knockback_resistance_flat": 7
     },
     "lore": "Worship of the broodmother is absolute.\nThose who do not offer veneration find\nthemselves useful in more delicious ways."
   },
@@ -53047,7 +53286,7 @@
       "shielding": 1,
       "unbreaking": 4,
       "armor": 7,
-      "knockback_resistance_flat": 4
+      "knockback_resistance_flat": 7
     },
     "lore": "Worship of the broodmother is absolute.\nThose who do not offer veneration find\nthemselves useful in more delicious ways."
   },
@@ -53437,10 +53676,11 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
-      "mending": 1,
       "ethereal": 2,
-      "knockback_resistance_flat": 3,
-      "agility": 3.5
+      "mending": 1,
+      "unbreaking": 2,
+      "knockback_resistance_flat": 4,
+      "agility": 4
     },
     "lore": "Crafted from the cartilage of a Blackflame\ncorpse, infused by the cult presiding\nover their bones."
   },
@@ -54685,11 +54925,11 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
-      "tempo": 1,
       "depth_strider": 3,
+      "tempo": 1,
       "unbreakable": 1,
       "speed_percent": 20,
-      "agility": 3
+      "agility": 3.5
     },
     "lore": "My nightingale sings me enchanting\nsongs. The ice crumbles, the earth quakes,\nstill she sings."
   },
@@ -54839,9 +55079,10 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
-      "unbreaking": 1,
+      "melee_protection": 1,
       "mending": 1,
       "tempo": 1,
+      "unbreaking": 1,
       "speed_flat": 0.02,
       "speed_percent": -10,
       "agility": 7
@@ -55253,11 +55494,11 @@
     "type": "Chestplate",
     "stats": {
       "blast_protection": 1,
-      "unbreaking": 12,
       "inure": 1,
-      "projectile_protection": 1,
       "magic_protection": 1,
-      "armor": 6.5
+      "projectile_protection": 1,
+      "unbreaking": 12,
+      "armor": 7
     },
     "lore": "With every attack you feel it shift\nand blow around your body - first\nwith a furious tempest, then a soft\nspring breeze."
   },
@@ -55576,10 +55817,10 @@
     "type": "Chestplate",
     "stats": {
       "cloaked": 1,
-      "unbreaking": 3,
-      "technique": 3,
       "mending": 1,
-      "agility": 7.5
+      "technique": 3,
+      "unbreaking": 3,
+      "agility": 8
     },
     "lore": "Ganzir bound the thick cloak tighter around\nhis body. The wind was cold and biting. It\nwhistled and whispered as it bit into his skin.\nHe should be invisible, yet he still felt something\nwatching closely... He was next..."
   },
@@ -55601,10 +55842,10 @@
     "type": "Chestplate",
     "stats": {
       "cloaked": 1,
-      "unbreaking": 3,
-      "technique": 4,
       "mending": 1,
-      "agility": 7.5
+      "technique": 4,
+      "unbreaking": 3,
+      "agility": 8
     },
     "lore": "Ganzir bound the thick cloak tighter around\nhis body. The wind was cold and biting. It\nwhistled and whispered as it bit into his skin.\nHe should be invisible, yet he still felt something\nwatching closely... He was next..."
   },
@@ -55626,10 +55867,10 @@
     "type": "Chestplate",
     "stats": {
       "cloaked": 1,
-      "unbreaking": 3,
-      "technique": 4,
       "mending": 1,
-      "agility": 8.5
+      "technique": 4,
+      "unbreaking": 3,
+      "agility": 9
     },
     "lore": "Ganzir bound the thick cloak tighter around\nhis body. The wind was cold and biting. It\nwhistled and whispered as it bit into his skin.\nHe should be invisible, yet he still felt something\nwatching closely... He was next..."
   },
@@ -56066,9 +56307,9 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
+      "poise": 1,
       "sustenance": 1,
       "unbreaking": 25,
-      "poise": 1,
       "speed_percent": 8,
       "armor": 9
     },
@@ -56089,11 +56330,11 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
+      "poise": 1,
       "sustenance": 1,
       "unbreaking": 30,
-      "poise": 1,
-      "speed_percent": 8,
-      "armor": 9.5
+      "armor": 9.5,
+      "speed_percent": 12
     },
     "lore": "\"When our Lady's chains fall, it will begin a new age.\nOne not of hidden strength, or endless seclusion,\nbut one of a bloody tide, overtaking all that is silver.\""
   },
@@ -56112,11 +56353,11 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
+      "poise": 1,
       "sustenance": 1,
       "unbreaking": 35,
-      "poise": 1,
       "speed_percent": 15,
-      "armor": 9.5
+      "armor": 10
     },
     "lore": "\"When our Lady's chains fall, it will begin a new age.\nOne not of hidden strength, or endless seclusion,\nbut one of a bloody tide, overtaking all that is silver.\""
   },
@@ -56355,12 +56596,12 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
-      "regicide": 1,
       "abyssal": 1,
-      "unbreaking": 20,
       "regeneration": 1,
-      "armor": 7.5,
-      "magic_damage_percent": 15
+      "regicide": 1,
+      "unbreaking": 20,
+      "magic_damage_percent": 15,
+      "armor": 7
     },
     "lore": "One ancient force of the Coven was lost to\nthe Deep countless years ago. Yet this faded\nregalia still bears her sigil. Strange."
   },
@@ -56379,12 +56620,12 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
-      "regicide": 1,
       "abyssal": 1,
-      "unbreaking": 25,
       "regeneration": 1,
-      "armor": 8.5,
-      "magic_damage_percent": 15
+      "regicide": 1,
+      "unbreaking": 25,
+      "magic_damage_percent": 15,
+      "armor": 8
     },
     "lore": "One ancient force of the Coven was lost to\nthe Deep countless years ago. Yet this faded\nregalia still bears her sigil. Strange."
   },
@@ -56403,12 +56644,12 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
-      "regicide": 1,
       "abyssal": 2,
-      "unbreaking": 30,
       "regeneration": 1,
-      "armor": 8.5,
-      "magic_damage_percent": 18
+      "regicide": 1,
+      "unbreaking": 30,
+      "magic_damage_percent": 18,
+      "armor": 8
     },
     "lore": "One ancient force of the Coven was lost to\nthe Deep countless years ago. Yet this faded\nregalia still bears her sigil. Strange."
   },
@@ -56427,12 +56668,12 @@
     "release_status": "public",
     "type": "Chestplate",
     "stats": {
-      "regicide": 1,
       "abyssal": 2,
-      "unbreaking": 35,
       "regeneration": 1,
-      "armor": 9,
-      "magic_damage_percent": 22
+      "regicide": 1,
+      "unbreaking": 35,
+      "magic_damage_percent": 22,
+      "armor": 8.5
     },
     "lore": "One ancient force of the Coven was lost to\nthe Deep countless years ago. Yet this faded\nregalia still bears her sigil. Strange."
   },
@@ -56619,12 +56860,12 @@
     "type": "Helmet",
     "stats": {
       "ethereal": 2,
-      "melee_protection": 2,
-      "unbreaking": 2,
       "magic_fragility": 2,
+      "melee_protection": 2,
       "mending": 1,
+      "unbreaking": 2,
       "max_health_flat": -2,
-      "agility": 7
+      "agility": 7.5
     },
     "lore": "Infinitely repeating patterns glimmer\nsubtly across the polished armor."
   },
@@ -56643,12 +56884,12 @@
     "type": "Helmet",
     "stats": {
       "ethereal": 2,
-      "melee_protection": 3,
-      "unbreaking": 3,
       "magic_fragility": 2,
+      "melee_protection": 3,
       "mending": 1,
+      "unbreaking": 3,
       "max_health_flat": -2,
-      "agility": 7
+      "agility": 7.5
     },
     "lore": "Infinitely repeating patterns glimmer\nsubtly across the polished armor."
   },
@@ -56667,12 +56908,12 @@
     "type": "Helmet",
     "stats": {
       "ethereal": 2,
-      "melee_protection": 3,
-      "unbreaking": 3,
       "magic_fragility": 2,
+      "melee_protection": 3,
       "mending": 1,
+      "unbreaking": 3,
       "max_health_flat": -2,
-      "agility": 7.5
+      "agility": 8
     },
     "lore": "Infinitely repeating patterns glimmer\nsubtly across the polished armor."
   },
@@ -56818,11 +57059,11 @@
     "release_status": "public",
     "type": "Helmet",
     "stats": {
-      "blast_protection": 3,
+      "blast_protection": 2,
+      "melee_protection": 2,
       "unbreaking": 8,
-      "armor": 6,
-      "speed_percent": 7,
-      "projectile_damage_percent": 18
+      "armor": 5,
+      "projectile_damage_percent": 20
     },
     "lore": "Load the cannons!\nFire at will!\nProtect the ship like your life depends on it!"
   },
@@ -57248,11 +57489,11 @@
     "release_status": "public",
     "type": "Helmet",
     "stats": {
-      "unbreaking": 17,
-      "inure": 1,
       "blast_protection": 1,
+      "inure": 1,
       "magic_protection": 1,
-      "armor": 8
+      "unbreaking": 17,
+      "armor": 8.5
     },
     "lore": "Time after time the Silvari struck\nagainst the Fen. Time after time\nthey were repelled."
   },
@@ -57271,11 +57512,11 @@
     "release_status": "public",
     "type": "Helmet",
     "stats": {
-      "unbreaking": 25,
-      "inure": 1,
       "blast_protection": 2,
+      "inure": 1,
       "magic_protection": 2,
-      "armor": 8
+      "unbreaking": 25,
+      "armor": 8.5
     },
     "lore": "Time after time the Silvari struck\nagainst the Fen. Time after time\nthey were repelled."
   },
@@ -57294,11 +57535,11 @@
     "release_status": "public",
     "type": "Helmet",
     "stats": {
-      "unbreaking": 30,
-      "inure": 1,
       "blast_protection": 2,
+      "inure": 1,
       "magic_protection": 2,
-      "armor": 9
+      "unbreaking": 30,
+      "armor": 9.5
     },
     "lore": "Time after time the Silvari struck\nagainst the Fen. Time after time\nthey were repelled."
   },
@@ -57317,11 +57558,11 @@
     "release_status": "public",
     "type": "Helmet",
     "stats": {
-      "unbreaking": 35,
-      "inure": 1,
       "blast_protection": 3,
+      "inure": 1,
       "magic_protection": 3,
-      "armor": 9
+      "unbreaking": 35,
+      "armor": 9.5
     },
     "lore": "Time after time the Silvari struck\nagainst the Fen. Time after time\nthey were repelled."
   },
@@ -57420,9 +57661,9 @@
     "release_status": "public",
     "type": "Helmet",
     "stats": {
-      "unbreaking": 15,
       "melee_protection": 1,
       "tempo": 1,
+      "unbreaking": 15,
       "agility": 8.5
     },
     "lore": "The Bastille pierced the Wolfswood's tranquility\nlike a dagger through the heart. The Great Wolf fell,\nand a lifeless night took of all who lived under him."
@@ -57442,9 +57683,9 @@
     "release_status": "public",
     "type": "Helmet",
     "stats": {
-      "unbreaking": 30,
       "melee_protection": 2,
       "tempo": 1,
+      "unbreaking": 30,
       "agility": 8.5
     },
     "lore": "The Bastille pierced the Wolfswood's tranquility\nlike a dagger through the heart. The Great Wolf fell,\nand a lifeless night took of all who lived under him."
@@ -57464,10 +57705,10 @@
     "release_status": "public",
     "type": "Helmet",
     "stats": {
-      "unbreaking": 35,
       "melee_protection": 2,
       "tempo": 1,
-      "agility": 9
+      "unbreaking": 35,
+      "agility": 9.5
     },
     "lore": "The Bastille pierced the Wolfswood's tranquility\nlike a dagger through the heart. The Great Wolf fell,\nand a lifeless night took of all who lived under him."
   },
@@ -57974,7 +58215,7 @@
       "tempo": 1,
       "unbreakable": 1,
       "speed_percent": 15,
-      "agility": 3
+      "agility": 3.5
     },
     "lore": "Screams echoed throughout Nightroost -\nthey seemingly came from the sky itself."
   },
@@ -58117,10 +58358,11 @@
     "type": "Helmet",
     "stats": {
       "curse_of_crippling": 1,
+      "ethereal": 1,
       "fire_protection": 8,
       "reflexes": 1,
       "unbreaking": 7,
-      "agility": 5
+      "agility": 3.5
     },
     "lore": "Rivers of fire beget rivers of blood -\nto bear witness to these cursed visions\nmust drive the sane to madness."
   },
@@ -58268,10 +58510,11 @@
     "release_status": "public",
     "type": "Helmet",
     "stats": {
+      "feather_falling": 1,
       "reflexes": 1,
       "unbreaking": 17,
-      "agility": 8,
-      "speed_flat": 0.01
+      "speed_flat": 0.01,
+      "agility": 8
     },
     "lore": "Plagued first by Silver, then Silvari,\nand now the Dichen threat. When surrounded\nby such pests, one has no choice but\nbloodshed."
   },
@@ -58291,10 +58534,11 @@
     "release_status": "public",
     "type": "Helmet",
     "stats": {
+      "feather_falling": 1,
       "reflexes": 1,
       "unbreaking": 25,
-      "agility": 8.5,
-      "speed_flat": 0.01
+      "speed_flat": 0.01,
+      "agility": 9
     },
     "lore": "Plagued first by Silver, then Silvari,\nand now the Dichen threat. When surrounded\nby such pests, one has no choice but\nbloodshed."
   },
@@ -58314,10 +58558,11 @@
     "release_status": "public",
     "type": "Helmet",
     "stats": {
+      "feather_falling": 1,
       "reflexes": 1,
       "unbreaking": 30,
-      "agility": 9.5,
-      "speed_flat": 0.01
+      "speed_flat": 0.01,
+      "agility": 9.5
     },
     "lore": "Plagued first by Silver, then Silvari,\nand now the Dichen threat. When surrounded\nby such pests, one has no choice but\nbloodshed."
   },
@@ -58341,7 +58586,7 @@
       "reflexes": 1,
       "unbreaking": 35,
       "speed_flat": 0.01,
-      "agility": 10
+      "agility": 10.5
     },
     "lore": "Plagued first by Silver, then Silvari,\nand now the Dichen threat. When surrounded\nby such pests, one has no choice but\nbloodshed."
   },
@@ -58545,7 +58790,7 @@
       "magic_protection": 2,
       "poise": 2,
       "unbreaking": 35,
-      "armor": 6
+      "armor": 6.5
     },
     "lore": "Eyes shut. Strange figures sway in the darkness.\nTheir presence was. Wrong. Inconceivable.\nHad they been here all along?"
   },
@@ -58919,11 +59164,11 @@
     "release_status": "public",
     "type": "Helmet",
     "stats": {
-      "second_wind": 2,
       "poise": 1,
       "unbreaking": 7,
-      "max_health_flat": -2,
-      "armor": 5
+      "speed_percent": 10,
+      "attack_speed_percent": 10,
+      "armor": 6
     },
     "lore": "Begrudgingly, they made a pact.\nOnly death could separate them now."
   },
@@ -59209,6 +59454,7 @@
     "release_status": "public",
     "type": "Helmet",
     "stats": {
+      "depth_strider": 3,
       "projectile_protection": 1,
       "unbreaking": 8,
       "agility": 8,
@@ -59268,6 +59514,29 @@
     "type": "Misc",
     "stats": {},
     "lore": "It was only when the people of\nthe empire, whom he had so\ngreatly loved, were endangered,\nthat Almon finally began to act.\nHe quarreled with Pelias for years,\nbut nothing came of it. Until that final day.\nTaking this item outside of the dungeon\nwill instead drop it in the dungeon."
+  },
+  "Ad Astra": {
+    "location": "Delves",
+    "mmlore": [
+      "The outer layer of these strange greaves",
+      "have crystallized. Tougher than most metals...",
+      "Yet like the stars, majestic and graceful."
+    ],
+    "region": "Isles",
+    "tier": "Artifact",
+    "name": "Ad Astra",
+    "base_item": "Leather Leggings",
+    "release_status": "public",
+    "type": "Leggings",
+    "stats": {
+      "darksight": 1,
+      "feather_falling": 3,
+      "shielding": 1,
+      "unbreaking": 9,
+      "magic_damage_percent": 10,
+      "armor": 6
+    },
+    "lore": "The outer layer of these strange greaves\nhave crystallized. Tougher than most metals...\nYet like the stars, majestic and graceful."
   },
   "Alchemist's Robe": {
     "location": "King's Valley",
@@ -59954,32 +60223,9 @@
       "shielding": 2,
       "technique": 3,
       "unbreaking": 35,
-      "speed_percent": -10,
       "armor": 6
     },
     "lore": "The walls of pure darkness close in.\nYour breath, shaken with trepidation.\nOnly one mind can claim triumph here."
-  },
-  "Eomen's Robes": {
-    "location": "Forum",
-    "mmlore": [
-      "At the end, Eomen stood with his arms",
-      "wide, ready to embrace the magic sweeping",
-      "through the Forum. This was new ground",
-      "to break."
-    ],
-    "region": "Isles",
-    "tier": "Artifact",
-    "name": "Eomen's Robes",
-    "base_item": "Leather Leggings",
-    "release_status": "public",
-    "type": "Leggings",
-    "stats": {
-      "poise": 1,
-      "unbreaking": 9,
-      "armor": 9,
-      "max_health_flat": -2
-    },
-    "lore": "At the end, Eomen stood with his arms\nwide, ready to embrace the magic sweeping\nthrough the Forum. This was new ground\nto break."
   },
   "Fervorous Robes": {
     "location": "Purple",
@@ -60463,12 +60709,12 @@
     "release_status": "public",
     "type": "Leggings",
     "stats": {
-      "fire_protection": 1,
-      "unbreaking": 15,
-      "retrieval": 1,
       "blast_protection": 2,
-      "projectile_damage_percent": 20,
-      "agility": 7
+      "fire_protection": 1,
+      "retrieval": 1,
+      "unbreaking": 15,
+      "agility": 7.5,
+      "projectile_damage_percent": 20
     },
     "lore": "The Mycelia devised toxins that even\nthey could not withstand. Additional\nshielding was required."
   },
@@ -60487,12 +60733,12 @@
     "release_status": "public",
     "type": "Leggings",
     "stats": {
-      "fire_protection": 2,
-      "unbreaking": 17,
-      "retrieval": 1,
       "blast_protection": 2,
-      "projectile_damage_percent": 20,
-      "agility": 7.5
+      "fire_protection": 2,
+      "retrieval": 1,
+      "unbreaking": 17,
+      "agility": 8,
+      "projectile_damage_percent": 20
     },
     "lore": "The Mycelia devised toxins that even\nthey could not withstand. Additional\nshielding was required."
   },
@@ -60511,12 +60757,12 @@
     "release_status": "public",
     "type": "Leggings",
     "stats": {
-      "fire_protection": 2,
-      "unbreaking": 25,
-      "retrieval": 1,
       "blast_protection": 3,
-      "agility": 7.5,
-      "projectile_damage_percent": 22
+      "fire_protection": 2,
+      "retrieval": 1,
+      "unbreaking": 25,
+      "agility": 8,
+      "projectile_damage_percent": 25
     },
     "lore": "The Mycelia devised toxins that even\nthey could not withstand. Additional\nshielding was required."
   },
@@ -60535,12 +60781,12 @@
     "release_status": "public",
     "type": "Leggings",
     "stats": {
-      "fire_protection": 3,
-      "unbreaking": 30,
-      "retrieval": 1,
       "blast_protection": 3,
-      "agility": 8,
-      "projectile_damage_percent": 22
+      "fire_protection": 3,
+      "retrieval": 1,
+      "unbreaking": 30,
+      "agility": 8.5,
+      "projectile_damage_percent": 25
     },
     "lore": "The Mycelia devised toxins that even\nthey could not withstand. Additional\nshielding was required."
   },
@@ -60559,12 +60805,12 @@
     "release_status": "public",
     "type": "Leggings",
     "stats": {
-      "fire_protection": 3,
-      "unbreaking": 35,
-      "retrieval": 1,
       "blast_protection": 3,
-      "projectile_damage_percent": 25,
-      "agility": 8.5
+      "fire_protection": 3,
+      "retrieval": 1,
+      "unbreaking": 35,
+      "agility": 9,
+      "projectile_damage_percent": 30
     },
     "lore": "The Mycelia devised toxins that even\nthey could not withstand. Additional\nshielding was required."
   },
@@ -60863,7 +61109,7 @@
       "tempo": 1,
       "unbreakable": 1,
       "speed_percent": 20,
-      "agility": 3
+      "agility": 3.5
     },
     "lore": "What's the number one skill a\nrebel can have? Stealth, of course."
   },
@@ -61109,11 +61355,11 @@
     "release_status": "public",
     "type": "Leggings",
     "stats": {
-      "regicide": 2,
       "cloaked": 2,
+      "regicide": 2,
       "unbreaking": 25,
       "speed_percent": 10,
-      "agility": 4
+      "agility": 5
     },
     "lore": "The Dichen inherited the art of leaf weaving\nfrom the quiet coast-dwellers who once occupied\nthe lands of Port Manteau. The Silvari colonists\ntwisted the ancient practice into a tool for war."
   },
@@ -61133,11 +61379,11 @@
     "release_status": "public",
     "type": "Leggings",
     "stats": {
-      "regicide": 2,
       "cloaked": 2,
+      "regicide": 2,
       "unbreaking": 30,
       "speed_percent": 15,
-      "agility": 4.5
+      "agility": 5.5
     },
     "lore": "The Dichen inherited the art of leaf weaving\nfrom the quiet coast-dwellers who once occupied\nthe lands of Port Manteau. The Silvari colonists\ntwisted the ancient practice into a tool for war."
   },
@@ -61157,11 +61403,11 @@
     "release_status": "public",
     "type": "Leggings",
     "stats": {
-      "regicide": 2,
       "cloaked": 2,
+      "regicide": 2,
       "unbreaking": 35,
       "speed_percent": 15,
-      "agility": 5.5
+      "agility": 6
     },
     "lore": "The Dichen inherited the art of leaf weaving\nfrom the quiet coast-dwellers who once occupied\nthe lands of Port Manteau. The Silvari colonists\ntwisted the ancient practice into a tool for war."
   },
@@ -61756,7 +62002,7 @@
     "stats": {
       "reflexes": 1,
       "unbreaking": 4,
-      "agility": 3
+      "agility": 3.5
     },
     "lore": "On the day the Temple was sealed,\ndozens of Tlaxans entered to fight back\nthe corrupted. None emerged before\nthe doors closed."
   },
@@ -62088,7 +62334,7 @@
       "guard": 1,
       "unbreaking": 25,
       "armor": 7.5,
-      "attack_damage_percent": 15
+      "attack_damage_percent": 20
     },
     "lore": "Akin to a raging current, twisting back\nand forth. This grim transfer of power\nremains ageless, like the primordial ocean,\nand the sweet release of death."
   },
@@ -62112,7 +62358,7 @@
       "guard": 1,
       "unbreaking": 30,
       "armor": 7.5,
-      "attack_damage_percent": 20
+      "attack_damage_percent": 25
     },
     "lore": "Akin to a raging current, twisting back\nand forth. This grim transfer of power\nremains ageless, like the primordial ocean,\nand the sweet release of death."
   },
@@ -62136,7 +62382,7 @@
       "guard": 1,
       "unbreaking": 35,
       "armor": 7.5,
-      "attack_damage_percent": 24
+      "attack_damage_percent": 28
     },
     "lore": "Akin to a raging current, twisting back\nand forth. This grim transfer of power\nremains ageless, like the primordial ocean,\nand the sweet release of death."
   },
@@ -62474,11 +62720,11 @@
     "release_status": "public",
     "type": "Leggings",
     "stats": {
-      "feather_falling": 2,
-      "unbreaking": 10,
-      "tempo": 1,
       "depth_strider": 2,
-      "agility": 7
+      "feather_falling": 2,
+      "tempo": 1,
+      "unbreaking": 10,
+      "agility": 8
     },
     "lore": "Strands of dark mist cling to these, like\na last breath, still held within."
   },
@@ -62497,11 +62743,11 @@
     "release_status": "public",
     "type": "Leggings",
     "stats": {
-      "unbreaking": 9,
-      "evasion": 2,
       "blast_protection": 2,
       "curse_of_corruption": 1,
-      "agility": 7
+      "evasion": 2,
+      "unbreaking": 9,
+      "agility": 7.5
     },
     "lore": "When one seeks an absence of power\nthey may instead find where it all\nhas gone. Beyond that is a hatred I\nhave never known before..."
   },
@@ -64810,7 +65056,7 @@
     "stats": {
       "starfall_cooldown_percent": {
         "locked": false,
-        "value": -60
+        "value": -70
       },
       "starfall_damage_percent": {
         "locked": false,
@@ -65998,7 +66244,11 @@
       },
       "shield_bash_duration_percent": {
         "locked": false,
-        "value": -50
+        "value": -70
+      },
+      "shield_bash_knockback_percent": {
+        "locked": false,
+        "value": -400
       }
     },
     "type": "Charm",
@@ -66386,10 +66636,6 @@
       "wind_bomb_vortex_radius_percent": {
         "locked": false,
         "value": 50
-      },
-      "wind_bomb_cooldown_percent": {
-        "locked": false,
-        "value": 50
       }
     },
     "type": "Charm",
@@ -66550,15 +66796,19 @@
     "stats": {
       "luminous_infusion_damage_percent": {
         "locked": false,
-        "value": 150
+        "value": 85
       },
       "luminous_infusion_radius_percent": {
         "locked": false,
-        "value": 100
+        "value": 60
       },
-      "luminous_infusion_kill_requirement_flat": {
+      "luminous_infusion_knockback_percent": {
         "locked": false,
-        "value": 1
+        "value": 50
+      },
+      "luminous_infusion_charges_flat": {
+        "locked": true,
+        "value": -1
       }
     },
     "type": "Charm",
@@ -66676,7 +66926,11 @@
       },
       "whirling_blade_damage_percent": {
         "locked": false,
-        "value": -40
+        "value": -50
+      },
+      "whirling_blade_stun_duration_percent": {
+        "locked": false,
+        "value": -100
       }
     },
     "type": "Charm",
@@ -67170,7 +67424,7 @@
       "shielding": 1,
       "unbreakable": 1,
       "attack_speed_base": 0.6,
-      "attack_damage_base": 23
+      "attack_damage_base": 23.5
     },
     "lore": "It wants more.\nMore than what you can offer.\nIt wants everything."
   },
@@ -67587,6 +67841,7 @@
     "type": "Scythe",
     "stats": {
       "sustenance": 1,
+      "sweeping_edge": 3,
       "triage": 2,
       "unbreakable": 1,
       "armor": 2,
@@ -69067,13 +69322,17 @@
     "base_item": "Paper",
     "release_status": "public",
     "stats": {
-      "luminous_infusion_damage_multiplier_percent": {
+      "choir_bells_damage_percent": {
         "locked": false,
-        "value": 30
+        "value": 200
       },
-      "luminous_infusion_radius_percent": {
+      "choir_bells_vulnerability_amplifier_percent": {
         "locked": false,
-        "value": -97.5
+        "value": 10
+      },
+      "choir_bells_debuff_duration_percent": {
+        "locked": false,
+        "value": -20
       }
     },
     "type": "Charm",
@@ -69420,12 +69679,12 @@
     "stats": {
       "adaptability": 1,
       "melee_protection": 2,
-      "projectile_protection": 1,
       "poise": 1,
-      "magic_damage_percent": 15,
+      "projectile_protection": 1,
       "speed_percent": 15,
       "max_health_percent": -25,
-      "agility": 6
+      "agility": 6,
+      "magic_damage_percent": 20
     },
     "lore": "\"Clause XIII of section C of your contract clearly states\nthat disloyalty will result in forfeiture of your soul.\nYou did read the Terms and Conditions before signing, yes?\""
   },
@@ -70645,7 +70904,7 @@
       "curse_of_corruption": 1,
       "ethereal": 1,
       "agility": 6,
-      "magic_damage_percent": 22
+      "magic_damage_percent": 25
     },
     "lore": "A message from beyond the Void.\nThere is no body left to leave.\nThere is no air left to breathe.\nOnce more, I have moved beyond mortal needs."
   },
@@ -70775,9 +71034,9 @@
     "release_status": "public",
     "type": "Helmet",
     "stats": {
-      "reflexes": 1,
       "melee_protection": 1,
-      "agility": 3.5
+      "reflexes": 1,
+      "agility": 4
     },
     "lore": "Whispers of those who have died still haunt\nthe edges of nightmares. Some remnant of the\nVeil? Or something else haunting beyond?"
   },
@@ -70891,7 +71150,7 @@
     "stats": {
       "melee_protection": 1,
       "reflexes": 1,
-      "agility": 3.5
+      "agility": 4
     },
     "lore": "Those called into this world were happy to provide.\nThey would feast soon enough."
   },
@@ -71013,10 +71272,10 @@
     "release_status": "public",
     "type": "Helmet",
     "stats": {
-      "sustenance": 1,
-      "projectile_protection": 1,
       "adaptability": 1,
       "poise": 1,
+      "projectile_protection": 2,
+      "sustenance": 1,
       "speed_percent": 10,
       "agility": 5.5
     },
@@ -71038,7 +71297,7 @@
       "life_drain": 1,
       "poise": 1,
       "armor": 3,
-      "attack_damage_percent": 10
+      "attack_damage_percent": 15
     },
     "lore": "This should have decayed thousands\nof years ago..."
   },
@@ -71737,8 +71996,8 @@
     "type": "Helmet",
     "stats": {
       "ethereal": 1,
-      "first_strike": 2,
-      "agility": 6
+      "agility": 6.5,
+      "attack_damage_percent": 15
     },
     "lore": "Varcosa's menacing visage lives\non eternally through you."
   },
@@ -72165,9 +72424,9 @@
     "type": "Helmet",
     "stats": {
       "adaptability": 1,
-      "sustenance": 1,
-      "projectile_protection": 1,
       "poise": 1,
+      "projectile_protection": 2,
+      "sustenance": 1,
       "agility": 5.5,
       "speed_percent": 10
     },
@@ -72187,6 +72446,7 @@
     "release_status": "public",
     "type": "Helmet",
     "stats": {
+      "projectile_protection": 1,
       "shielding": 1,
       "armor": 8,
       "knockback_resistance_flat": 2,
@@ -72238,13 +72498,13 @@
     "release_status": "public",
     "type": "Helmet",
     "stats": {
-      "regicide": 1,
       "poise": 1,
-      "armor": 0.5,
+      "regicide": 1,
       "attack_speed_percent": 10,
       "speed_percent": 15,
       "knockback_resistance_flat": 3,
-      "attack_damage_percent": 25
+      "attack_damage_percent": 25,
+      "armor": 1
     },
     "lore": "Well, what is it? Are you pro yet?"
   },
@@ -72994,7 +73254,7 @@
       "projectile_protection": 2,
       "reflexes": 1,
       "attack_damage_percent": 50,
-      "armor": 3.5
+      "armor": 4
     },
     "lore": "The Aurians were not the first to watch the\ncosmos and beyond. No, it was the Silver\nKnights who first learned to look beyond\ninto the Outside. One look was enough."
   },
@@ -73018,8 +73278,8 @@
       "inure": 1,
       "projectile_protection": 2,
       "reflexes": 1,
-      "armor": 4,
-      "attack_damage_percent": 50
+      "attack_damage_percent": 50,
+      "armor": 5
     },
     "lore": "The Aurians were not the first to watch the\ncosmos and beyond. No, it was the Silver\nKnights who first learned to look beyond\ninto the Outside. One look was enough."
   },
@@ -73143,8 +73403,8 @@
     "stats": {
       "stamina": 2,
       "steadfast": 1,
-      "armor": 4.5,
-      "max_health_flat": 2
+      "max_health_flat": 2,
+      "armor": 5
     },
     "lore": "A knight should protect...\nfor our codex commands it!"
   },
@@ -73227,6 +73487,22 @@
     "type": "Misc",
     "stats": {},
     "lore": "A powerful token that supposedly can cause\nthe world to believe you've bested the\nstrike Masquerader's Ruin, if Chuck is to be believed."
+  },
+  "Thread of Fate - Shifting City": {
+    "location": "Celsian Isles",
+    "mmlore": [
+      "A powerful token that supposedly can cause",
+      "the world to believe you've bested the",
+      "City of Shifting Waters, if Chuck is to be believed."
+    ],
+    "region": "Isles",
+    "tier": "Legacy",
+    "name": "Thread of Fate - Shifting City",
+    "base_item": "Player Head",
+    "release_status": "public",
+    "type": "Misc",
+    "stats": {},
+    "lore": "A powerful token that supposedly can cause\nthe world to believe you've bested the\nCity of Shifting Waters, if Chuck is to be believed."
   },
   "Tlaxan Mask": {
     "location": "Magenta",
@@ -73346,10 +73622,10 @@
     "release_status": "public",
     "type": "Helmet",
     "stats": {
-      "ethereal": 1,
       "curse_of_corruption": 1,
+      "ethereal": 1,
       "agility": 6,
-      "magic_damage_percent": 22
+      "magic_damage_percent": 25
     },
     "lore": "A whisper of wind on my skin.\nThe taste of salt spray on my lips.\nThe final gasp as the final end comes.\nNever again. I have moved beyond mortal needs."
   },
@@ -80040,7 +80316,7 @@
       "adaptability": 1,
       "reflexes": 1,
       "max_health_flat": 2,
-      "magic_damage_percent": 8
+      "magic_damage_percent": 10
     },
     "lore": "Primordial elements and ancient magic,\nintertwined in the furious flame."
   },
@@ -81016,8 +81292,7 @@
       "<gray>within, as if they were in your inventory.",
       "<gray>50% of the time, the Doorway will place Blackstone",
       "<gray>instead of consuming any blocks.",
-      "<gray><key:key.sneak> + <key:key.swapOffhand> in main hand to disable Blackstone.",
-      "<!italic><gray>Blackstone <!italic><green>Enabled"
+      "<gray><key:key.sneak> + <key:key.swapOffhand> in main hand to disable Blackstone."
     ],
     "region": "Isles",
     "tier": "Epic",
@@ -81026,7 +81301,7 @@
     "release_status": "public",
     "type": "Misc",
     "stats": {},
-    "lore": "As the doorway cracked and widened,\nshe would have smiled if her unfathomable\nform had anything resembling a mouth.\n in inventory to store blocks\nwithin the Doorway.\n while holding to place blocks from\nwithin, as if they were in your inventory.\n50% of the time, the Doorway will place Blackstone\ninstead of consuming any blocks.\n +  in main hand to disable Blackstone.\nBlackstone Enabled"
+    "lore": "As the doorway cracked and widened,\nshe would have smiled if her unfathomable\nform had anything resembling a mouth.\n in inventory to store blocks\nwithin the Doorway.\n while holding to place blocks from\nwithin, as if they were in your inventory.\n50% of the time, the Doorway will place Blackstone\ninstead of consuming any blocks.\n +  in main hand to disable Blackstone."
   },
   "Explosive Elemental Charm": {
     "location": "Architect's Ring",
@@ -82453,19 +82728,19 @@
     "region": "Ring",
     "tier": "Epic",
     "name": "Lunacrestum Pulsar",
-    "power": 5,
+    "power": 4,
     "base_item": "Raw Gold Block",
     "release_status": "public",
     "stats": {
-      "luminous_infusion_stacks_per_kill_flat": {
-        "locked": false,
-        "value": 1
-      },
-      "luminous_infusion_max_stacks_flat": {
+      "luminous_infusion_charges_flat": {
         "locked": false,
         "value": 2
       },
       "luminous_infusion_damage_percent": {
+        "locked": false,
+        "value": -20
+      },
+      "luminous_infusion_radius_percent": {
         "locked": false,
         "value": -25
       }
@@ -82941,25 +83216,21 @@
     "region": "Ring",
     "tier": "Epic",
     "name": "Parasomnic Remnant",
-    "power": 3,
+    "power": 2,
     "base_item": "Red Dye",
     "release_status": "public",
     "stats": {
-      "deadly_ronde_damage_percent": {
-        "locked": true,
-        "value": 125
-      },
-      "deadly_ronde_radius_percent": {
+      "deadly_ronde_max_stacks_flat": {
         "locked": false,
-        "value": 100
+        "value": 3
       },
-      "deadly_ronde_angle_percent": {
-        "locked": true,
-        "value": -35
-      },
-      "deadly_ronde_stack_requirement_flat": {
-        "locked": true,
+      "deadly_ronde_stacks_per_ability_flat": {
+        "locked": false,
         "value": 1
+      },
+      "deadly_ronde_stack_decay_time_flat": {
+        "locked": false,
+        "value": -2
       }
     },
     "type": "Charm",
@@ -83156,13 +83427,25 @@
     "region": "Ring",
     "tier": "Rare",
     "name": "Rampant Miasma",
-    "power": 3,
+    "power": 2,
     "base_item": "Red Mushroom",
     "release_status": "public",
     "stats": {
-      "rejuvenation_health_threshold_percent": {
+      "heavenly_boon_absorption_amplifier_percent": {
         "locked": false,
-        "value": 50
+        "value": 10
+      },
+      "heavenly_boon_resistance_amplifier_percent": {
+        "locked": false,
+        "value": 10
+      },
+      "heavenly_boon_speed_amplifier_percent": {
+        "locked": false,
+        "value": 10
+      },
+      "heavenly_boon_strength_amplifier_percent": {
+        "locked": false,
+        "value": -10
       }
     },
     "type": "Charm",
@@ -83342,9 +83625,9 @@
     "base_item": "Redstone",
     "release_status": "public",
     "stats": {
-      "divine_justice_percent_damage_percent": {
+      "divine_justice_damage_percent": {
         "locked": false,
-        "value": 20
+        "value": 30
       },
       "divine_justice_self_heal_percent": {
         "locked": false,
@@ -84881,10 +85164,10 @@
     "stats": {
       "abyssal": 1,
       "gills": 1,
-      "magic_protection": 2,
+      "magic_protection": 3,
       "reflexes": 1,
       "unbreaking": 3,
-      "attack_damage_percent": 25
+      "attack_damage_percent": 30
     },
     "lore": "On one end lie the halls of Confusion.\nThey tempt the wandering,\nbut will ensnare them in unending passages."
   },
@@ -84984,8 +85267,8 @@
       "mending": 1,
       "shielding": 1,
       "unbreaking": 2,
-      "armor": 2.5,
-      "attack_damage_percent": 25
+      "armor": 3,
+      "attack_damage_percent": 30
     },
     "lore": "Squabbles for power often lead\nto the worst of consequences.\nLittle did they understand the\nunfortunate positioning of the\nDoorway in their city."
   },
@@ -85035,7 +85318,7 @@
     "stats": {
       "guard": 1,
       "magic_protection": 2,
-      "melee_protection": 2,
+      "melee_protection": 3,
       "mending": 1,
       "retaliation": 1,
       "unbreaking": 5,
@@ -85270,8 +85553,8 @@
     "stats": {
       "ethereal": 1,
       "unbreaking": 3,
-      "agility": 4,
-      "attack_speed_percent": 10
+      "attack_speed_percent": 10,
+      "agility": 4.5
     },
     "lore": "Small shrouds of mist slowly gather\nwithin the shield's crevices, giving it\na wicked aura."
   },
@@ -85291,13 +85574,13 @@
     "release_status": "public",
     "type": "Mainhand Shield",
     "stats": {
-      "unbreaking": 5,
       "decay": 1,
       "quake": 3,
-      "speed_percent": -25,
+      "unbreaking": 5,
       "attack_speed_base": 0.9,
       "knockback_resistance_flat": 2,
-      "attack_damage_base": 20.5
+      "attack_damage_base": 20.5,
+      "speed_percent": -15
     },
     "lore": "Covered in handprints from desperate sailors\nclinging to the log, moments before sinking.\nIt now serves as an effigy of their fear, of\nsuccumbing to the macabre deep."
   },
@@ -85317,13 +85600,13 @@
     "release_status": "public",
     "type": "Mainhand Shield",
     "stats": {
-      "unbreaking": 5,
       "decay": 2,
       "quake": 3,
+      "unbreaking": 5,
       "knockback_resistance_flat": 3,
-      "speed_percent": -25,
       "attack_speed_base": 0.9,
-      "attack_damage_base": 21
+      "attack_damage_base": 21,
+      "speed_percent": -15
     },
     "lore": "Covered in handprints from desperate sailors\nclinging to the log, moments before sinking.\nIt now serves as an effigy of their fear, of\nsuccumbing to the macabre deep."
   },
@@ -85343,13 +85626,13 @@
     "release_status": "public",
     "type": "Mainhand Shield",
     "stats": {
-      "unbreaking": 6,
       "decay": 2,
       "quake": 3,
+      "unbreaking": 6,
       "knockback_resistance_flat": 3,
-      "speed_percent": -25,
       "attack_speed_base": 0.9,
-      "attack_damage_base": 22
+      "attack_damage_base": 22,
+      "speed_percent": -15
     },
     "lore": "Covered in handprints from desperate sailors\nclinging to the log, moments before sinking.\nIt now serves as an effigy of their fear, of\nsuccumbing to the macabre deep."
   },
@@ -85376,7 +85659,7 @@
       "reflexes": 1,
       "attack_speed_percent": 10,
       "max_health_flat": -2,
-      "agility": 7.5
+      "agility": 8
     },
     "lore": "Ppanvel's travels brought him to a waterlogged\nSanctum, powered by a mighty Genius Loci.\nThere would be no greater guardian of\nHarrakfar's prison than Ru'Ten, hungry\nfor the power the Wolf's presence would offer."
   },
@@ -85430,7 +85713,7 @@
       "reflexes": 1,
       "attack_speed_percent": 10,
       "max_health_flat": -2,
-      "agility": 9
+      "agility": 9.5
     },
     "lore": "Ppanvel's travels brought him to a waterlogged\nSanctum, powered by a mighty Genius Loci.\nThere would be no greater guardian of\nHarrakfar's prison than Ru'Ten, hungry\nfor the power the Wolf's presence would offer."
   },
@@ -85578,6 +85861,7 @@
     "release_status": "public",
     "type": "Mainhand Shield",
     "stats": {
+      "blast_protection": 2,
       "guard": 1,
       "unbreaking": 4,
       "knockback_resistance_flat": 3,
@@ -85601,6 +85885,7 @@
     "release_status": "public",
     "type": "Mainhand Shield",
     "stats": {
+      "blast_protection": 2,
       "guard": 1,
       "unbreaking": 5,
       "knockback_resistance_flat": 3,
@@ -85624,9 +85909,9 @@
     "release_status": "public",
     "type": "Mainhand Shield",
     "stats": {
+      "blast_protection": 3,
       "guard": 1,
       "unbreaking": 6,
-      "blast_protection": 1,
       "armor": 3.5,
       "knockback_resistance_flat": 3.5
     },
@@ -85791,10 +86076,11 @@
     "release_status": "public",
     "type": "Offhand Shield",
     "stats": {
+      "magic_protection": 1,
+      "steadfast": 1,
       "unbreaking": 2,
-      "armor": 4.5,
       "max_health_flat": 2,
-      "knockback_resistance_flat": 1.5
+      "armor": 2
     },
     "lore": "This shield is sculpted from\nthe ice of the permafrost,\nforever crystalline, never\nagain to flow."
   },
@@ -85970,12 +86256,14 @@
     "release_status": "public",
     "type": "Mainhand Shield",
     "stats": {
-      "unbreaking": 2,
-      "reflexes": 1,
-      "fire_protection": 1,
-      "magic_protection": 1,
       "blast_protection": 1,
-      "speed_percent": 15
+      "fire_protection": 1,
+      "knockback": 1,
+      "magic_protection": 1,
+      "regeneration": 1,
+      "unbreaking": 2,
+      "speed_percent": 15,
+      "knockback_resistance_flat": 4
     },
     "lore": "The Blackroot shows favorable\nreciprocity to those who keep\ntheir promises."
   },
@@ -86107,7 +86395,7 @@
     "stats": {
       "adaptability": 1,
       "mending": 1,
-      "second_wind": 1,
+      "second_wind": 2,
       "steadfast": 1,
       "tempo": 1,
       "speed_percent": 15
@@ -86685,9 +86973,9 @@
     "release_status": "public",
     "type": "Offhand Shield",
     "stats": {
-      "unbreaking": 4,
       "cloaked": 1,
       "regeneration": 1,
+      "unbreaking": 4,
       "agility": 5.5,
       "attack_speed_percent": 10
     },
@@ -86708,9 +86996,9 @@
     "release_status": "public",
     "type": "Offhand Shield",
     "stats": {
-      "unbreaking": 5,
       "cloaked": 1,
       "regeneration": 1,
+      "unbreaking": 5,
       "agility": 6,
       "attack_speed_percent": 15
     },
@@ -86731,11 +87019,11 @@
     "release_status": "public",
     "type": "Offhand Shield",
     "stats": {
-      "unbreaking": 6,
       "cloaked": 1,
       "regeneration": 1,
-      "agility": 6.5,
-      "attack_speed_percent": 15
+      "unbreaking": 6,
+      "attack_speed_percent": 15,
+      "agility": 7
     },
     "lore": "Each denting blow swung against\nthe shield seems to vanish into\nthe beyond instead."
   },
@@ -87105,7 +87393,7 @@
     "type": "Offhand Shield",
     "stats": {
       "ethereal": 1,
-      "stamina": 3,
+      "stamina": 4,
       "unbreaking": 3,
       "agility": 3,
       "knockback_resistance_flat": 3
@@ -87204,7 +87492,7 @@
       "ethereal": 1,
       "unbreaking": 3,
       "attack_speed_percent": 10,
-      "agility": 4
+      "agility": 4.5
     },
     "lore": "Tiny threads of the Olive Wool\nhave been woven into this bark\nshield, giving it a powerful aura."
   },
@@ -87565,11 +87853,12 @@
     "release_status": "public",
     "type": "Offhand Shield",
     "stats": {
+      "regeneration": 1,
       "unbreaking": 2,
-      "agility": 3,
-      "speed_percent": -5,
-      "thorns_flat": 4,
-      "max_health_flat": 4
+      "speed_percent": -10,
+      "max_health_flat": 3,
+      "magic_damage_percent": 10,
+      "agility": 2
     },
     "lore": "The wood of the Wispleaf Tree offers\na familiar protection from the cold.\nA wreath adorns the shield, frosted with\nthe sharp ice of winter."
   },
@@ -89083,7 +89372,7 @@
       "evasion": 1,
       "projectile_protection": 2,
       "agility": 5,
-      "projectile_damage_percent": 12
+      "projectile_damage_percent": 16
     },
     "lore": "Lights hand in all the spaces above, earth\nquakes in the ground below. All around,\nthe currents scream eternal."
   },
@@ -93175,9 +93464,9 @@
     "type": "Offhand",
     "stats": {
       "aptitude": 1,
-      "speed_percent": 10,
       "magic_damage_percent": 20,
-      "max_health_flat": 6
+      "max_health_flat": 6,
+      "speed_percent": 15
     },
     "lore": "Time seems to twist around the very\nmagic this wand produces."
   },
@@ -94136,9 +94425,9 @@
     "release_status": "public",
     "type": "Axe",
     "stats": {
-      "unbreaking": 4,
       "fire_aspect": 1,
       "ice_aspect": 1,
+      "unbreaking": 4,
       "attack_speed_base": 0.8,
       "attack_damage_base": 11
     }
@@ -94440,6 +94729,30 @@
       "attack_damage_base": 24
     },
     "lore": "Passed on through millennia, the ancient\nhammer still evokes the might of\nthe Silver Knights."
+  },
+  "Haunting Hymn": {
+    "location": "Delves",
+    "mmlore": [
+      "The weapon is cursed. A presence looms",
+      "upon it, clinging to the song of those",
+      "who are to soon sing their last hymn."
+    ],
+    "region": "Isles",
+    "tier": "Artifact",
+    "name": "Haunting Hymn",
+    "base_item": "Stone Axe",
+    "release_status": "public",
+    "type": "Axe",
+    "stats": {
+      "adaptability": 1,
+      "ethereal": 1,
+      "unbreaking": 8,
+      "attack_speed_base": 1.2,
+      "speed_percent": 12,
+      "attack_damage_base": 14.5,
+      "magic_damage_percent": 10
+    },
+    "lore": "The weapon is cursed. A presence looms\nupon it, clinging to the song of those\nwho are to soon sing their last hymn."
   },
   "Hurricane Halberd": {
     "location": "Purple",
@@ -95274,9 +95587,9 @@
       "steadfast": 1,
       "sustenance": 1,
       "unbreaking": 10,
-      "attack_damage_base": 14,
       "attack_speed_base": 1.3,
-      "magic_damage_percent": 10
+      "magic_damage_percent": 10,
+      "attack_damage_base": 14.5
     },
     "lore": "The heart is still and the blood\nruns cold. Its hatred however...\nThat will never die."
   },
@@ -95383,6 +95696,7 @@
     "release_status": "public",
     "type": "Scythe",
     "stats": {
+      "earth_aspect": 1,
       "slayer": 2,
       "unbreaking": 4,
       "attack_damage_base": 5.5,
@@ -95433,7 +95747,7 @@
       "reverb": 4,
       "unbreaking": 3,
       "attack_speed_base": 1,
-      "attack_damage_base": 17
+      "attack_damage_base": 17.5
     },
     "lore": "How many sleepers had the lxxxxxxx\nscoured? Their minds had been left\nrotten. The tears of usurpation would\nfuel its very existence."
   },
@@ -95611,8 +95925,8 @@
       "reflexes": 1,
       "unbreaking": 4,
       "thorns_flat": 2,
-      "attack_damage_base": 5.5,
-      "attack_speed_base": 2
+      "attack_speed_base": 2,
+      "attack_damage_base": 6
     },
     "lore": "Simplistic, but effective."
   },
@@ -95731,8 +96045,8 @@
       "reflexes": 1,
       "unbreaking": 4,
       "thorns_flat": 2,
-      "attack_damage_base": 5.5,
-      "attack_speed_base": 2
+      "attack_speed_base": 2,
+      "attack_damage_base": 6
     },
     "lore": "Remnants of trees, grass, and blood\nstain this rusting blade. Its history\nis worn upon its edge."
   },
@@ -95749,11 +96063,12 @@
     "release_status": "public",
     "type": "Scythe",
     "stats": {
+      "sweeping_edge": 2,
       "thunder_aspect": 2,
       "unbreaking": 5,
       "speed_percent": 15,
-      "attack_damage_base": 8,
-      "attack_speed_base": 1.3
+      "attack_speed_base": 1.3,
+      "attack_damage_base": 7.5
     },
     "lore": "What beasts could stalk the nightmares\nof the jungle?"
   },
@@ -95832,8 +96147,8 @@
     "release_status": "public",
     "type": "Pickaxe",
     "stats": {
-      "unbreaking": 1,
       "efficiency": 1,
+      "unbreaking": 1,
       "speed_percent": 5,
       "attack_damage_base": 3,
       "attack_speed_base": 1.2
@@ -96354,8 +96669,8 @@
     "release_status": "public",
     "type": "Pickaxe",
     "stats": {
-      "unbreaking": 1,
       "efficiency": 2,
+      "unbreaking": 1,
       "attack_damage_base": 3,
       "attack_speed_base": 1.2
     }
@@ -96784,13 +97099,12 @@
     "release_status": "public",
     "type": "Mainhand Sword",
     "stats": {
-      "unbreaking": 3,
       "fire_aspect": 4,
-      "fire_protection": 2,
-      "sweeping_edge": 2,
+      "fire_protection": 4,
+      "unbreaking": 3,
       "armor": 2,
-      "attack_damage_base": 5,
-      "attack_speed_base": 1.6
+      "attack_speed_base": 1.6,
+      "attack_damage_base": 5.5
     },
     "lore": "Stab down, and take their soul."
   },
@@ -97196,7 +97510,6 @@
       "bleeding": 1,
       "curse_of_corruption": 1,
       "smite": 2,
-      "sweeping_edge": 1,
       "unbreaking": 5,
       "attack_speed_base": 1.6,
       "attack_damage_base": 6
@@ -97313,7 +97626,6 @@
     "stats": {
       "divine_aura": 1,
       "life_drain": 1,
-      "sweeping_edge": 2,
       "unbreaking": 5,
       "attack_speed_base": 1.6,
       "thorns_flat": 3,
@@ -97339,7 +97651,6 @@
       "curse_of_corruption": 1,
       "divine_aura": 1,
       "smite": 2,
-      "sweeping_edge": 1,
       "unbreaking": 5,
       "attack_speed_base": 1.6,
       "attack_damage_base": 6
@@ -97377,7 +97688,7 @@
       "steadfast": 1,
       "unbreakable": 1,
       "attack_speed_base": 1.6,
-      "attack_damage_base": 10
+      "attack_damage_base": 10.5
     },
     "lore": "For honor! For glory! For\nthe Gem, Al Malakut!"
   },
@@ -97412,12 +97723,14 @@
     "release_status": "public",
     "type": "Wand",
     "stats": {
-      "unbreaking": 4,
       "fire_aspect": 1,
+      "ice_aspect": 1,
       "knockback": 1,
-      "attack_damage_base": 6,
+      "sweeping_edge": 1,
+      "unbreaking": 4,
       "attack_speed_base": 1.6,
-      "spell_power_base": 35
+      "spell_power_base": 35,
+      "attack_damage_base": 5
     }
   },
   "Entomology Scalpel": {
@@ -98457,10 +98770,10 @@
     "release_status": "public",
     "type": "Mainhand Sword",
     "stats": {
-      "regicide": 1,
       "material": 1,
-      "melee_protection": 1,
+      "melee_protection": 2,
       "mending": 1,
+      "regicide": 1,
       "attack_speed_base": 1.6,
       "attack_damage_base": 6
     },
@@ -98488,12 +98801,11 @@
     "release_status": "public",
     "type": "Offhand Sword",
     "stats": {
-      "reflexes": 1,
-      "technique": 1,
-      "tempo": 1,
+      "reflexes": 2,
+      "technique": 2,
       "unbreakable": 1,
-      "agility": 2,
-      "attack_damage_percent": 20
+      "attack_damage_percent": 25,
+      "agility": 2.5
     },
     "lore": "Time passes; the shadows loom."
   },
@@ -98521,7 +98833,6 @@
     "type": "Mainhand Sword",
     "stats": {
       "life_drain": 1,
-      "sweeping_edge": 2,
       "unbreaking": 4,
       "thorns_flat": 2,
       "attack_speed_base": 1.6,
@@ -98755,7 +99066,7 @@
     "type": "Mainhand Sword",
     "stats": {
       "earth_aspect": 1,
-      "sweeping_edge": 3,
+      "sweeping_edge": 4,
       "unbreaking": 10,
       "knockback_resistance_flat": 3,
       "attack_speed_base": 0.6,
@@ -98777,7 +99088,6 @@
     "type": "Mainhand Sword",
     "stats": {
       "life_drain": 1,
-      "sweeping_edge": 2,
       "unbreaking": 5,
       "attack_speed_base": 1.6,
       "attack_damage_base": 6,
@@ -98877,7 +99187,7 @@
       "unbreakable": 1,
       "agility": 3,
       "speed_percent": 7,
-      "attack_damage_percent": 8
+      "attack_damage_percent": 10
     },
     "lore": "Imparted with the blessings of the\njungle by the elders within Ta'Ksaav."
   },
@@ -99116,8 +99426,8 @@
     "type": "Mainhand Sword",
     "stats": {
       "knockback": 1,
-      "unbreaking": 11,
       "sweeping_edge": 4,
+      "unbreaking": 11,
       "attack_speed_base": 0.6,
       "speed_percent": -10,
       "attack_damage_base": 31
@@ -99140,8 +99450,8 @@
     "type": "Mainhand Sword",
     "stats": {
       "knockback": 1,
-      "unbreaking": 11,
       "sweeping_edge": 4,
+      "unbreaking": 11,
       "attack_speed_base": 0.6,
       "speed_percent": -10,
       "attack_damage_base": 31.5
@@ -99164,8 +99474,8 @@
     "type": "Mainhand Sword",
     "stats": {
       "knockback": 1,
+      "sweeping_edge": 4,
       "unbreaking": 12,
-      "sweeping_edge": 5,
       "attack_speed_base": 0.6,
       "speed_percent": -10,
       "attack_damage_base": 32.5
@@ -99201,6 +99511,29 @@
       "attack_damage_percent": 8
     },
     "lore": "\"Yes, yes. Yes. This shall be yours\nnow. We will remember this gift and\nexpect one in kind.\""
+  },
+  "Twisted Splinter": {
+    "location": "Delves",
+    "mmlore": [
+      "As you pull the blade out from the behemoth's",
+      "chest, a malice presides upon it. It barely holds",
+      "its shape as it mutates into something horrible."
+    ],
+    "region": "Isles",
+    "tier": "Artifact",
+    "name": "Twisted Splinter",
+    "base_item": "Stone Sword",
+    "release_status": "public",
+    "type": "Offhand Sword",
+    "stats": {
+      "adrenaline": 2,
+      "first_strike": 2,
+      "magic_protection": 2,
+      "unbreakable": 1,
+      "armor": 5,
+      "attack_damage_percent": 30
+    },
+    "lore": "As you pull the blade out from the behemoth's\nchest, a malice presides upon it. It barely holds\nits shape as it mutates into something horrible."
   },
   "Vacant Dagger-1": {
     "location": "Pelias' Keep",
@@ -99763,7 +100096,7 @@
     "stats": {
       "recoil_velocity_percent": {
         "locked": false,
-        "value": 25
+        "value": 30
       }
     },
     "type": "Charm",
@@ -102606,11 +102939,11 @@
     "release_status": "public",
     "type": "Trident",
     "stats": {
-      "thunder_aspect": 2,
-      "unbreaking": 3,
+      "evasion": 1,
+      "ice_aspect": 3,
+      "thunder_aspect": 3,
       "two_handed": 1,
-      "ice_aspect": 2,
-      "tempo": 1,
+      "unbreaking": 3,
       "attack_speed_base": 1.2,
       "projectile_speed_base": 1,
       "attack_damage_base": 22,
@@ -104147,17 +104480,21 @@
     "region": "Ring",
     "tier": "Rare",
     "name": "Totem of the Tombstone",
-    "power": 1,
+    "power": 2,
     "base_item": "Warped Fungus",
     "release_status": "public",
     "stats": {
-      "totemic_projection_enhancement_damage_percent": {
-        "locked": false,
-        "value": 80
+      "totemic_projection_cooldown_percent": {
+        "locked": true,
+        "value": -70
       },
       "totemic_projection_enhancement_damage_duration_percent": {
         "locked": false,
-        "value": -25
+        "value": -100
+      },
+      "totemic_projection_spread_percent": {
+        "locked": false,
+        "value": -50
       }
     },
     "type": "Charm",
@@ -104220,12 +104557,15 @@
     "lore": "A people's plea for freedom and your might\nclash against the mind of all Mycelia.\nCompletion of Sporetal Combat and 3⭐\nMasterwork are recommended for this boss!\nThe Godspore stands resolute in the midst of\nits domain. Its most loyal followers protect it\nfrom all attacks and must be dealt with swiftly.\nPlayers: 1-4 (Infinite attempts)\nGrants access to The Godspore."
   },
   "Blighted Roots": {
+    "location": "Architect's Ring",
     "mmlore": [
       "A blight, then, would have to sever",
       "its hold. And for a time, it would. But",
       "only direct action could prevent it",
       "from taking control once more."
     ],
+    "region": "Ring",
+    "tier": "Currency",
     "name": "Blighted Roots",
     "base_item": "Warped Roots",
     "release_status": "public",
@@ -104822,12 +105162,12 @@
     "release_status": "public",
     "type": "Wand",
     "stats": {
-      "decay": 2,
+      "decay": 3,
       "hex_eater": 2,
       "tempo": 1,
       "speed_percent": -10,
       "attack_damage_base": 6.5,
-      "spell_power_base": 77
+      "spell_power_base": 80
     },
     "lore": "Tales are told amongst the ranks of\nwhat lurks just below the surface of\nthe waters once night arises. Arms,\nthey say, stretching from the ocean's\nfloor, waiting to drag you to the depths."
   },
@@ -104853,7 +105193,7 @@
       "tempo": 1,
       "speed_percent": -10,
       "attack_damage_base": 7,
-      "spell_power_base": 80
+      "spell_power_base": 83
     },
     "lore": "Tales are told amongst the ranks of\nwhat lurks just below the surface of\nthe waters once night arises. Arms,\nthey say, stretching from the ocean's\nfloor, waiting to drag you to the depths."
   },
@@ -104874,12 +105214,12 @@
     "release_status": "public",
     "type": "Wand",
     "stats": {
-      "decay": 3,
+      "decay": 4,
       "hex_eater": 2,
       "tempo": 1,
       "speed_percent": -10,
       "attack_damage_base": 7.5,
-      "spell_power_base": 85
+      "spell_power_base": 88
     },
     "lore": "Tales are told amongst the ranks of\nwhat lurks just below the surface of\nthe waters once night arises. Arms,\nthey say, stretching from the ocean's\nfloor, waiting to drag you to the depths."
   },
@@ -106062,8 +106402,8 @@
     "release_status": "public",
     "type": "Scythe",
     "stats": {
-      "inure": 1,
       "decay": 9,
+      "inure": 1,
       "unbreaking": 35,
       "attack_speed_base": 2,
       "knockback_resistance_flat": 2,
@@ -106086,8 +106426,8 @@
     "release_status": "public",
     "type": "Scythe",
     "stats": {
-      "inure": 1,
       "decay": 12,
+      "inure": 1,
       "unbreaking": 35,
       "attack_speed_base": 2,
       "knockback_resistance_flat": 2,
@@ -106140,8 +106480,8 @@
       "unbreaking": 40,
       "attack_speed_base": 2,
       "knockback_resistance_flat": 2.5,
-      "attack_damage_base": 11.5,
-      "armor": 1
+      "armor": 1,
+      "attack_damage_base": 12
     },
     "lore": "Once, the twin spirits worked in harmony.\nBut death without life reaped horrible rewards.\nSoon, the one who remained would welcome the end."
   },
@@ -106451,9 +106791,9 @@
     "release_status": "public",
     "type": "Pickaxe",
     "stats": {
-      "magic_protection": 1,
-      "ice_aspect": 1,
       "efficiency": 3,
+      "ice_aspect": 1,
+      "magic_protection": 1,
       "attack_damage_base": 2,
       "attack_speed_base": 1.2
     }
@@ -106663,9 +107003,9 @@
     "release_status": "public",
     "type": "Shovel",
     "stats": {
-      "unbreaking": 5,
-      "fortune": 3,
       "efficiency": 2,
+      "fortune": 3,
+      "unbreaking": 5,
       "attack_damage_base": 2.5,
       "attack_speed_base": 1
     }
@@ -106846,11 +107186,11 @@
     "release_status": "public",
     "type": "Mainhand Sword",
     "stats": {
-      "sweeping_edge": 2,
+      "sweeping_edge": 3,
       "unbreaking": 4,
       "attack_speed_base": 1.8,
-      "attack_damage_base": 5.5,
-      "speed_percent": 10
+      "speed_percent": 10,
+      "attack_damage_base": 5.5
     }
   },
   "Deepslate Xkelaq": {
@@ -106886,9 +107226,9 @@
     "release_status": "public",
     "type": "Mainhand Sword",
     "stats": {
+      "chaotic": 2,
       "sweeping_edge": 3,
       "unbreaking": 4,
-      "chaotic": 2,
       "attack_speed_base": 1.6,
       "attack_damage_base": 7
     }
@@ -106922,12 +107262,12 @@
     "release_status": "public",
     "type": "Offhand Sword",
     "stats": {
+      "curse_of_anemia": 2,
       "second_wind": 2,
       "steadfast": 1,
       "unbreakable": 1,
-      "curse_of_anemia": 2,
-      "armor": 4,
-      "attack_damage_percent": 30
+      "attack_damage_percent": 30,
+      "armor": 4.5
     },
     "lore": "Within rebirth, that seed of temptation\nbloomed. Hedera would turn towards the\nsea, enchanted by a new voice..."
   },
@@ -107141,9 +107481,8 @@
     "type": "Mainhand Sword",
     "stats": {
       "decay": 1,
-      "unbreaking": 1,
-      "sweeping_edge": 1,
       "mending": 1,
+      "unbreaking": 1,
       "attack_damage_base": 7.5,
       "attack_speed_base": 1.6
     },
@@ -107451,10 +107790,11 @@
     "release_status": "public",
     "type": "Offhand Sword",
     "stats": {
+      "magic_protection": 2,
       "unbreakable": 1,
-      "max_health_flat": 7,
-      "speed_percent": 5,
-      "agility": 3.5
+      "agility": 3.5,
+      "max_health_flat": 5,
+      "magic_damage_percent": 10
     },
     "lore": "He spoke the truth to the Void.\nBeyond here there is nothingness,\nyet the nothingness hungers still."
   },
@@ -107488,6 +107828,7 @@
     "type": "Mainhand Sword",
     "stats": {
       "adrenaline": 2,
+      "melee_protection": 1,
       "mending": 1,
       "technique": 3,
       "unbreaking": 9,
@@ -107506,11 +107847,11 @@
     "type": "Mainhand Sword",
     "stats": {
       "mending": 1,
-      "sweeping_edge": 3,
+      "sweeping_edge": 4,
       "unbreaking": 2,
       "attack_speed_base": 1.8,
-      "attack_damage_base": 6.5,
-      "speed_percent": 15
+      "speed_percent": 15,
+      "attack_damage_base": 6.5
     }
   },
   "Steelwood Blade": {
@@ -107645,7 +107986,7 @@
       "reflexes": 1,
       "unbreakable": 1,
       "agility": 7.5,
-      "attack_damage_percent": 25
+      "attack_damage_percent": 30
     },
     "lore": "Pelias' folly opened the minds of two peoples.\nThe Dichen to their destiny in the outer colonies,\nand the Aradia to the plight of their lost god.\nIt was only natural that the two would ally."
   },
@@ -107668,7 +108009,7 @@
       "reflexes": 1,
       "unbreakable": 1,
       "agility": 8,
-      "attack_damage_percent": 30
+      "attack_damage_percent": 35
     },
     "lore": "Pelias' folly opened the minds of two peoples.\nThe Dichen to their destiny in the outer colonies,\nand the Aradia to the plight of their lost god.\nIt was only natural that the two would ally."
   },
@@ -108049,9 +108390,9 @@
     "type": "Chestplate",
     "stats": {
       "blast_protection": 2,
-      "unbreaking": 8,
-      "projectile_protection": 1,
+      "projectile_protection": 2,
       "shielding": 1,
+      "unbreaking": 8,
       "armor": 6,
       "thorns_flat": 2
     },
@@ -108951,8 +109292,8 @@
     "stats": {
       "adaptability": 1,
       "material": 1,
+      "regeneration": 3,
       "tempo": 2,
-      "regeneration": 2,
       "knockback_resistance_flat": 2
     },
     "lore": "An hourglass belonging to an Isharist philosopher.\nThe sands flow through at a calming pace."
@@ -109245,7 +109586,7 @@
       "stamina": 1,
       "steadfast": 1,
       "unbreaking": 3,
-      "armor": 2
+      "armor": 3
     },
     "lore": "Tarnished by a legion of blows, each\none informing the warrior's battles.\nThe strikes not blocked however, informing\nthe crowd."
   },
@@ -109781,6 +110122,34 @@
     "type": "Written Book",
     "stats": {}
   },
+  "The Seven Sisters Vol. 1": {
+    "name": "The Seven Sisters Vol. 1",
+    "base_item": "Written Book",
+    "release_status": "public",
+    "type": "Written Book",
+    "stats": {}
+  },
+  "The Seven Sisters Vol. 2": {
+    "name": "The Seven Sisters Vol. 2",
+    "base_item": "Written Book",
+    "release_status": "public",
+    "type": "Written Book",
+    "stats": {}
+  },
+  "The Seven Sisters Vol. 3": {
+    "name": "The Seven Sisters Vol. 3",
+    "base_item": "Written Book",
+    "release_status": "public",
+    "type": "Written Book",
+    "stats": {}
+  },
+  "The Seven Sisters Vol. 4": {
+    "name": "The Seven Sisters Vol. 4",
+    "base_item": "Written Book",
+    "release_status": "public",
+    "type": "Written Book",
+    "stats": {}
+  },
   "The Ship": {
     "name": "The Ship",
     "base_item": "Written Book",
@@ -110211,19 +110580,14 @@
   "Focused Smiting Charm": {
     "location": "Architect's Ring",
     "region": "Ring",
-    "tier": "Base",
+    "tier": "Legacy",
     "name": "Focused Smiting Charm",
     "power": 3,
     "base_item": "Yellow Dye",
     "release_status": "public",
-    "stats": {
-      "divine_justice_percent_damage_percent": {
-        "locked": false,
-        "value": 15
-      }
-    },
+    "stats": {},
     "type": "Charm",
-    "class_name": "Cleric"
+    "class_name": "Generalist"
   },
   "Golden Coin": {
     "location": "Mist",
@@ -110243,36 +110607,26 @@
   "Greater Smiting Charm": {
     "location": "Architect's Ring",
     "region": "Ring",
-    "tier": "Base",
+    "tier": "Legacy",
     "name": "Greater Smiting Charm",
     "power": 2,
     "base_item": "Yellow Dye",
     "release_status": "public",
-    "stats": {
-      "divine_justice_percent_damage_percent": {
-        "locked": false,
-        "value": 10
-      }
-    },
+    "stats": {},
     "type": "Charm",
-    "class_name": "Cleric"
+    "class_name": "Generalist"
   },
   "Lesser Smiting Charm": {
     "location": "Architect's Ring",
     "region": "Ring",
-    "tier": "Base",
+    "tier": "Legacy",
     "name": "Lesser Smiting Charm",
     "power": 1,
     "base_item": "Yellow Dye",
     "release_status": "public",
-    "stats": {
-      "divine_justice_percent_damage_percent": {
-        "locked": false,
-        "value": 5
-      }
-    },
+    "stats": {},
     "type": "Charm",
-    "class_name": "Cleric"
+    "class_name": "Generalist"
   },
   "Life Charm (lapis lazuli)": {
     "location": "Arena of Terth",
@@ -110345,23 +110699,14 @@
   "Sustaining Smiting Charm": {
     "location": "Architect's Ring",
     "region": "Ring",
-    "tier": "Base",
+    "tier": "Legacy",
     "name": "Sustaining Smiting Charm",
     "power": 3,
     "base_item": "Yellow Dye",
     "release_status": "public",
-    "stats": {
-      "divine_justice_self_heal_percent": {
-        "locked": false,
-        "value": 25
-      },
-      "divine_justice_ally_heal_percent": {
-        "locked": false,
-        "value": 50
-      }
-    },
+    "stats": {},
     "type": "Charm",
-    "class_name": "Cleric"
+    "class_name": "Generalist"
   },
   "Topaz": {
     "location": "King's Valley",
@@ -110845,6 +111190,49 @@
     "type": "Misc",
     "stats": {},
     "lore": "Obtained in the Anniversary Pass."
+  },
+  "Eomen's Robes (legs)": {
+    "location": "Forum",
+    "mmlore": [
+      "At the end, Eomen stood with his arms",
+      "wide, ready to embrace the magic sweeping",
+      "through the Forum. This was new ground",
+      "to break."
+    ],
+    "region": "Isles",
+    "tier": "Artifact",
+    "name": "Eomen's Robes",
+    "base_item": "Leather Leggings",
+    "release_status": "public",
+    "type": "Leggings",
+    "stats": {
+      "poise": 1,
+      "unbreaking": 9,
+      "max_health_flat": -2,
+      "armor": 10
+    },
+    "lore": "At the end, Eomen stood with his arms\nwide, ready to embrace the magic sweeping\nthrough the Forum. This was new ground\nto break."
+  },
+  "Eomen's Robes (offhand)": {
+    "location": "Forum",
+    "mmlore": [
+      "At the end, Eomen stood with his arms",
+      "wide, ready to embrace the magic sweeping",
+      "through the Forum. This was new ground",
+      "to break."
+    ],
+    "region": "Isles",
+    "tier": "Artifact",
+    "name": "Eomen's Robes",
+    "base_item": "Leather Leggings",
+    "release_status": "public",
+    "stats": {
+      "poise": 1,
+      "unbreaking": 9,
+      "armor": 9.5
+    },
+    "type": "Offhand",
+    "lore": "At the end, Eomen stood with his arms\nwide, ready to embrace the magic sweeping\nthrough the Forum. This was new ground\nto break."
   },
   "Lyson's Head (head)": {
     "location": "Celsian Isles",

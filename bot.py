@@ -17,6 +17,7 @@ from utils import format_item_short
 from utils import manage_build
 from utils import split_log_result
 from utils import handle_trade_log
+from utils import manage_pig_vip
 from collections import defaultdict
 
 load_dotenv()
@@ -29,6 +30,7 @@ intents.voice_states = True
 intents.guilds = True
 intents.members = True
 PREFIX = os.getenv("BOT_PREFIX")
+ADMIN_ID = os.getenv("ADMIN_ID")
 bot = commands.Bot(command_prefix=PREFIX, intents=intents)
 
 BOT_ADMIN = {
@@ -75,7 +77,11 @@ load_and_index_data()
 @bot.event
 async def on_ready():
     print(f'🤖 機器人已登入：{bot.user}')
-    print(f"🟢 Bot 啟動於：{socket.gethostname()} | PID: {os.getpid()}")
+    try:
+        user = await bot.fetch_user(ADMIN_ID)
+        await user.send(f"🟢 Bot 啟動於：{socket.gethostname()} | PID: {os.getpid()}")
+    except:
+        print(f"🟢 Bot 啟動於：{socket.gethostname()} | PID: {os.getpid()}")
 
 @bot.event
 async def on_message(message):
@@ -207,8 +213,28 @@ async def on_message(message):
             await message.channel.send("✅ 成功更新道具資料！")
         else:
             await message.channel.send("<:ghost_technology_4:1293185676086481039> 更新失敗，請稍後再試。")
-    await bot.process_commands(message)
+    
+    if message.content.startswith(f"{PREFIX}pig"):
+        username = message.author.name
 
+        if username not in BOT_ADMIN:
+            await message.channel.send(f"⛔ {username} 沒有權限更新資料。")
+            return
+
+        pig_vip_command = message.content.split()
+
+        if len(pig_vip_command) >= 3:
+            result = manage_pig_vip(pig_vip_command[1], pig_vip_command[2])
+            await message.channel.send(result)
+        
+        elif len(pig_vip_command) == 2:
+            if pig_vip_command[1] == "list":
+                result = manage_pig_vip("list")
+            elif pig_vip_command[1] in ["add", "remove"]:
+                result = "❌ 請提供玩家ID!"
+            await message.channel.send(result)
+
+    await bot.process_commands(message)
 @bot.command()
 async def join(ctx):
     if ctx.author.voice:

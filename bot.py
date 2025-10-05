@@ -357,6 +357,12 @@ async def on_message(message):
                     logger.exception("刪除截圖失敗")
 
     if content.startswith(f"{PREFIX}m") and "mistrade" not in content:
+        user_id_str = str(message.author.id)
+        username = message.author.name
+
+        if user_id_str not in ADMIN_IDS:
+            await message.channel.send(f"⛔ {username} 沒有權限執行操作。")
+            return
         parts = content.split()
         async with control_lock:
             try:

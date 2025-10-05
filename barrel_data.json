@@ -1,152 +1,152 @@
 {
     "(-613, 46, 1089)": {
         "name": "White Rare Frag 1",
-        "buyPrice": 16,
-        "sellPrice": 14,
+        "buyPrice": 20,
+        "sellPrice": 18,
         "unit": "CXP"
     },
     "(-613, 45, 1089)": {
         "name": "White Rare Frag 2",
-        "buyPrice": 14,
-        "sellPrice": 12,
+        "buyPrice": 18,
+        "sellPrice": 16,
         "unit": "CXP"
     },
     "(-613, 44, 1089)": {
         "name": "White Rare Frag 3",
-        "buyPrice": 12,
-        "sellPrice": 10,
+        "buyPrice": 16,
+        "sellPrice": 14,
         "unit": "CXP"
     },
     "(-613, 43, 1089)": {
         "name": "White Rare Frag 4",
-        "buyPrice": 10,
-        "sellPrice": 8,
+        "buyPrice": 14,
+        "sellPrice": 12,
         "unit": "CXP"
     },
     "(-613, 42, 1089)": {
         "name": "White Rare Frag 5",
-        "buyPrice": 8,
-        "sellPrice": 6,
+        "buyPrice": 12,
+        "sellPrice": 10,
         "unit": "CXP"
     },
     "(-612, 46, 1089)": {
         "name": "Orange Rare Frag 1",
-        "buyPrice": 16,
-        "sellPrice": 14,
+        "buyPrice": 20,
+        "sellPrice": 18,
         "unit": "CXP"
     },
     "(-612, 45, 1089)": {
         "name": "Orange Rare Frag 2",
-        "buyPrice": 14,
-        "sellPrice": 12,
+        "buyPrice": 18,
+        "sellPrice": 16,
         "unit": "CXP"
     },
     "(-612, 44, 1089)": {
         "name": "Orange Rare Frag 3",
-        "buyPrice": 12,
-        "sellPrice": 10,
+        "buyPrice": 16,
+        "sellPrice": 14,
         "unit": "CXP"
     },
     "(-612, 43, 1089)": {
         "name": "Orange Rare Frag 4",
-        "buyPrice": 10,
-        "sellPrice": 8,
+        "buyPrice": 14,
+        "sellPrice": 12,
         "unit": "CXP"
     },
     "(-612, 42, 1089)": {
         "name": "Orange Rare Frag 5",
-        "buyPrice": 8,
-        "sellPrice": 6,
+        "buyPrice": 12,
+        "sellPrice": 10,
         "unit": "CXP"
     },
     "(-611, 46, 1089)": {
         "name": "Megenta Rare Frag 1",
-        "buyPrice": 16,
-        "sellPrice": 14,
+        "buyPrice": 20,
+        "sellPrice": 18,
         "unit": "CXP"
     },
     "(-611, 45, 1089)": {
         "name": "Megenta Rare Frag 2",
-        "buyPrice": 14,
-        "sellPrice": 12,
+        "buyPrice": 18,
+        "sellPrice": 16,
         "unit": "CXP"
     },
     "(-611, 44, 1089)": {
         "name": "Megenta Rare Frag 3",
-        "buyPrice": 12,
-        "sellPrice": 10,
+        "buyPrice": 16,
+        "sellPrice": 14,
         "unit": "CXP"
     },
     "(-611, 43, 1089)": {
         "name": "Megenta Rare Frag 4",
-        "buyPrice": 10,
-        "sellPrice": 8,
+        "buyPrice": 14,
+        "sellPrice": 12,
         "unit": "CXP"
     },
     "(-611, 42, 1089)": {
         "name": "Megenta Rare Frag 5",
-        "buyPrice": 8,
-        "sellPrice": 6,
+        "buyPrice": 12,
+        "sellPrice": 10,
         "unit": "CXP"
     },
     "(-610, 46, 1089)": {
         "name": "Light Blue Rare Frag 1",
-        "buyPrice": 16,
-        "sellPrice": 14,
+        "buyPrice": 20,
+        "sellPrice": 18,
         "unit": "CXP"
     },
     "(-610, 45, 1089)": {
         "name": "Light Blue Rare Frag 2",
-        "buyPrice": 14,
-        "sellPrice": 12,
+        "buyPrice": 18,
+        "sellPrice": 16,
         "unit": "CXP"
     },
     "(-610, 44, 1089)": {
         "name": "Light Blue Rare Frag 3",
-        "buyPrice": 12,
-        "sellPrice": 10,
-        "unit": "CXP"
-    },
-    "(-610, 43, 1089)": {
-        "name": "Light Blue Rare Frag 4",
-        "buyPrice": 10,
-        "sellPrice": 8,
-        "unit": "CXP"
-    },
-    "(-610, 42, 1089)": {
-        "name": "Light Blue Rare Frag 5",
-        "buyPrice": 8,
-        "sellPrice": 6,
-        "unit": "CXP"
-    },
-    "(-609, 46, 1089)": {
-        "name": "Yellow Rare Frag 1",
         "buyPrice": 16,
         "sellPrice": 14,
         "unit": "CXP"
     },
-    "(-609, 45, 1089)": {
-        "name": "Yellow Rare Frag 2",
+    "(-610, 43, 1089)": {
+        "name": "Light Blue Rare Frag 4",
         "buyPrice": 14,
         "sellPrice": 12,
         "unit": "CXP"
     },
-    "(-609, 44, 1089)": {
-        "name": "Yellow Rare Frag 3",
+    "(-610, 42, 1089)": {
+        "name": "Light Blue Rare Frag 5",
         "buyPrice": 12,
         "sellPrice": 10,
         "unit": "CXP"
     },
+    "(-609, 46, 1089)": {
+        "name": "Yellow Rare Frag 1",
+        "buyPrice": 20,
+        "sellPrice": 18,
+        "unit": "CXP"
+    },
+    "(-609, 45, 1089)": {
+        "name": "Yellow Rare Frag 2",
+        "buyPrice": 18,
+        "sellPrice": 16,
+        "unit": "CXP"
+    },
+    "(-609, 44, 1089)": {
+        "name": "Yellow Rare Frag 3",
+        "buyPrice": 16,
+        "sellPrice": 14,
+        "unit": "CXP"
+    },
     "(-609, 43, 1089)": {
         "name": "Yellow Rare Frag 4",
-        "buyPrice": 10,
-        "sellPrice": 8,
+        "buyPrice": 14,
+        "sellPrice": 12,
         "unit": "CXP"
     },
     "(-609, 42, 1089)": {
         "name": "Yellow Rare Frag 5",
-        "buyPrice": 8,
-        "sellPrice": 6,
+        "buyPrice": 12,
+        "sellPrice": 10,
         "unit": "CXP"
     },
     "(-608, 46, 1089)": {
@@ -171,7 +171,7 @@
         "name": "Reverie Artifiact 4",
         "buyPrice": 48,
         "sellPrice": 40,
-        "unit": "HXP"
+        "unit": "CXP"
     },
     "(-608, 42, 1089)": {
         "name": "Reverie Artifiact 5",
@@ -511,62 +511,62 @@
     },
     "(-604, 46, 1098)": {
         "name": "DD Artifact 1",
-        "buyPrice": 2.0,
-        "sellPrice": 1.75,
+        "buyPrice": 2.25,
+        "sellPrice": 2,
         "unit": "HCS"
     },
     "(-604, 45, 1098)": {
         "name": "DD Artifact 2",
-        "buyPrice": 1.75,
-        "sellPrice": 1.5,
+        "buyPrice": 2,
+        "sellPrice": 1.75,
         "unit": "HCS"
     },
     "(-604, 44, 1098)": {
         "name": "DD Artifact 3",
-        "buyPrice": 1.5,
-        "sellPrice": 1.25,
+        "buyPrice": 1.75,
+        "sellPrice": 1.5,
         "unit": "HCS"
     },
     "(-604, 43, 1098)": {
         "name": "DD Artifact 4",
-        "buyPrice": 1.25,
-        "sellPrice": 1.0,
+        "buyPrice": 1.5,
+        "sellPrice": 1.25,
         "unit": "HCS"
     },
     "(-604, 42, 1098)": {
         "name": "DD Artifact 5",
-        "buyPrice": 1.0,
-        "sellPrice": 0.75,
+        "buyPrice": 1.25,
+        "sellPrice": 1,
         "unit": "HCS"
     },
     "(-604, 46, 1099)": {
         "name": "CZ Rare 1",
-        "buyPrice": 2.25,
-        "sellPrice": 2.0,
+        "buyPrice": 3.5,
+        "sellPrice": 3,
         "unit": "HAR"
     },
     "(-604, 45, 1099)": {
         "name": "CZ Rare 2",
-        "buyPrice": 2.0,
-        "sellPrice": 1.75,
+        "buyPrice": 3,
+        "sellPrice": 2.75,
         "unit": "HAR"
     },
     "(-604, 44, 1099)": {
         "name": "CZ Rare 3",
-        "buyPrice": 1.75,
-        "sellPrice": 1.5,
+        "buyPrice": 2.75,
+        "sellPrice": 2.5,
         "unit": "HAR"
     },
     "(-604, 43, 1099)": {
         "name": "CZ Rare 4",
-        "buyPrice": 1.5,
-        "sellPrice": 1.25,
+        "buyPrice": 2.5,
+        "sellPrice": 2.25,
         "unit": "HAR"
     },
     "(-604, 42, 1099)": {
         "name": "CZ Rare 5",
-        "buyPrice": 1.25,
-        "sellPrice": 1.0,
+        "buyPrice": 2.25,
+        "sellPrice": 2,
         "unit": "HAR"
     },
     "(-606, 46, 1099)": {
@@ -782,211 +782,211 @@
     "(-614, 46, 1092)": {
         "name": "R1 Casino Rare Frag 1",
         "buyPrice": 20,
-        "sellPrice": 16,
+        "sellPrice": 18,
         "unit": "CXP"
     },
     "(-614, 45, 1092)": {
         "name": "R1 Casino Rare Frag 2",
-        "buyPrice": 16,
-        "sellPrice": 14,
-        "unit": "CXP"
-    },
-    "(-614, 44, 1092)": {
-        "name": "R1 Casino Rare Frag 3",
-        "buyPrice": 14,
-        "sellPrice": 12,
-        "unit": "CXP"
-    },
-    "(-614, 43, 1092)": {
-        "name": "R1 Casino Rare Frag 4",
-        "buyPrice": 12,
-        "sellPrice": 10,
-        "unit": "CXP"
-    },
-    "(-614, 42, 1092)": {
-        "name": "R1 Casino Rare Frag 5",
-        "buyPrice": 10,
-        "sellPrice": 8,
-        "unit": "CXP"
-    },
-    "(-614, 46, 1091)": {
-        "name": "R1 Overworld Rare Frag 1",
         "buyPrice": 18,
         "sellPrice": 16,
         "unit": "CXP"
     },
-    "(-614, 45, 1091)": {
-        "name": "R1 Overworld Rare Frag 2",
-        "buyPrice": 20,
+    "(-614, 44, 1092)": {
+        "name": "R1 Casino Rare Frag 3",
+        "buyPrice": 16,
         "sellPrice": 14,
         "unit": "CXP"
     },
-    "(-614, 44, 1091)": {
-        "name": "R1 Overworld Rare Frag 3",
+    "(-614, 43, 1092)": {
+        "name": "R1 Casino Rare Frag 4",
         "buyPrice": 14,
         "sellPrice": 12,
         "unit": "CXP"
     },
-    "(-614, 43, 1091)": {
-        "name": "R1 Overworld Rare Frag 4",
+    "(-614, 42, 1092)": {
+        "name": "R1 Casino Rare Frag 5",
         "buyPrice": 12,
         "sellPrice": 10,
         "unit": "CXP"
     },
+    "(-614, 46, 1091)": {
+        "name": "R1 Overworld Rare Frag 1",
+        "buyPrice": 32,
+        "sellPrice": 28,
+        "unit": "CXP"
+    },
+    "(-614, 45, 1091)": {
+        "name": "R1 Overworld Rare Frag 2",
+        "buyPrice": 28,
+        "sellPrice": 24,
+        "unit": "CXP"
+    },
+    "(-614, 44, 1091)": {
+        "name": "R1 Overworld Rare Frag 3",
+        "buyPrice": 24,
+        "sellPrice": 20,
+        "unit": "CXP"
+    },
+    "(-614, 43, 1091)": {
+        "name": "R1 Overworld Rare Frag 4",
+        "buyPrice": 20,
+        "sellPrice": 16,
+        "unit": "CXP"
+    },
     "(-614, 42, 1091)": {
         "name": "R1 Overworld Rare Frag 5",
-        "buyPrice": 10,
-        "sellPrice": 8,
+        "buyPrice": 16,
+        "sellPrice": 12,
         "unit": "CXP"
     },
     "(-614, 46, 1094)": {
         "name": "R2 Overworld Rare Frag 1",
-        "buyPrice": 32,
-        "sellPrice": 28,
+        "buyPrice": 36,
+        "sellPrice": 32,
         "unit": "CCS"
     },
     "(-614, 45, 1094)": {
         "name": "R2 Overworld Rare Frag 2",
-        "buyPrice": 28,
-        "sellPrice": 24,
+        "buyPrice": 32,
+        "sellPrice": 28,
         "unit": "CCS"
     },
     "(-614, 44, 1094)": {
         "name": "R2 Overworld Rare Frag 3",
-        "buyPrice": 24,
-        "sellPrice": 20,
+        "buyPrice": 28,
+        "sellPrice": 24,
         "unit": "CCS"
     },
     "(-614, 43, 1094)": {
         "name": "R2 Overworld Rare Frag 4",
-        "buyPrice": 20,
-        "sellPrice": 16,
+        "buyPrice": 24,
+        "sellPrice": 20,
         "unit": "CCS"
     },
     "(-614, 42, 1094)": {
         "name": "R2 Overworld Rare Frag 5",
-        "buyPrice": 16,
-        "sellPrice": 12,
+        "buyPrice": 20,
+        "sellPrice": 16,
         "unit": "CCS"
     },
     "(-614, 46, 1095)": {
         "name": "R2 Casino Rare Frag 1",
-        "buyPrice": 96,
-        "sellPrice": 80,
+        "buyPrice": 36,
+        "sellPrice": 32,
         "unit": "CCS"
     },
     "(-614, 45, 1095)": {
         "name": "R2 Casino Rare Frag 2",
-        "buyPrice": 80,
-        "sellPrice": 64,
+        "buyPrice": 32,
+        "sellPrice": 28,
         "unit": "CCS"
     },
     "(-614, 44, 1095)": {
         "name": "R2 Casino Rare Frag 3",
-        "buyPrice": 64,
-        "sellPrice": 56,
+        "buyPrice": 28,
+        "sellPrice": 24,
         "unit": "CCS"
     },
     "(-614, 43, 1095)": {
         "name": "R2 Casino Rare Frag 4",
-        "buyPrice": 56,
-        "sellPrice": 48,
+        "buyPrice": 24,
+        "sellPrice": 20,
         "unit": "CCS"
     },
     "(-614, 42, 1095)": {
         "name": "R2 Casino Rare Frag 5",
-        "buyPrice": 48,
-        "sellPrice": 40,
+        "buyPrice": 20,
+        "sellPrice": 16,
         "unit": "CCS"
     },
-    "(-614, 46, 1096)": {
+    "(-613, 64, 1092)": {
         "name": "Forum Artifact 1",
         "buyPrice": 48,
         "sellPrice": 40,
         "unit": "CCS"
     },
-    "(-614, 45, 1096)": {
+    "(-613, 63, 1092)": {
         "name": "Forum Artifact 2",
         "buyPrice": 40,
         "sellPrice": 36,
         "unit": "CCS"
     },
-    "(-614, 44, 1096)": {
+    "(-613, 62, 1092)": {
         "name": "Forum Artifact 3",
         "buyPrice": 36,
         "sellPrice": 32,
         "unit": "CCS"
     },
-    "(-614, 43, 1096)": {
+    "(-613, 61, 1092)": {
         "name": "Forum Artifact 4",
         "buyPrice": 32,
         "sellPrice": 28,
         "unit": "CCS"
     },
-    "(-614, 42, 1096)": {
+    "(-613, 60, 1092)": {
         "name": "Forum Artifact 5",
         "buyPrice": 28,
         "sellPrice": 24,
         "unit": "CCS"
     },
-    "(-614, 46, 1097)": {
+    "(-613, 64, 1093)": {
         "name": "Teal Artifact 1",
+        "buyPrice": 112,
+        "sellPrice": 96,
+        "unit": "CCS"
+    },
+    "(-613, 63, 1093)": {
+        "name": "Teal Artifact 2",
         "buyPrice": 96,
         "sellPrice": 80,
         "unit": "CCS"
     },
-    "(-614, 45, 1097)": {
-        "name": "Teal Artifact 2",
+    "(-613, 62, 1093)": {
+        "name": "Teal Artifact 3",
         "buyPrice": 80,
         "sellPrice": 64,
         "unit": "CCS"
     },
-    "(-614, 44, 1097)": {
-        "name": "Teal Artifact 3",
+    "(-613, 61, 1093)": {
+        "name": "Teal Artifact 4",
         "buyPrice": 64,
         "sellPrice": 56,
         "unit": "CCS"
     },
-    "(-614, 43, 1097)": {
-        "name": "Teal Artifact 4",
+    "(-613, 60, 1093)": {
+        "name": "Teal Artifact 5",
         "buyPrice": 56,
         "sellPrice": 48,
         "unit": "CCS"
     },
-    "(-614, 42, 1097)": {
-        "name": "Teal Artifact 5",
-        "buyPrice": 48,
-        "sellPrice": 40,
-        "unit": "CCS"
-    },
     "(-614, 46, 1093)": {
         "name": "HXP Seasonal Pass 1",
-        "buyPrice": 20,
-        "sellPrice": 18,
-        "unit": "HXP"
-    },
-    "(-614, 45, 1093)": {
-        "name": "HXP Seasonal Pass 2",
-        "buyPrice": 18,
-        "sellPrice": 16,
-        "unit": "HXP"
-    },
-    "(-614, 44, 1093)": {
-        "name": "HXP Seasonal Pass 3",
         "buyPrice": 16,
         "sellPrice": 14,
         "unit": "HXP"
     },
-    "(-614, 43, 1093)": {
-        "name": "HXP Seasonal Pass 4",
+    "(-614, 45, 1093)": {
+        "name": "HXP Seasonal Pass 2",
         "buyPrice": 14,
         "sellPrice": 12,
         "unit": "HXP"
     },
-    "(-614, 42, 1093)": {
-        "name": "HXP Seasonal Pass 5",
+    "(-614, 44, 1093)": {
+        "name": "HXP Seasonal Pass 3",
         "buyPrice": 12,
         "sellPrice": 10,
+        "unit": "HXP"
+    },
+    "(-614, 43, 1093)": {
+        "name": "HXP Seasonal Pass 4",
+        "buyPrice": 10,
+        "sellPrice": 8,
+        "unit": "HXP"
+    },
+    "(-614, 42, 1093)": {
+        "name": "HXP Seasonal Pass 5",
+        "buyPrice": 8,
+        "sellPrice": 6,
         "unit": "HXP"
     },
     "(-606, 52, 1099)": {
@@ -1016,7 +1016,7 @@
     "(-606, 48, 1099)": {
         "name": "Wolfswood Mats 5",
         "buyPrice": 14,
-        "sellPrice": 10,
+        "sellPrice": 12,
         "unit": "AR"
     },
     "(-607, 52, 1099)": {
@@ -1046,48 +1046,48 @@
     "(-607, 48, 1099)": {
         "name": "Keep Mats 5",
         "buyPrice": 14,
-        "sellPrice": 10,
+        "sellPrice": 12,
         "unit": "AR"
     },
     "(-608, 52, 1099)": {
         "name": "Starpoint Mats 1",
         "buyPrice": 50,
-        "sellPrice": 46,
+        "sellPrice": 42,
         "unit": "AR"
     },
     "(-608, 51, 1099)": {
         "name": "Starpoint Mats 2",
-        "buyPrice": 46,
-        "sellPrice": 42,
-        "unit": "AR"
-    },
-    "(-608, 50, 1099)": {
-        "name": "Starpoint Mats 3",
         "buyPrice": 42,
         "sellPrice": 38,
         "unit": "AR"
     },
-    "(-608, 49, 1099)": {
-        "name": "Starpoint Mats 4",
+    "(-608, 50, 1099)": {
+        "name": "Starpoint Mats 3",
         "buyPrice": 38,
         "sellPrice": 34,
         "unit": "AR"
     },
-    "(-608, 48, 1099)": {
-        "name": "Starpoint Mats 5",
+    "(-608, 49, 1099)": {
+        "name": "Starpoint Mats 4",
         "buyPrice": 34,
         "sellPrice": 30,
         "unit": "AR"
     },
+    "(-608, 48, 1099)": {
+        "name": "Starpoint Mats 5",
+        "buyPrice": 30,
+        "sellPrice": 26,
+        "unit": "AR"
+    },
     "(-609, 52, 1099)": {
         "name": "Blue Mats 1",
-        "buyPrice": 50,
-        "sellPrice": 46,
+        "buyPrice": 58,
+        "sellPrice": 50,
         "unit": "AR"
     },
     "(-609, 51, 1099)": {
         "name": "Blue Mats 2",
-        "buyPrice": 46,
+        "buyPrice": 50,
         "sellPrice": 42,
         "unit": "AR"
     },
@@ -1111,13 +1111,13 @@
     },
     "(-610, 52, 1099)": {
         "name": "Brown Mats 1",
-        "buyPrice": 50,
-        "sellPrice": 46,
+        "buyPrice": 58,
+        "sellPrice": 50,
         "unit": "AR"
     },
     "(-610, 51, 1099)": {
         "name": "Brown Mats 2",
-        "buyPrice": 46,
+        "buyPrice": 50,
         "sellPrice": 42,
         "unit": "AR"
     },
@@ -1321,62 +1321,62 @@
     },
     "(-604, 52, 1098)": {
         "name": "Geode 1",
-        "buyPrice": 12,
-        "sellPrice": 10,
+        "buyPrice": 16,
+        "sellPrice": 14,
         "unit": "CCS"
     },
     "(-604, 51, 1098)": {
         "name": "Geode 2",
-        "buyPrice": 10,
-        "sellPrice": 8,
+        "buyPrice": 14,
+        "sellPrice": 12,
         "unit": "CCS"
     },
     "(-604, 50, 1098)": {
         "name": "Geode 3",
-        "buyPrice": 8,
-        "sellPrice": 7,
+        "buyPrice": 12,
+        "sellPrice": 10,
         "unit": "CCS"
     },
     "(-604, 49, 1098)": {
         "name": "Geode 4",
-        "buyPrice": 7,
-        "sellPrice": 6,
+        "buyPrice": 10,
+        "sellPrice": 8,
         "unit": "CCS"
     },
     "(-604, 48, 1098)": {
         "name": "Geode 5",
-        "buyPrice": 6,
-        "sellPrice": 5,
+        "buyPrice": 8,
+        "sellPrice": 6,
         "unit": "CCS"
     },
     "(-604, 52, 1099)": {
         "name": "Indigo Blightdust 1",
-        "buyPrice": 20,
-        "sellPrice": 18,
+        "buyPrice": 24,
+        "sellPrice": 20,
         "unit": "AR"
     },
     "(-604, 51, 1099)": {
         "name": "Indigo Blightdust 2",
-        "buyPrice": 18,
-        "sellPrice": 16,
+        "buyPrice": 22,
+        "sellPrice": 18,
         "unit": "AR"
     },
     "(-604, 50, 1099)": {
         "name": "Indigo Blightdust 3",
-        "buyPrice": 16,
-        "sellPrice": 14,
+        "buyPrice": 20,
+        "sellPrice": 16,
         "unit": "AR"
     },
     "(-604, 49, 1099)": {
         "name": "Indigo Blightdust 4",
-        "buyPrice": 14,
-        "sellPrice": 12,
+        "buyPrice": 16,
+        "sellPrice": 14,
         "unit": "AR"
     },
     "(-604, 48, 1099)": {
         "name": "Indigo Blightdust 5",
-        "buyPrice": 12,
-        "sellPrice": 10,
+        "buyPrice": 14,
+        "sellPrice": 12,
         "unit": "AR"
     },
     "(-605, 58, 1097)": {
@@ -1439,124 +1439,124 @@
         "sellPrice": 46,
         "unit": "AR"
     },
-    "(-605, 58, 1095)": {
+    "(-614, 46, 1097)": {
         "name": "Indigo Rare 1",
-        "buyPrice": 2.25,
-        "sellPrice": 2.0,
+        "buyPrice": 2.5,
+        "sellPrice": 2,
         "unit": "HAR"
     },
-    "(-605, 57, 1095)": {
+    "(-614, 45, 1097)": {
         "name": "Indigo Rare 2",
-        "buyPrice": 2.0,
+        "buyPrice": 2,
         "sellPrice": 1.75,
         "unit": "HAR"
     },
-    "(-605, 56, 1095)": {
+    "(-614, 44, 1097)": {
         "name": "Indigo Rare 3",
         "buyPrice": 1.75,
         "sellPrice": 1.5,
         "unit": "HAR"
     },
-    "(-605, 55, 1095)": {
+    "(-614, 43, 1097)": {
         "name": "Indigo Rare 4",
         "buyPrice": 1.5,
         "sellPrice": 1.25,
         "unit": "HAR"
     },
-    "(-605, 54, 1095)": {
+    "(-614, 42, 1097)": {
         "name": "Indigo Rare 5",
         "buyPrice": 1.25,
-        "sellPrice": 1.0,
+        "sellPrice": 1,
         "unit": "HAR"
     },
-    "(-605, 58, 1094)": {
+    "(-614, 52, 1097)": {
         "name": "Indigo mats 1",
-        "buyPrice": 3,
-        "sellPrice": 2.5,
-        "unit": "HAR"
-    },
-    "(-605, 57, 1094)": {
-        "name": "Indigo mats 2",
         "buyPrice": 2.5,
         "sellPrice": 2.25,
         "unit": "HAR"
     },
-    "(-605, 56, 1094)": {
-        "name": "Indigo mats 3",
+    "(-614, 51, 1097)": {
+        "name": "Indigo mats 2",
         "buyPrice": 2.25,
-        "sellPrice": 2.0,
+        "sellPrice": 2,
         "unit": "HAR"
     },
-    "(-605, 55, 1094)": {
-        "name": "Indigo mats 4",
-        "buyPrice": 2.0,
+    "(-614, 50, 1097)": {
+        "name": "Indigo mats 3",
+        "buyPrice": 2,
         "sellPrice": 1.75,
         "unit": "HAR"
     },
-    "(-605, 54, 1094)": {
+    "(-614, 49, 1097)": {
+        "name": "Indigo mats 4",
+        "buyPrice": 1.75,
+        "sellPrice": 1.5,
+        "unit": "HAR"
+    },
+    "(-614, 48, 1097)": {
         "name": "Indigo mats 5",
-        "buyPrice": 1.75,
-        "sellPrice": 1.5,
-        "unit": "HAR"
-    },
-    "(-605, 58, 1093)": {
-        "name": "Fractured Psyche (扭曲素材) 1",
-        "buyPrice": 1.75,
-        "sellPrice": 1.5,
-        "unit": "HAR"
-    },
-    "(-605, 57, 1093)": {
-        "name": "Fractured Psyche (扭曲素材) 2",
         "buyPrice": 1.5,
         "sellPrice": 1.25,
         "unit": "HAR"
     },
+    "(-605, 58, 1093)": {
+        "name": "Fractured Psyche (扭曲素材) 1",
+        "buyPrice": 80,
+        "sellPrice": 64,
+        "unit": "AR"
+    },
+    "(-605, 57, 1093)": {
+        "name": "Fractured Psyche (扭曲素材) 2",
+        "buyPrice": 64,
+        "sellPrice": 56,
+        "unit": "AR"
+    },
     "(-605, 56, 1093)": {
         "name": "Fractured Psyche (扭曲素材) 3",
-        "buyPrice": 1.25,
-        "sellPrice": 1.0,
-        "unit": "HAR"
+        "buyPrice": 56,
+        "sellPrice": 48,
+        "unit": "AR"
     },
     "(-605, 55, 1093)": {
         "name": "Fractured Psyche (扭曲素材) 4",
-        "buyPrice": 1.0,
-        "sellPrice": 0.875,
-        "unit": "HAR"
+        "buyPrice": 48,
+        "sellPrice": 40,
+        "unit": "AR"
     },
     "(-605, 54, 1093)": {
         "name": "Fractured Psyche (扭曲素材) 5",
-        "buyPrice": 0.875,
-        "sellPrice": 0.75,
-        "unit": "HAR"
+        "buyPrice": 40,
+        "sellPrice": 32,
+        "unit": "AR"
     },
     "(-605, 58, 1092)": {
         "name": "Tormented Frag (扭曲門票) 1",
-        "buyPrice": 24,
-        "sellPrice": 20,
-        "unit": "AR"
-    },
-    "(-605, 57, 1092)": {
-        "name": "Tormented Frag (扭曲門票) 2",
         "buyPrice": 20,
         "sellPrice": 16,
         "unit": "AR"
     },
-    "(-605, 56, 1092)": {
-        "name": "Tormented Frag (扭曲門票) 3",
+    "(-605, 57, 1092)": {
+        "name": "Tormented Frag (扭曲門票) 2",
         "buyPrice": 16,
         "sellPrice": 12,
         "unit": "AR"
     },
-    "(-605, 55, 1092)": {
-        "name": "Tormented Frag (扭曲門票) 4",
+    "(-605, 56, 1092)": {
+        "name": "Tormented Frag (扭曲門票) 3",
         "buyPrice": 14,
         "sellPrice": 10,
         "unit": "AR"
     },
-    "(-605, 54, 1092)": {
-        "name": "Tormented Frag (扭曲門票) 5",
+    "(-605, 55, 1092)": {
+        "name": "Tormented Frag (扭曲門票) 4",
         "buyPrice": 12,
         "sellPrice": 8,
+        "unit": "AR"
+    },
+    "(-605, 54, 1092)": {
+        "name": "Tormented Frag (扭曲門票) 5",
+        "buyPrice": 10,
+        "sellPrice": 6,
         "unit": "AR"
     },
     "(-604, 64, 1099)": {
@@ -1855,8 +1855,8 @@
     },
     "(-607, 60, 1098)": {
         "name": "EXP Stash 20等 5",
-        "buyPrice": 6,
-        "sellPrice": 4,
+        "buyPrice": 7,
+        "sellPrice": 5,
         "unit": "AR"
     },
     "(-609, 64, 1098)": {
@@ -1951,32 +1951,602 @@
     },
     "(-612, 64, 1098)": {
         "name": "Lockbox 1",
-        "buyPrice": 4.25,
-        "sellPrice": 4.0,
+        "buyPrice": 4,
+        "sellPrice": 3.75,
         "unit": "HXP"
     },
     "(-612, 63, 1098)": {
         "name": "Lockbox 2",
-        "buyPrice": 4.0,
-        "sellPrice": 3.75,
-        "unit": "HXP"
-    },
-    "(-612, 62, 1098)": {
-        "name": "Lockbox 3",
         "buyPrice": 3.75,
         "sellPrice": 3.5,
         "unit": "HXP"
     },
-    "(-612, 61, 1098)": {
-        "name": "Lockbox 4",
+    "(-612, 62, 1098)": {
+        "name": "Lockbox 3",
         "buyPrice": 3.5,
         "sellPrice": 3.25,
         "unit": "HXP"
     },
+    "(-612, 61, 1098)": {
+        "name": "Lockbox 4",
+        "buyPrice": 3.25,
+        "sellPrice": 3,
+        "unit": "HXP"
+    },
     "(-612, 60, 1098)": {
         "name": "Lockbox 5",
-        "buyPrice": 3.25,
-        "sellPrice": 3.0,
+        "buyPrice": 3,
+        "sellPrice": 2.75,
         "unit": "HXP"
+    },
+    "(-612, 52, 1099)": {
+        "name": "Hexfall Mats 1",
+        "buyPrice": 136,
+        "sellPrice": 120,
+        "unit": "AR"
+    },
+    "(-612, 51, 1099)": {
+        "name": "Hexfall Mats 2",
+        "buyPrice": 120,
+        "sellPrice": 100,
+        "unit": "AR"
+    },
+    "(-612, 50, 1099)": {
+        "name": "Hexfall Mats 3",
+        "buyPrice": 100,
+        "sellPrice": 92,
+        "unit": "AR"
+    },
+    "(-612, 49, 1099)": {
+        "name": "Hexfall Mats 4",
+        "buyPrice": 92,
+        "sellPrice": 84,
+        "unit": "AR"
+    },
+    "(-612, 48, 1099)": {
+        "name": "Hexfall Mats 5",
+        "buyPrice": 84,
+        "sellPrice": 76,
+        "unit": "AR"
+    },
+    "(-613, 52, 1089)": {
+        "name": "White Mats 1",
+        "buyPrice": 26,
+        "sellPrice": 22,
+        "unit": "CXP"
+    },
+    "(-613, 51, 1089)": {
+        "name": "White Mats 2",
+        "buyPrice": 22,
+        "sellPrice": 18,
+        "unit": "CXP"
+    },
+    "(-613, 50, 1089)": {
+        "name": "White Mats 3",
+        "buyPrice": 18,
+        "sellPrice": 14,
+        "unit": "CXP"
+    },
+    "(-613, 49, 1089)": {
+        "name": "White Mats 4",
+        "buyPrice": 14,
+        "sellPrice": 12,
+        "unit": "CXP"
+    },
+    "(-613, 48, 1089)": {
+        "name": "White Mats 5",
+        "buyPrice": 12,
+        "sellPrice": 10,
+        "unit": "CXP"
+    },
+    "(-612, 52, 1089)": {
+        "name": "Orange Mats 1",
+        "buyPrice": 30,
+        "sellPrice": 26,
+        "unit": "CXP"
+    },
+    "(-612, 51, 1089)": {
+        "name": "Orange Mats 2",
+        "buyPrice": 26,
+        "sellPrice": 22,
+        "unit": "CXP"
+    },
+    "(-612, 50, 1089)": {
+        "name": "Orange Mats 3",
+        "buyPrice": 22,
+        "sellPrice": 18,
+        "unit": "CXP"
+    },
+    "(-612, 49, 1089)": {
+        "name": "Orange Mats 4",
+        "buyPrice": 18,
+        "sellPrice": 14,
+        "unit": "CXP"
+    },
+    "(-612, 48, 1089)": {
+        "name": "Orange Mats 5",
+        "buyPrice": 14,
+        "sellPrice": 12,
+        "unit": "CXP"
+    },
+    "(-611, 52, 1089)": {
+        "name": "Megenta Mats 1",
+        "buyPrice": 30,
+        "sellPrice": 26,
+        "unit": "CXP"
+    },
+    "(-611, 51, 1089)": {
+        "name": "Megenta Mats 2",
+        "buyPrice": 26,
+        "sellPrice": 22,
+        "unit": "CXP"
+    },
+    "(-611, 50, 1089)": {
+        "name": "Megenta Mats 3",
+        "buyPrice": 22,
+        "sellPrice": 18,
+        "unit": "CXP"
+    },
+    "(-611, 49, 1089)": {
+        "name": "Megenta Mats 4",
+        "buyPrice": 18,
+        "sellPrice": 14,
+        "unit": "CXP"
+    },
+    "(-611, 48, 1089)": {
+        "name": "Megenta Mats 5",
+        "buyPrice": 14,
+        "sellPrice": 12,
+        "unit": "CXP"
+    },
+    "(-610, 52, 1089)": {
+        "name": "Light Blue Mats 1",
+        "buyPrice": 34,
+        "sellPrice": 30,
+        "unit": "CXP"
+    },
+    "(-610, 51, 1089)": {
+        "name": "Light Blue Mats 2",
+        "buyPrice": 30,
+        "sellPrice": 26,
+        "unit": "CXP"
+    },
+    "(-610, 50, 1089)": {
+        "name": "Light Blue Mats 3",
+        "buyPrice": 26,
+        "sellPrice": 22,
+        "unit": "CXP"
+    },
+    "(-610, 49, 1089)": {
+        "name": "Light Blue Mats 4",
+        "buyPrice": 22,
+        "sellPrice": 18,
+        "unit": "CXP"
+    },
+    "(-610, 48, 1089)": {
+        "name": "Light Blue Mats 5",
+        "buyPrice": 18,
+        "sellPrice": 14,
+        "unit": "CXP"
+    },
+    "(-609, 52, 1089)": {
+        "name": "Yellow Mats 1",
+        "buyPrice": 30,
+        "sellPrice": 26,
+        "unit": "CXP"
+    },
+    "(-609, 51, 1089)": {
+        "name": "Yellow Mats 2",
+        "buyPrice": 26,
+        "sellPrice": 22,
+        "unit": "CXP"
+    },
+    "(-609, 50, 1089)": {
+        "name": "Yellow Mats 3",
+        "buyPrice": 22,
+        "sellPrice": 18,
+        "unit": "CXP"
+    },
+    "(-609, 49, 1089)": {
+        "name": "Yellow Mats 4",
+        "buyPrice": 18,
+        "sellPrice": 14,
+        "unit": "CXP"
+    },
+    "(-609, 48, 1089)": {
+        "name": "Yellow Mats 5",
+        "buyPrice": 14,
+        "sellPrice": 12,
+        "unit": "CXP"
+    },
+    "(-608, 52, 1089)": {
+        "name": "Reverie Mats 1",
+        "buyPrice": 38,
+        "sellPrice": 34,
+        "unit": "CXP"
+    },
+    "(-608, 51, 1089)": {
+        "name": "Reverie Mats 2",
+        "buyPrice": 34,
+        "sellPrice": 30,
+        "unit": "CXP"
+    },
+    "(-608, 50, 1089)": {
+        "name": "Reverie Mats 3",
+        "buyPrice": 30,
+        "sellPrice": 26,
+        "unit": "CXP"
+    },
+    "(-608, 49, 1089)": {
+        "name": "Reverie Mats 4",
+        "buyPrice": 26,
+        "sellPrice": 22,
+        "unit": "CXP"
+    },
+    "(-608, 48, 1089)": {
+        "name": "Reverie Mats 5",
+        "buyPrice": 22,
+        "sellPrice": 18,
+        "unit": "CXP"
+    },
+    "(-607, 52, 1089)": {
+        "name": "Willow Mats 1",
+        "buyPrice": 26,
+        "sellPrice": 22,
+        "unit": "CXP"
+    },
+    "(-607, 51, 1089)": {
+        "name": "Willow Mats 2",
+        "buyPrice": 22,
+        "sellPrice": 18,
+        "unit": "CXP"
+    },
+    "(-607, 50, 1089)": {
+        "name": "Willow Mats 3",
+        "buyPrice": 18,
+        "sellPrice": 14,
+        "unit": "CXP"
+    },
+    "(-607, 49, 1089)": {
+        "name": "Willow Mats 4",
+        "buyPrice": 14,
+        "sellPrice": 12,
+        "unit": "CXP"
+    },
+    "(-607, 48, 1089)": {
+        "name": "Willow Mats 5",
+        "buyPrice": 12,
+        "sellPrice": 10,
+        "unit": "CXP"
+    },
+    "(-606, 52, 1089)": {
+        "name": "Corridors Mats 1",
+        "buyPrice": 30,
+        "sellPrice": 26,
+        "unit": "CXP"
+    },
+    "(-606, 51, 1089)": {
+        "name": "Corridors Mats 2",
+        "buyPrice": 26,
+        "sellPrice": 22,
+        "unit": "CXP"
+    },
+    "(-606, 50, 1089)": {
+        "name": "Corridors Mats 3",
+        "buyPrice": 22,
+        "sellPrice": 18,
+        "unit": "CXP"
+    },
+    "(-606, 49, 1089)": {
+        "name": "Corridors Mats 4",
+        "buyPrice": 18,
+        "sellPrice": 14,
+        "unit": "CXP"
+    },
+    "(-606, 48, 1089)": {
+        "name": "Corridors Mats 5",
+        "buyPrice": 14,
+        "sellPrice": 12,
+        "unit": "CXP"
+    },
+    "(-604, 52, 1089)": {
+        "name": "Lime Mats 1",
+        "buyPrice": 30,
+        "sellPrice": 26,
+        "unit": "CCS"
+    },
+    "(-604, 51, 1089)": {
+        "name": "Lime Mats 2",
+        "buyPrice": 26,
+        "sellPrice": 22,
+        "unit": "CCS"
+    },
+    "(-604, 50, 1089)": {
+        "name": "Lime Mats 3",
+        "buyPrice": 22,
+        "sellPrice": 18,
+        "unit": "CCS"
+    },
+    "(-604, 49, 1089)": {
+        "name": "Lime Mats 4",
+        "buyPrice": 18,
+        "sellPrice": 14,
+        "unit": "CCS"
+    },
+    "(-604, 48, 1089)": {
+        "name": "Lime Mats 5",
+        "buyPrice": 14,
+        "sellPrice": 12,
+        "unit": "CCS"
+    },
+    "(-604, 52, 1090)": {
+        "name": "Pink Mats 1",
+        "buyPrice": 30,
+        "sellPrice": 26,
+        "unit": "CCS"
+    },
+    "(-604, 51, 1090)": {
+        "name": "Pink Mats 2",
+        "buyPrice": 26,
+        "sellPrice": 22,
+        "unit": "CCS"
+    },
+    "(-604, 50, 1090)": {
+        "name": "Pink Mats 3",
+        "buyPrice": 22,
+        "sellPrice": 18,
+        "unit": "CCS"
+    },
+    "(-604, 49, 1090)": {
+        "name": "Pink Mats 4",
+        "buyPrice": 18,
+        "sellPrice": 14,
+        "unit": "CCS"
+    },
+    "(-604, 48, 1090)": {
+        "name": "Pink Mats 5",
+        "buyPrice": 14,
+        "sellPrice": 12,
+        "unit": "CCS"
+    },
+    "(-604, 52, 1092)": {
+        "name": "Light Gray Mats 1",
+        "buyPrice": 30,
+        "sellPrice": 26,
+        "unit": "CCS"
+    },
+    "(-604, 51, 1092)": {
+        "name": "Light Gray Mats 2",
+        "buyPrice": 26,
+        "sellPrice": 22,
+        "unit": "CCS"
+    },
+    "(-604, 50, 1092)": {
+        "name": "Light Gray Mats 3",
+        "buyPrice": 22,
+        "sellPrice": 18,
+        "unit": "CCS"
+    },
+    "(-604, 49, 1092)": {
+        "name": "Light Gray Mats 4",
+        "buyPrice": 18,
+        "sellPrice": 14,
+        "unit": "CCS"
+    },
+    "(-604, 48, 1092)": {
+        "name": "Light Gray Mats 5",
+        "buyPrice": 14,
+        "sellPrice": 12,
+        "unit": "CCS"
+    },
+    "(-604, 52, 1094)": {
+        "name": "Purple Mats 1",
+        "buyPrice": 30,
+        "sellPrice": 26,
+        "unit": "CCS"
+    },
+    "(-604, 51, 1094)": {
+        "name": "Purple Mats 2",
+        "buyPrice": 26,
+        "sellPrice": 22,
+        "unit": "CCS"
+    },
+    "(-604, 50, 1094)": {
+        "name": "Purple Mats 3",
+        "buyPrice": 22,
+        "sellPrice": 18,
+        "unit": "CCS"
+    },
+    "(-604, 49, 1094)": {
+        "name": "Purple Mats 4",
+        "buyPrice": 18,
+        "sellPrice": 14,
+        "unit": "CCS"
+    },
+    "(-604, 48, 1094)": {
+        "name": "Purple Mats 5",
+        "buyPrice": 14,
+        "sellPrice": 12,
+        "unit": "CCS"
+    },
+    "(-604, 52, 1096)": {
+        "name": "Shifting Mats 1",
+        "buyPrice": 30,
+        "sellPrice": 26,
+        "unit": "CCS"
+    },
+    "(-604, 51, 1096)": {
+        "name": "Shifting Mats 2",
+        "buyPrice": 26,
+        "sellPrice": 22,
+        "unit": "CCS"
+    },
+    "(-604, 50, 1096)": {
+        "name": "Shifting Mats 3",
+        "buyPrice": 22,
+        "sellPrice": 18,
+        "unit": "CCS"
+    },
+    "(-604, 49, 1096)": {
+        "name": "Shifting Mats 4",
+        "buyPrice": 18,
+        "sellPrice": 14,
+        "unit": "CCS"
+    },
+    "(-604, 48, 1096)": {
+        "name": "Shifting Mats 5",
+        "buyPrice": 14,
+        "sellPrice": 12,
+        "unit": "CCS"
+    },
+    "(-604, 52, 1091)": {
+        "name": "Gray Mats 1",
+        "buyPrice": 38,
+        "sellPrice": 34,
+        "unit": "CCS"
+    },
+    "(-604, 51, 1091)": {
+        "name": "Gray Mats 2",
+        "buyPrice": 34,
+        "sellPrice": 30,
+        "unit": "CCS"
+    },
+    "(-604, 50, 1091)": {
+        "name": "Gray Mats 3",
+        "buyPrice": 30,
+        "sellPrice": 26,
+        "unit": "CCS"
+    },
+    "(-604, 49, 1091)": {
+        "name": "Gray Mats 4",
+        "buyPrice": 26,
+        "sellPrice": 22,
+        "unit": "CCS"
+    },
+    "(-604, 48, 1091)": {
+        "name": "Gray Mats 5",
+        "buyPrice": 22,
+        "sellPrice": 18,
+        "unit": "CCS"
+    },
+    "(-604, 52, 1093)": {
+        "name": "Cyan Mats 1",
+        "buyPrice": 34,
+        "sellPrice": 30,
+        "unit": "CCS"
+    },
+    "(-604, 51, 1093)": {
+        "name": "Cyan Mats 2",
+        "buyPrice": 30,
+        "sellPrice": 26,
+        "unit": "CCS"
+    },
+    "(-604, 50, 1093)": {
+        "name": "Cyan Mats 3",
+        "buyPrice": 26,
+        "sellPrice": 22,
+        "unit": "CCS"
+    },
+    "(-604, 49, 1093)": {
+        "name": "Cyan Mats 4",
+        "buyPrice": 22,
+        "sellPrice": 18,
+        "unit": "CCS"
+    },
+    "(-604, 48, 1093)": {
+        "name": "Cyan Mats 5",
+        "buyPrice": 18,
+        "sellPrice": 14,
+        "unit": "CCS"
+    },
+    "(-604, 52, 1095)": {
+        "name": "Teal Mats 1",
+        "buyPrice": 34,
+        "sellPrice": 30,
+        "unit": "CCS"
+    },
+    "(-604, 51, 1095)": {
+        "name": "Teal Mats 2",
+        "buyPrice": 30,
+        "sellPrice": 26,
+        "unit": "CCS"
+    },
+    "(-604, 50, 1095)": {
+        "name": "Teal Mats 3",
+        "buyPrice": 26,
+        "sellPrice": 22,
+        "unit": "CCS"
+    },
+    "(-604, 49, 1095)": {
+        "name": "Teal Mats 4",
+        "buyPrice": 22,
+        "sellPrice": 18,
+        "unit": "CCS"
+    },
+    "(-604, 48, 1095)": {
+        "name": "Teal Mats 5",
+        "buyPrice": 18,
+        "sellPrice": 14,
+        "unit": "CCS"
+    },
+    "(-604, 52, 1097)": {
+        "name": "Forum Mats 1",
+        "buyPrice": 50,
+        "sellPrice": 42,
+        "unit": "CCS"
+    },
+    "(-604, 51, 1097)": {
+        "name": "Forum Mats 2",
+        "buyPrice": 42,
+        "sellPrice": 38,
+        "unit": "CCS"
+    },
+    "(-604, 50, 1097)": {
+        "name": "Forum Mats 3",
+        "buyPrice": 38,
+        "sellPrice": 34,
+        "unit": "CCS"
+    },
+    "(-604, 49, 1097)": {
+        "name": "Forum Mats 4",
+        "buyPrice": 34,
+        "sellPrice": 30,
+        "unit": "CCS"
+    },
+    "(-604, 48, 1097)": {
+        "name": "Forum Mats 5",
+        "buyPrice": 30,
+        "sellPrice": 26,
+        "unit": "CCS"
+    },
+    "(-605, 58, 1091)": {
+        "name": "R3 Overworld Frag 1",
+        "buyPrice": 7,
+        "sellPrice": 5,
+        "unit": "HAR"
+    },
+    "(-605, 57, 1091)": {
+        "name": "R3 Overworld Frag 2",
+        "buyPrice": 5.5,
+        "sellPrice": 4.5,
+        "unit": "HAR"
+    },
+    "(-605, 56, 1091)": {
+        "name": "R3 Overworld Frag 3",
+        "buyPrice": 5,
+        "sellPrice": 4,
+        "unit": "HAR"
+    },
+    "(-605, 55, 1091)": {
+        "name": "R3 Overworld Frag 4",
+        "buyPrice": 4.5,
+        "sellPrice": 3.5,
+        "unit": "HAR"
+    },
+    "(-605, 54, 1091)": {
+        "name": "R3 Overworld Frag 5",
+        "buyPrice": 4,
+        "sellPrice": 3,
+        "unit": "HAR"
     }
 }

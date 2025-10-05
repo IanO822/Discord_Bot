@@ -5,6 +5,9 @@ import re
 import os
 import ast
 import emoji
+import pyautogui, time
+import asyncio
+from PIL import Image, ImageDraw
 from urllib.parse import urlparse, parse_qs
 from dotenv import load_dotenv
 load_dotenv()
@@ -340,6 +343,7 @@ def handle_trade_log(message, file_lines, coord, auto_detect):
     "gray_dye": "<:ar:1397875715105624145> AR",
     "firework_star": "<:har:1397875820386848852> HAR"
 }
+    CURRENCY_VALUE = {"XP":1, "CXP":64, "HXP":64**2, "CS":1, "CCS":64, "HCS":64**2, "AR":64, "HAR":64**2}
     final_message = ""
     filtered = {}
     shop_name = "未知商店"
@@ -431,11 +435,16 @@ def handle_trade_log(message, file_lines, coord, auto_detect):
                         mistradeMessage +=  f"@{fixedName} 多支付了 (overpaid) {wrongPayment[playerName]} {parameter['unit']} \n"
                     elif wrongPayment[playerName] < 0:
                         mistradeMessage += f"@{fixedName} 欠了 (underpaid) {-wrongPayment[playerName]} {parameter['unit']} \n"
+                    #判斷錯誤金額是否 > 1H
+                    if -wrongPayment[playerName] * CURRENCY_VALUE[parameter["unit"].upper()] > 64 ** 2:
+                        buy_price = str(parameter["buyPrice"]) + parameter["unit"].upper()
+                        sell_price = str(parameter["sellPrice"]) + parameter["unit"].upper()
+                        mistradeMessage += f"\n**__@PING__ Hello {fixedName}, you bought __COUNT__ items from {shop_name} barrel (Buy for {buy_price}, Sell for {sell_price}) at Piggy but you paid less.\nYou owe us {-wrongPayment[playerName]} {parameter['unit']}.\nPlease return money to the mistrades barrel in the bottom left corner of the rentals sections.**\n"
                 #檢測玩家是否支付錯貨幣
                 if wrongUsage.get(playerName, False):
                     userMistraded = True
                     mistradeMessage += f"@{fixedName} 支付了錯誤的貨幣 (paid with the wrong currency): {wrongUsage[playerName]} \n"
-                    
+                
                 #是否顯示正確交易者
                 if parameter["ignore_correct_trade"]:
                     if userMistraded:
@@ -722,3 +731,54 @@ def manage_pig_vip(action, user = ""):
         return "🔍 以下為PIG商店會員名單:\n" + "".join(f"**{p}**\n" for p in sanitized)
     else:
         return "❌ 未知指令"
+
+def parse_duration(s: str) -> float:
+    if s is None:
+        return 0.0
+    s = s.strip().lower()
+    # 完全是數字（視為秒）
+    if re.fullmatch(r"\d+(\.\d+)?", s):
+        return float(s)
+    m = re.fullmatch(r"(\d+(\.\d+)?)(ms)", s)
+    if m:
+        ms = float(m.group(1))
+        return ms / 1000.0
+    m2 = re.fullmatch(r"(\d+(\.\d+)?)(s)", s)
+    if m2:
+        return float(m2.group(1))
+    raise ValueError("無法解析 duration")
+
+def screenshot_with_cursor() -> str:
+    SCREENSHOT_DIR = os.path.dirname(os.path.abspath(__file__))
+    x, y = pyautogui.position()
+    screenshot = pyautogui.screenshot()
+    draw = ImageDraw.Draw(screenshot)
+    r = 10
+    draw.ellipse((x-r, y-r, x+r, y+r), outline="red", width=3)
+    path = os.path.join(SCREENSHOT_DIR, f"screenshot_{int(time.time())}.png")
+    screenshot.save(path)
+    return path
+
+async def mouse_click_safe(button: str, duration: float):
+    def _click():
+        if duration <= 0:
+            pyautogui.click(button=button)
+        else:
+            pyautogui.mouseDown(button=button)
+            time.sleep(duration)
+            pyautogui.mouseUp(button=button)
+    await asyncio.to_thread(_click)
+
+async def mouse_move_safe(x: int, y: int):
+    await asyncio.to_thread(pyautogui.moveTo, x, y, 0.2)
+
+def _sync_press_key(key: str, duration: float):
+    if duration <= 0:
+        pyautogui.press(key)
+    else:
+        pyautogui.keyDown(key)
+        time.sleep(duration)
+        pyautogui.keyUp(key)
+
+async def press_key_safe(key: str, duration: float):
+    await asyncio.to_thread(_sync_press_key, key, duration)

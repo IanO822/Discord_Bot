@@ -8,6 +8,7 @@ import asyncio
 import socket
 import re
 import random
+import logging
 from mutagen.mp3 import MP3
 from mutagen.easyid3 import EasyID3
 from utils import update_item_data
@@ -18,9 +19,16 @@ from utils import manage_build
 from utils import split_log_result
 from utils import handle_trade_log
 from utils import manage_pig_vip
+from utils import mouse_click_safe
+from utils import mouse_move_safe
+from utils import screenshot_with_cursor
+from utils import parse_duration
+from utils import press_key_safe
 from collections import defaultdict
 
 load_dotenv()
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("safe_control_bot")
 
 TOKEN = os.getenv('DISCORD_TOKEN')
 
@@ -30,7 +38,7 @@ intents.voice_states = True
 intents.guilds = True
 intents.members = True
 PREFIX = os.getenv("BOT_PREFIX")
-ADMIN_ID = os.getenv("ADMIN_ID")
+ADMIN_IDS = [i for i in os.getenv("ADMIN_IDS").split()]
 bot = commands.Bot(command_prefix=PREFIX, intents=intents)
 
 BOT_ADMIN = {
@@ -64,12 +72,25 @@ kano_songs = [song["檔名"] for song in metadata_list if "鹿乃" in song["演�
 random.shuffle(all_songs)
 random.shuffle(kano_songs)
 
+MUTED_ROLE_NAME = "Muted"
+
+ALLOWED_KEYS = {
+    "0","1","2","3","4","5","6","7","8","9",
+    "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+    "up","down","left","right",
+    "space","enter","esc","tab","shift","ctrl","alt",
+    "f1","f2","f3","f4","f5","f6","f7","f8","f9","f10","f11","f12"
+}
+MAX_DURATION = 10
+control_lock = asyncio.Lock()
+
 def load_and_index_data():
     global item_data, search_index
     with open(ITEM_DATA_PATH, "r", encoding="utf-8") as f:
         item_data = json.load(f)
     search_index = build_index(item_data)
     print("📦 物品資料載入完成，共載入", len(item_data), "筆資料")
+
 
 load_and_index_data()
 
@@ -78,10 +99,45 @@ load_and_index_data()
 async def on_ready():
     print(f'🤖 機器人已登入：{bot.user}')
     try:
-        user = await bot.fetch_user(ADMIN_ID)
+        user = await bot.fetch_user(ADMIN_IDS[0])
         await user.send(f"🟢 Bot 啟動於：{socket.gethostname()} | PID: {os.getpid()}")
     except:
         print(f"🟢 Bot 啟動於：{socket.gethostname()} | PID: {os.getpid()}")
+
+@bot.event
+async def on_member_join(member):
+    
+    GUILD_ID = 1261321655116890283
+    ROLE_NAME = "member"
+    if member.guild.id == GUILD_ID:
+        role = discord.utils.get(member.guild.roles, name=ROLE_NAME)
+        print(f"{member} 加入伺服器")
+    
+        role = discord.utils.get(member.guild.roles, name="member")
+        print("找到角色:", role)
+
+        # 檢查是不是機器人自己
+        if member.bot:
+            print("成員是機器人，跳過。")
+            return
+
+        # 檢查是否已有角色
+        if role in member.roles:
+            print("成員已經有該角色。")
+            return
+
+        try:
+            await member.add_roles(role)
+            print(f"成功給予 {member} 角色 {role}")
+        except discord.Forbidden:
+            print("❌ Forbidden! 機器人沒有權限加這個角色。")
+        except discord.HTTPException as e:
+            print("❌ 其他錯誤:", e)
+        if role:
+            await member.add_roles(role)
+            print(f"已將 {ROLE_NAME} 分配給 {member.name}")
+        else:
+            print("找不到指定的身分組！")
 
 @bot.event
 async def on_message(message):
@@ -188,7 +244,7 @@ async def on_message(message):
             await message.channel.send(log_line)
 
     # ----------------- Menta職業建構者 -----------------
-    if message.content.startswith(f'{PREFIX}build '):
+    if message.content.startswith(f'{PREFIX}build'):
         buildCommand = [word for word in message.content.split()]
         if len(buildCommand) >= 2:
             result = manage_build(buildCommand, message.author.name)
@@ -234,7 +290,103 @@ async def on_message(message):
                 result = "❌ 請提供玩家ID!"
             await message.channel.send(result)
 
+    content = message.content.strip()
+    
+    if content.startswith(f"{PREFIX}k"):
+        user_id_str = str(message.author.id)
+        username = message.author.name
+
+        if user_id_str not in ADMIN_IDS:
+            await message.channel.send(f"⛔ {username} 沒有權限執行操作。")
+            return
+
+        # 切分參數
+        parts = content.split()
+        # parts[0] == "!k"
+        if len(parts) < 2:
+            await message.channel.send("❌ 指令格式：`!k <key> [duration]`")
+            return
+
+        key_arg = parts[1].lower()
+        duration_arg = parts[2] if len(parts) >= 3 else "0"
+
+        # 驗證 key
+        if key_arg not in ALLOWED_KEYS:
+            await message.channel.send(f"❌ 按鍵 `{key_arg}` 未被允許。")
+            return
+
+        # 解析 duration
+        try:
+            duration = parse_duration(duration_arg)
+        except ValueError:
+            await message.channel.send("❌ 錯誤的 duration（例如: 2, 2s 或 500ms）。")
+            return
+
+        # enforce bounds
+        if duration < 0:
+            await message.channel.send("❌ duration 不能為負數。")
+            return
+        if duration > MAX_DURATION:
+            await message.channel.send(f"❌ duration 超過最大限制 {MAX_DURATION} 秒。")
+            return
+
+        # 取得鎖並執行（避免併發）
+        async with control_lock:
+            await message.channel.send(f"⏳ 執行中:按下 `{key_arg}` 持續 {duration} 秒 ...")
+            try:
+                await press_key_safe(key_arg, duration)
+            except Exception as e:
+                logger.exception("press_key 失敗")
+                await message.channel.send(f"❌ 執行失敗：{e}")
+                return
+
+            # 截圖並上傳（上傳完刪除檔案）
+            try:
+                path = await asyncio.to_thread(screenshot_with_cursor)
+                file = discord.File(path)
+                await message.channel.send("✅ 執行完畢", file=file)
+            except Exception as e:
+                logger.exception("截圖或上傳失敗")
+                await message.channel.send(f"⚠️ 無法截圖或上傳：{e}")
+            finally:
+                # 清除檔案
+                try:
+                    if 'path' in locals() and os.path.exists(path):
+                        os.remove(path)
+                except Exception:
+                    logger.exception("刪除截圖失敗")
+
+    if content.startswith(f"{PREFIX}m") and "mistrade" not in content:
+        parts = content.split()
+        async with control_lock:
+            try:
+                if len(parts) == 3 and parts[1].isdigit() and parts[2].isdigit():
+                    # 移動滑鼠
+                    x, y = int(parts[1]), int(parts[2])
+                    await mouse_move_safe(x, y)
+                    info_msg = f"滑鼠已移動到 ({x}, {y})"
+                elif len(parts) == 3 and parts[1].lower() in ("l","r"):
+                    # 按滑鼠鍵
+                    button = "left" if parts[1].lower() == "l" else "right"
+                    duration = parse_duration(parts[2])
+                    if duration < 0 or duration > MAX_DURATION:
+                        await message.channel.send(f"❌ duration 必須在 0~{MAX_DURATION} 秒")
+                        return
+                    await mouse_click_safe(button, duration)
+                    info_msg = f"{button} 鍵已按下 {duration} 秒"
+                else:
+                    await message.channel.send("❌ 指令格式錯誤。範例：\n`!m x y`\n`!m l 1`")
+                    return
+
+                # 截圖並上傳
+                path = screenshot_with_cursor()
+                await message.channel.send(info_msg, file=discord.File(path))
+                os.remove(path)
+            except Exception as e:
+                await message.channel.send(f"❌ 執行錯誤：{e}")
+    
     await bot.process_commands(message)
+
 @bot.command()
 async def join(ctx):
     if ctx.author.voice:

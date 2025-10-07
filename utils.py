@@ -281,6 +281,8 @@ def mistrade_calculator(userData, target, buyPrice, sellPrice):
 
     wrong_currency_usage = {}
     wrong_payment = {}
+    changedProductCountForPlayer = {}
+    
 
     target = target.upper()
     target_base_currency = target[-2:]
@@ -308,6 +310,8 @@ def mistrade_calculator(userData, target, buyPrice, sellPrice):
             multiplier = Decimal(CURRENCYMULTIPLIER[currency_name])
             total_base_value += Decimal(itemCount) * multiplier
 
+
+        changedProductCountForPlayer.update({userName:changedProductCount})
         paid_value = total_base_value / target_multiplier
         wrong_payment_value = Decimal(0)
         #玩家購買
@@ -330,7 +334,7 @@ def mistrade_calculator(userData, target, buyPrice, sellPrice):
         if wrong_items:
             wrong_currency_usage[userName] = wrong_items
     
-    return wrong_payment, wrong_currency_usage
+    return wrong_payment, wrong_currency_usage, changedProductCountForPlayer
 
 def handle_trade_log(message, file_lines, coord, auto_detect):
     CURRENCYMAP = {
@@ -412,14 +416,14 @@ def handle_trade_log(message, file_lines, coord, auto_detect):
         mistradeMessage = ""
         wrongPayment = {}
         wrongUsage = {}
+        changedProductCountForPlayer = {}
         userMistraded = False
         hidden_correct_trade_count = 0
         players_in_log = []
         vip_in_log = []
         #建立錯誤交易名單
         if parameter["buyPrice"] != None:
-            wrongPayment, wrongUsage = mistrade_calculator(playerLog, parameter["unit"], parameter["buyPrice"], parameter["sellPrice"])
-
+            wrongPayment, wrongUsage, changedProductCountForPlayer = mistrade_calculator(playerLog, parameter["unit"], parameter["buyPrice"], parameter["sellPrice"])
         for playerName, changedItems in playerLog.items():
             fixedName = playerName.replace("_", "\\_")
             players_in_log.append(fixedName)
@@ -436,10 +440,13 @@ def handle_trade_log(message, file_lines, coord, auto_detect):
                     elif wrongPayment[playerName] < 0:
                         mistradeMessage += f"@{fixedName} 欠了 (underpaid) {-wrongPayment[playerName]} {parameter['unit']} \n"
                     #判斷錯誤金額是否 > 1H
-                    if -wrongPayment[playerName] * CURRENCY_VALUE[parameter["unit"].upper()] > 64 ** 2:
+                    if -wrongPayment[playerName] * CURRENCY_VALUE[parameter["unit"].upper()] >= 64 ** 2:
                         buy_price = str(parameter["buyPrice"]) + parameter["unit"].upper()
                         sell_price = str(parameter["sellPrice"]) + parameter["unit"].upper()
-                        mistradeMessage += f"\n**__@PING__ Hello {fixedName}, you bought __COUNT__ items from {shop_name} barrel (Buy for {buy_price}, Sell for {sell_price}) at Piggy but you paid less.\nYou owe us {-wrongPayment[playerName]} {parameter['unit']}.\nPlease return money to the mistrades barrel in the bottom left corner of the rentals sections.**\n"
+                        took_product = changedProductCountForPlayer[playerName]
+                        verb_1 = "bought" if took_product <= 0 else "sold"
+                        verb_2 = "paid less" if took_product <= 0 else "took too much"
+                        mistradeMessage += f"\n```@{playerName}\nHello {playerName},\nyou {verb_1} {abs(took_product)} items from {shop_name} barrel\n(Buy for {buy_price}, Sell for {sell_price})\nat Piggy but {verb_2}.\n**You owe us {-wrongPayment[playerName]} {parameter['unit']}.**\nPlease return money to the mistrades barrel in the bottom left corner of the rentals sections.```\n"
                 #檢測玩家是否支付錯貨幣
                 if wrongUsage.get(playerName, False):
                     userMistraded = True
